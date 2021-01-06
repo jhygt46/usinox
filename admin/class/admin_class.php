@@ -28,7 +28,7 @@ class Admin {
 
     }
     public function verificar_usuario(){
-        if($sql = $this->con->prepare("SELECT nombre, correo, sitio FROM _usinox_usuarios WHERE id_user=? AND secure_hash=? AND eliminado=?")){
+        if($sql = $this->con->prepare("SELECT nombre, correo, id_pag FROM _usinox_usuarios WHERE id_user=? AND secure_hash=? AND eliminado=?")){
             if($sql->bind_param("isi", $_COOKIE['id_user'], $_COOKIE['secure_hash'], $this->eliminado)){
                 if($sql->execute()){
                     $usuarios = $this->get_result($sql);
@@ -63,8 +63,8 @@ class Admin {
         return "en ".implode(" > ", array_reverse($n));
     }
     public function get_titulo_padre_prod($id_cat){
-        if($sql = $this->con->prepare("SELECT id_cat, nombre, parent_id FROM _usinox_categorias WHERE sitio=? AND eliminado=?")){
-            if($sql->bind_param("ii", $_SESSION["sitio"], $this->eliminado)){
+        if($sql = $this->con->prepare("SELECT id_cat, nombre, parent_id FROM _usinox_categorias WHERE id_pag=? AND eliminado=?")){
+            if($sql->bind_param("ii", $_SESSION["id_pag"], $this->eliminado)){
                 if($sql->execute()){
                     $data = $this->get_result($sql);
                     $sql->close();
@@ -77,8 +77,8 @@ class Admin {
         if($id == 0){
             return "";
         }else{
-            if($sql = $this->con->prepare("SELECT id_cat, nombre, parent_id FROM _usinox_categorias WHERE sitio=? AND eliminado=?")){
-                if($sql->bind_param("ii", $_SESSION["sitio"], $this->eliminado)){
+            if($sql = $this->con->prepare("SELECT id_cat, nombre, parent_id FROM _usinox_categorias WHERE id_pag=? AND eliminado=?")){
+                if($sql->bind_param("ii", $_SESSION["id_pag"], $this->eliminado)){
                     if($sql->execute()){
                         $data = $this->get_result($sql);
                         $sql->close();
@@ -89,8 +89,8 @@ class Admin {
         }
     }
     public function get_productos($id_cat){
-        if($sql = $this->con->prepare("SELECT * FROM _usinox_productos WHERE id_cat=? AND sitio=? AND eliminado=?")){
-            if($sql->bind_param("iii", $id_cat, $_SESSION["sitio"], $this->eliminado)){
+        if($sql = $this->con->prepare("SELECT * FROM _usinox_productos WHERE id_cat=? AND id_pag=? AND eliminado=?")){
+            if($sql->bind_param("iii", $id_cat, $_SESSION["id_pag"], $this->eliminado)){
                 if($sql->execute()){
                     $data = $this->get_result($sql);
                     $sql->close();
@@ -100,16 +100,16 @@ class Admin {
         }else{ $this->htmlspecialchars($this->con->error); }
     }
     public function get_categorias($id){
-        if($sql = $this->con->prepare("SELECT id_cat, nombre, parent_id FROM _usinox_categorias WHERE parent_id=? AND sitio=? AND eliminado=? ORDER BY orden")){
-            if($sql->bind_param("iii", $id, $_SESSION["sitio"], $this->eliminado)){
+        if($sql = $this->con->prepare("SELECT id_cat, nombre, parent_id FROM _usinox_categorias WHERE parent_id=? AND id_pag=? AND eliminado=? ORDER BY orden")){
+            if($sql->bind_param("iii", $id, $_SESSION["id_pag"], $this->eliminado)){
                 if($sql->execute()){
                     $data = $this->get_result($sql);
                     $sql->close();
 
                     for($i=0; $i<count($data); $i++){
 
-                        if($sqls = $this->con->prepare("SELECT id_cat FROM _usinox_categorias WHERE parent_id=? AND sitio=? AND eliminado=?")){
-                            if($sqls->bind_param("iii", $data[$i]["id_cat"], $_SESSION["sitio"], $this->eliminado)){
+                        if($sqls = $this->con->prepare("SELECT id_cat FROM _usinox_categorias WHERE parent_id=? AND id_pag=? AND eliminado=?")){
+                            if($sqls->bind_param("iii", $data[$i]["id_cat"], $_SESSION["id_pag"], $this->eliminado)){
                                 if($sqls->execute()){
                                     $datac = $this->get_result($sqls);
                                     $sqls->close();
@@ -118,8 +118,8 @@ class Admin {
                                         $data[$i]["sub_prod"] = 0;
                                     }else{
                                         $data[$i]["sub_cat"] = 0;
-                                        if($sqlp = $this->con->prepare("SELECT id_pro FROM _usinox_productos WHERE id_cat=? AND sitio=? AND eliminado=?")){
-                                            if($sqlp->bind_param("iii", $data[$i]["id_cat"], $_SESSION["sitio"], $this->eliminado)){
+                                        if($sqlp = $this->con->prepare("SELECT id_pro FROM _usinox_productos WHERE id_cat=? AND id_pag=? AND eliminado=?")){
+                                            if($sqlp->bind_param("iii", $data[$i]["id_cat"], $_SESSION["id_pag"], $this->eliminado)){
                                                 if($sqlp->execute()){
                                                     $datap = $this->get_result($sqlp);
                                                     $sqlp->close();
@@ -144,8 +144,8 @@ class Admin {
         }else{ $this->htmlspecialchars($this->con->error); }
     }
     public function get_categoria($id){
-        if($sql = $this->con->prepare("SELECT nombre, urls, parent_id, sitio FROM _usinox_categorias WHERE id_cat=? AND sitio=? AND eliminado=?")){
-            if($sql->bind_param("iii", $id, $_SESSION["sitio"], $this->eliminado)){
+        if($sql = $this->con->prepare("SELECT nombre, urls, parent_id, id_pag FROM _usinox_categorias WHERE id_cat=? AND id_pag=? AND eliminado=?")){
+            if($sql->bind_param("iii", $id, $_SESSION["id_pag"], $this->eliminado)){
                 if($sql->execute()){
                     $data = $this->get_result($sql);
                     $sql->close();

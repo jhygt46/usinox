@@ -1,7 +1,7 @@
 <?php
     	
 		$array[0]["nombre"] = "Categorias";
-        $array[0]["link"] = "pages/_usinox_categorias.php?sitio=0";
+        $array[0]["link"] = "pages/_usinox_categorias.php?id_pag=1";
     
     	if(isset($array)){
         
@@ -14,7 +14,7 @@
         
 		}
 		$array[0]["nombre"] = "Categorias";
-        $array[0]["link"] = "pages/_usinox_categorias.php?sitio=1";
+        $array[0]["link"] = "pages/_usinox_categorias.php?id_pag=2";
     
     	if(isset($array)){
         

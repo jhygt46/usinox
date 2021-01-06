@@ -53,11 +53,11 @@ class Guardar{
         
     }
     private function verificar_super_usuario(){
-        if($sql = $this->con->prepare("SELECT sitio FROM _usinox_usuarios WHERE id_user=? AND secure_hash=? AND eliminado=?")){
+        if($sql = $this->con->prepare("SELECT id_pag FROM _usinox_usuarios WHERE id_user=? AND secure_hash=? AND eliminado=?")){
             if($sql->bind_param("isi", $_COOKIE['id_user'], $_COOKIE['secure_hash'], $this->eliminado)){
                 if($sql->execute()){
                     $usuarios = $this->get_result($sql);
-                    if(count($usuarios) == 1 && $usuarios[0]["sitio"] == 2){
+                    if(count($usuarios) == 1 && $usuarios[0]["id_pag"] == 2){
                         return true;
                     }else{
                         return false;
@@ -67,11 +67,11 @@ class Guardar{
         }
     }
     private function verificar_usuario(){
-        if($sql = $this->con->prepare("SELECT sitio FROM _usinox_usuarios WHERE id_user=? AND secure_hash=? AND eliminado=?")){
+        if($sql = $this->con->prepare("SELECT id_pag FROM _usinox_usuarios WHERE id_user=? AND secure_hash=? AND eliminado=?")){
             if($sql->bind_param("isi", $_COOKIE['id_user'], $_COOKIE['secure_hash'], $this->eliminado)){
                 if($sql->execute()){
                     $usuarios = $this->get_result($sql);
-                    if(count($usuarios) == 1 && ($usuarios[0]["sitio"] == $_SESSION["sitio"] || $usuarios[0]["sitio"] == 2)){
+                    if(count($usuarios) == 1 && ($usuarios[0]["id_pag"] == $_SESSION["id_pag"] || $usuarios[0]["id_pag"] == 0)){
                         return true;
                     }else{
                         return false;
@@ -85,8 +85,8 @@ class Guardar{
         if($this->verificar_usuario()){
             $values = $_POST['values'];
             for($i=0; $i<count($values); $i++){
-                if($sql = $this->con->prepare("UPDATE _usinox_productos SET orden='".$i."' WHERE sitio=? AND id_pro=?")){
-                if($sql->bind_param("ii", $_SESSION["sitio"], $values[$i])){
+                if($sql = $this->con->prepare("UPDATE _usinox_productos SET orden='".$i."' WHERE id_pag=? AND id_pro=?")){
+                if($sql->bind_param("ii", $_SESSION["id_pag"], $values[$i])){
                 if($sql->execute()){
                     $sql->close();
                 }else{ $this->htmlspecialchars($sql->error); }
@@ -101,8 +101,8 @@ class Guardar{
         if($this->verificar_usuario()){
             $values = $_POST['values'];
             for($i=0; $i<count($values); $i++){
-                if($sql = $this->con->prepare("UPDATE _usinox_categorias SET orden='".$i."' WHERE sitio=? AND id_cat=?")){
-                if($sql->bind_param("ii", $_SESSION["sitio"], $values[$i])){
+                if($sql = $this->con->prepare("UPDATE _usinox_categorias SET orden='".$i."' WHERE id_pag=? AND id_cat=?")){
+                if($sql->bind_param("ii", $_SESSION["id_pag"], $values[$i])){
                 if($sql->execute()){
                     $sql->close();
                 }else{ $this->htmlspecialchars($sql->error); }
@@ -114,14 +114,14 @@ class Guardar{
     }
     private function verificar_urls_cat($urls, $id){
 
-        if($sql = $this->con->prepare("SELECT id_cat FROM _usinox_categorias WHERE urls=? AND id_cat<>? AND sitio=? AND eliminado=?")){
-            if($sql->bind_param("siii", $urls, $id, $_SESSION["sitio"], $this->eliminado)){
+        if($sql = $this->con->prepare("SELECT id_cat FROM _usinox_categorias WHERE urls=? AND id_cat<>? AND id_pag=? AND eliminado=?")){
+            if($sql->bind_param("siii", $urls, $id, $_SESSION["id_pag"], $this->eliminado)){
                 if($sql->execute()){
                     $data = $this->get_result($sql);
                     $sql->close();
                     if(count($data) == 0){
-                        if($sqls = $this->con->prepare("SELECT id_pro FROM _usinox_productos WHERE urls=? AND sitio=? AND eliminado=?")){
-                            if($sqls->bind_param("sii", $urls, $_SESSION["sitio"], $this->eliminado)){
+                        if($sqls = $this->con->prepare("SELECT id_pro FROM _usinox_productos WHERE urls=? AND id_pag=? AND eliminado=?")){
+                            if($sqls->bind_param("sii", $urls, $_SESSION["id_pag"], $this->eliminado)){
                                 if($sqls->execute()){
                                     $datas = $this->get_result($sqls);
                                     $sqls->close();
@@ -143,14 +143,14 @@ class Guardar{
     }
     private function verificar_urls_pro($urls, $id){
 
-        if($sql = $this->con->prepare("SELECT id_cat FROM _usinox_categorias WHERE urls=? AND sitio=? AND eliminado=?")){
-            if($sql->bind_param("sii", $urls, $_SESSION["sitio"], $this->eliminado)){
+        if($sql = $this->con->prepare("SELECT id_cat FROM _usinox_categorias WHERE urls=? AND id_pag=? AND eliminado=?")){
+            if($sql->bind_param("sii", $urls, $_SESSION["id_pag"], $this->eliminado)){
                 if($sql->execute()){
                     $data = $this->get_result($sql);
                     $sql->close();
                     if(count($data) == 0){
-                        if($sqls = $this->con->prepare("SELECT id_pro FROM _usinox_productos WHERE urls=? AND id_pro<>? AND sitio=? AND eliminado=?")){
-                            if($sqls->bind_param("siii", $urls, $id, $_SESSION["sitio"], $this->eliminado)){
+                        if($sqls = $this->con->prepare("SELECT id_pro FROM _usinox_productos WHERE urls=? AND id_pro<>? AND id_pag=? AND eliminado=?")){
+                            if($sqls->bind_param("siii", $urls, $id, $_SESSION["id_pag"], $this->eliminado)){
                                 if($sqls->execute()){
                                     $datas = $this->get_result($sqls);
                                     $sqls->close();
@@ -172,14 +172,14 @@ class Guardar{
     }
     private function verificar_urls($urls){
 
-        if($sql = $this->con->prepare("SELECT id_cat FROM _usinox_categorias WHERE urls=? AND sitio=? AND eliminado=?")){
-            if($sql->bind_param("sii", $urls, $_SESSION["sitio"], $this->eliminado)){
+        if($sql = $this->con->prepare("SELECT id_cat FROM _usinox_categorias WHERE urls=? AND id_pag=? AND eliminado=?")){
+            if($sql->bind_param("sii", $urls, $_SESSION["id_pag"], $this->eliminado)){
                 if($sql->execute()){
                     $data = $this->get_result($sql);
                     $sql->close();
                     if(count($data) == 0){
-                        if($sqls = $this->con->prepare("SELECT id_pro FROM _usinox_productos WHERE urls=? AND sitio=? AND eliminado=?")){
-                            if($sqls->bind_param("sii", $urls, $_SESSION["sitio"], $this->eliminado)){
+                        if($sqls = $this->con->prepare("SELECT id_pro FROM _usinox_productos WHERE urls=? AND id_pag=? AND eliminado=?")){
+                            if($sqls->bind_param("sii", $urls, $_SESSION["id_pag"], $this->eliminado)){
                                 if($sqls->execute()){
                                     $datas = $this->get_result($sqls);
                                     $sqls->close();
@@ -208,8 +208,8 @@ class Guardar{
         $id = explode("/", $_POST['id']);
 
         if($this->verificar_usuario()){
-            if($sql = $this->con->prepare("UPDATE _usinox_categorias SET eliminado='1' WHERE sitio=? AND id_cat=?")){
-                if($sql->bind_param("ii", $_SESSION["sitio"], $id[0])){
+            if($sql = $this->con->prepare("UPDATE _usinox_categorias SET eliminado='1' WHERE id_pag=? AND id_cat=?")){
+                if($sql->bind_param("ii", $_SESSION["id_pag"], $id[0])){
                     if($sql->execute()){
                         $info['tipo'] = "success";
                         $info['titulo'] = "Eliminado";
@@ -232,8 +232,8 @@ class Guardar{
         
         $id = explode("/", $_POST['id']);
         if($this->verificar_usuario()){
-            if($sql = $this->con->prepare("UPDATE _usinox_productos SET eliminado='1' WHERE sitio=? AND id_pro=?")){
-                if($sql->bind_param("ii", $_SESSION["sitio"], $id[0])){
+            if($sql = $this->con->prepare("UPDATE _usinox_productos SET eliminado='1' WHERE id_pag=? AND id_pro=?")){
+                if($sql->bind_param("ii", $_SESSION["id_pag"], $id[0])){
                     if($sql->execute()){
                         $info['tipo'] = "success";
                         $info['titulo'] = "Eliminado";
@@ -262,8 +262,8 @@ class Guardar{
 
             if($id > 0){
                 if($this->verificar_urls_cat($url, $id)){
-                    if($sql = $this->con->prepare("UPDATE _usinox_categorias SET nombre=?, urls=? WHERE id_cat=? AND sitio=?")){
-                        if($sql->bind_param("ssii", $nombre, $url, $id, $_SESSION["sitio"])){
+                    if($sql = $this->con->prepare("UPDATE _usinox_categorias SET nombre=?, urls=? WHERE id_cat=? AND id_pag=?")){
+                        if($sql->bind_param("ssii", $nombre, $url, $id, $_SESSION["id_pag"])){
                             if($sql->execute()){
                                 $info['op'] = 1;
                                 $info['mensaje'] = "Categoria modificada exitosamente";
@@ -279,14 +279,14 @@ class Guardar{
 
             if($id == 0){
                 if($this->verificar_urls($url)){
-                    if($sqls = $this->con->prepare("SELECT id_cat FROM _usinox_categorias WHERE parent_id=? AND sitio=? AND eliminado=?")){
-                        if($sqls->bind_param("iii", $parent_id, $_SESSION["sitio"], $this->eliminado)){
+                    if($sqls = $this->con->prepare("SELECT id_cat FROM _usinox_categorias WHERE parent_id=? AND id_pag=? AND eliminado=?")){
+                        if($sqls->bind_param("iii", $parent_id, $_SESSION["id_pag"], $this->eliminado)){
                             if($sqls->execute()){
                                 $data = $this->get_result($sqls);
                                 $sqls->close();
                                 $orden = count($data);
-                                if($sql = $this->con->prepare("INSERT INTO _usinox_categorias (nombre, urls, fecha, parent_id, orden, sitio, eliminado) VALUES (?, ?, now(), ?, ?, ?, ?)")){
-                                    if($sql->bind_param("ssiiii", $nombre, $url, $parent_id, $orden, $_SESSION["sitio"], $this->eliminado)){
+                                if($sql = $this->con->prepare("INSERT INTO _usinox_categorias (nombre, urls, fecha, parent_id, orden, id_pag, eliminado) VALUES (?, ?, now(), ?, ?, ?, ?)")){
+                                    if($sql->bind_param("ssiiii", $nombre, $url, $parent_id, $orden, $_SESSION["id_pag"], $this->eliminado)){
                                         if($sql->execute()){
                                             $info['op'] = 1;
                                             $info['mensaje'] = "Categoria ingresada exitosamente";
@@ -326,8 +326,8 @@ class Guardar{
 
             if($id > 0){
                 if($this->verificar_urls_pro($url, $id)){
-                    if($sql = $this->con->prepare("UPDATE _usinox_productos SET nombre=?, urls=? WHERE id_cat=? AND sitio=?")){
-                        if($sql->bind_param("ssii", $nombre, $url, $id, $_SESSION["sitio"])){
+                    if($sql = $this->con->prepare("UPDATE _usinox_productos SET nombre=?, urls=? WHERE id_cat=? AND id_pag=?")){
+                        if($sql->bind_param("ssii", $nombre, $url, $id, $_SESSION["id_pag"])){
                             if($sql->execute()){
                                 $info['op'] = 1;
                                 $info['mensaje'] = "Prodcuto modificada exitosamente";
@@ -343,14 +343,14 @@ class Guardar{
 
             if($id == 0){
                 if($this->verificar_urls($url)){
-                    if($sqls = $this->con->prepare("SELECT id_pro FROM _usinox_productos WHERE id_cat=? AND sitio=? AND eliminado=?")){
-                        if($sqls->bind_param("iii", $id_cat, $_SESSION["sitio"], $this->eliminado)){
+                    if($sqls = $this->con->prepare("SELECT id_pro FROM _usinox_productos WHERE id_cat=? AND id_pag=? AND eliminado=?")){
+                        if($sqls->bind_param("iii", $id_cat, $_SESSION["id_pag"], $this->eliminado)){
                             if($sqls->execute()){
                                 $data = $this->get_result($sqls);
                                 $sqls->close();
                                 $orden = count($data);
-                                if($sql = $this->con->prepare("INSERT INTO _usinox_productos (nombre, urls, fecha, id_cat, orden, sitio, eliminado) VALUES (?, ?, now(), ?, ?, ?, ?)")){
-                                    if($sql->bind_param("ssiiii", $nombre, $url, $id_cat, $orden, $_SESSION["sitio"], $this->eliminado)){
+                                if($sql = $this->con->prepare("INSERT INTO _usinox_productos (nombre, urls, fecha, id_cat, orden, id_pag, eliminado) VALUES (?, ?, now(), ?, ?, ?, ?)")){
+                                    if($sql->bind_param("ssiiii", $nombre, $url, $id_cat, $orden, $_SESSION["id_pag"], $this->eliminado)){
                                         if($sql->execute()){
                                             $info['op'] = 1;
                                             $info['mensaje'] = "Producto ingresada exitosamente";
@@ -381,12 +381,12 @@ class Guardar{
         $nombre = $_POST["nombre"];
         $correo = $_POST["correo"];
         $pass = $_POST["pass"];
-        $sitio = $_POST["sitio"];
+        $id_pag = $_POST["id_pag"];
 
         if($this->verificar_super_usuario()){
 
-            if($sql = $this->con->prepare("INSERT INTO _usinox_usuarios (nombre, correo, password, sitio, eliminado) VALUES (?, ?, ?, ?, ?)")){
-                if($sql->bind_param("sssii", $nombre, $correo, md5($pass), $sitio, $this->eliminado)){
+            if($sql = $this->con->prepare("INSERT INTO _usinox_usuarios (nombre, correo, password, id_pag, eliminado) VALUES (?, ?, ?, ?, ?)")){
+                if($sql->bind_param("sssii", $nombre, $correo, md5($pass), $id_pag, $this->eliminado)){
                     if($sql->execute()){
                         $info['op'] = 1;
                         $info['mensaje'] = "Usuario ingresado exitosamente";

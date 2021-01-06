@@ -21,7 +21,7 @@ $id = 0;
 
 $that["nombre"] = "";
 $that["urls"] = "";
-$that["sitio"] = 0;
+$that["id_pag"] = 0;
 
 $id_cat = $_GET["id_cat"];
 

@@ -1,5 +1,9 @@
 <?php
     
+    echo "<pre>";
+    print_r($_COOKIE);
+    echo "</pre>";
+
     if(isset($_GET["accion"]) && $_GET["accion"] == "logout"){
         setcookie("id_user", "", time() - 3600, "/admin");
         setcookie("secure_hash", "", time() - 3600, "/admin");

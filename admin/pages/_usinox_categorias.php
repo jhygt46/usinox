@@ -6,8 +6,8 @@ $admin = new Admin();
 
 $res = $admin->verificar_usuario();
 if($res['op']){
-    if($res['data']['sitio'] == $_GET["sitio"] || $res['data']['sitio'] == 2){
-        $_SESSION["sitio"] = $_GET["sitio"];
+    if($res['data']['id_pag'] == $_GET["id_pag"] || $res['data']['id_pag'] == 0){
+        $_SESSION["id_pag"] = $_GET["id_pag"];
     }else{
         die('ERROR');
     }
@@ -34,7 +34,7 @@ $id = 0;
 $that["nombre"] = "";
 $that["urls"] = "";
 $that["parent_id"] = (isset($_GET["parent_id"])) ? $_GET["parent_id"] : 0;
-$that["sitio"] = 0;
+$that["id_pag"] = 0;
 
 $list_ = $admin->get_categorias($that["parent_id"]);
 $titulo_padre = $admin->get_titulo_padre($that["parent_id"]);

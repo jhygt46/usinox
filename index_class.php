@@ -29,20 +29,20 @@ class Core{
         }else{
 
             if($domain == "www.usinox.cl"){ 
-                $sitio = 1; 
+                $sitio = 1;
             }
             if($domain == "www.marmitas.cl"){ 
-                $sitio = 1; 
+                $sitio = 1;
             }
             if($domain == "www.equiposgastronomicosneptuno.cl"){ 
-                $sitio = 2; 
+                $sitio = 2;
             }
             if($domain == "www.egneptuno.cl"){ 
-                $sitio = 2; 
+                $sitio = 2;
             }
 
             if($_SERVER['HTTP_HOST'] == "35.202.149.15"){
-
+                $sitio = 1;
             }
             
             //$info["config"] = $this->get_config($sitio);
@@ -57,8 +57,6 @@ class Core{
             }
 
             return $info;
-                    
-            
 
         }
 
