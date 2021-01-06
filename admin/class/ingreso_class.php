@@ -44,12 +44,10 @@ class Ingreso {
     public function ingresar_user(){
 
         if(filter_var($_POST['user'], FILTER_VALIDATE_EMAIL)){
-            $info["paso1"] = 1;
             if($sql = $this->con->prepare("SELECT * FROM _usinox_usuarios WHERE correo=? AND eliminado=?")){
                 if($sql->bind_param("si", $_POST["user"], $this->eliminado)){
                     if($sql->execute()){
                         $usuarios = $this->get_result($sql);
-                        $info["paso2"] = $usuarios;
                         if(count($usuarios) == 0){
                             $info['op'] = 2;
                             $info['message'] = "Error: Usuario no existe";
@@ -79,6 +77,9 @@ class Ingreso {
                                     }else{
                                         setcookie('id_user', $id_user, $tiempo, '/admin', '', true, true);
                                         setcookie('secure_hash', $secure, $tiempo, '/admin', '', true, true);
+                                        $info['op'] = 1;
+                                        $info['tipo'] = 0;
+                                        $info['message'] = "Ingreso Exitoso";
                                     }
                                 }else{
                                     $this->set_acciones($id_user, 1);
