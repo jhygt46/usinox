@@ -23,22 +23,26 @@ class Core{
 
         $domain = (count($host) == 2) ? "www.".$_SERVER['HTTP_HOST'] : $_SERVER['HTTP_HOST'] ;
 
-        if($_SERVER['HTTPS'] != "on"){
+        if($_SERVER['HTTPS'] != "on" && $_SERVER['HTTP_HOST'] != "35.202.149.15"){
             $redirect = "https://".$domain.$_SERVER['REQUEST_URI'];
             header("Location: ".$redirect);
         }else{
 
             if($domain == "www.usinox.cl"){ 
-                $sitio = 0; 
+                $sitio = 1; 
             }
             if($domain == "www.marmitas.cl"){ 
-                $sitio = 0; 
+                $sitio = 1; 
             }
             if($domain == "www.equiposgastronomicosneptuno.cl"){ 
-                $sitio = 1; 
+                $sitio = 2; 
             }
             if($domain == "www.egneptuno.cl"){ 
-                $sitio = 1; 
+                $sitio = 2; 
+            }
+
+            if($_SERVER['HTTP_HOST'] == "35.202.149.15"){
+
             }
             
             //$info["config"] = $this->get_config($sitio);
@@ -59,10 +63,10 @@ class Core{
         }
 
     }
-    private function buscar_categoria_productos($sitio, $url){
+    private function buscar_categoria_productos($id_pag, $url){
 
-        if($sql = $this->con->prepare("SELECT * FROM _usinox_categorias WHERE sitio=? AND urls=? AND eliminado=?")){
-            if($sql->bind_param("isi", $sitio, $url, $this->eliminado)){
+        if($sql = $this->con->prepare("SELECT * FROM _usinox_categorias WHERE id_pag=? AND urls=? AND eliminado=?")){
+            if($sql->bind_param("isi", $id_pag, $url, $this->eliminado)){
                 if($sql->execute()){
                     $data = $this->get_result($sql);
 
@@ -70,8 +74,8 @@ class Core{
                         $info['tipo'] = "categoria";
                         $info['data'] = $data[0];
                     }else{
-                        if($sqls = $this->con->prepare("SELECT * FROM _usinox_productos WHERE sitio=? AND urls=? AND eliminado=?")){
-                            if($sqls->bind_param("isi", $sitio, $url, $this->eliminado)){
+                        if($sqls = $this->con->prepare("SELECT * FROM _usinox_productos WHERE id_pag=? AND urls=? AND eliminado=?")){
+                            if($sqls->bind_param("isi", $id_pag, $url, $this->eliminado)){
                                 if($sqls->execute()){
                                     $datas = $this->get_result($sqls);
                                     if(!count($datas) == 0){
