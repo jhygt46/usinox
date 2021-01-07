@@ -452,6 +452,8 @@ class Guardar{
                             }else{ $this->htmlspecialchars($sql->error); }
                         }else{ $this->htmlspecialchars($this->con->error); }
                     }
+                }else{
+                    $info['mensaje'] = "Correo - id ya existe";
                 }
             }
 
