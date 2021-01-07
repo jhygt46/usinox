@@ -28,7 +28,7 @@
 		}
 		
 		$array[0]["nombre"] = "Nuevo Usuario";
-        $array[0]["link"] = "pages/_usinox_usuario.php";
+        $array[0]["link"] = "pages/_usinox_usuarios.php";
     
     	if(isset($array)){
         
