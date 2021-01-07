@@ -96,7 +96,7 @@ if(isset($_GET["id_pro"]) && is_numeric($_GET["id_pro"]) && $_GET["id_pro"] != 0
                     <input id="id_cat" type="hidden" value="<?php echo $id_cat; ?>" />
                     <label class="nboleta">
                         <span>Nombre:</span>
-                        <input id="nombre2" type="text" value="<?php echo $that['nombre']; ?>" />
+                        <input id="nombre" type="text" value="<?php echo $that['nombre']; ?>" />
                         <div class="mensaje"></div>
                     </label>
                     <label>
