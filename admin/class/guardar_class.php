@@ -50,6 +50,12 @@ class Guardar{
         if($_POST['accion'] == "order_producto"){
             return $this->order_producto();
         }
+        if($_POST['accion'] == "crear_usuarios"){
+            return $this->crear_usuarios();
+        }
+        if($_POST['accion'] == "eliminar_usuarios"){
+            return $this->eliminar_usuarios();
+        }
         
     }
     private function verificar_super_usuario(){
@@ -57,7 +63,7 @@ class Guardar{
             if($sql->bind_param("isi", $_COOKIE['id_user'], $_COOKIE['secure_hash'], $this->eliminado)){
                 if($sql->execute()){
                     $usuarios = $this->get_result($sql);
-                    if(count($usuarios) == 1 && $usuarios[0]["id_pag"] == 2){
+                    if(count($usuarios) == 1 && $usuarios[0]["id_pag"] == 0){
                         return true;
                     }else{
                         return false;
@@ -391,7 +397,7 @@ class Guardar{
                         $info['op'] = 1;
                         $info['mensaje'] = "Usuario ingresado exitosamente";
                         $info['reload'] = 1;
-                        $info['page'] = "_usinox_crear_usuario.php";
+                        $info['page'] = "_usinox_crear_usuarios.php";
                     }else{ $this->htmlspecialchars($sql->error); }
                 }else{ $this->htmlspecialchars($sql->error); }
             }else{ $this->htmlspecialchars($this->con->error); }
@@ -401,7 +407,7 @@ class Guardar{
         return $info;
 
     }
-    private function eliminarusuarios(){
+    private function eliminar_usuarios(){
         
 	    $info['op'] = 2;
         $info['mensaje'] = "No se pudo borrar el usuario";
@@ -420,7 +426,7 @@ class Guardar{
                         $info['titulo'] = "Eliminado";
                         $info['texto'] = "Usuario ".$nombre." Eliminado";
                         $info['reload'] = 1;
-                        $info['page'] = "_usinox_crear_usuario.php";
+                        $info['page'] = "_usinox_crear_usuarios.php";
                     }else{ echo htmlspecialchars($sql->error); }
                 }else{ echo htmlspecialchars($sql->error); }
             }else{ echo htmlspecialchars($this->con->error); }
