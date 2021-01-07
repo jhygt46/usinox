@@ -39,7 +39,7 @@ if(isset($_GET["id_pro"]) && is_numeric($_GET["id_pro"]) && $_GET["id_pro"] != 0
 ?>
 
 <script>
-    $("#nombre1").keyup(function(){
+    $("#nombre").keyup(function(){
         $('#url').val($(this).val().replace(/\s/g, "-"));
     });
     $("#url").keyup(function(){
