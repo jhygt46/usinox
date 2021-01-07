@@ -63,6 +63,7 @@ class Guardar{
             if($sql->bind_param("isi", $_COOKIE['id_user'], $_COOKIE['secure_hash'], $this->eliminado)){
                 if($sql->execute()){
                     $usuarios = $this->get_result($sql);
+                    $sql->close();
                     if(count($usuarios) == 1 && $usuarios[0]["id_pag"] == 0){
                         return true;
                     }else{
@@ -77,6 +78,7 @@ class Guardar{
             if($sql->bind_param("isi", $_COOKIE['id_user'], $_COOKIE['secure_hash'], $this->eliminado)){
                 if($sql->execute()){
                     $usuarios = $this->get_result($sql);
+                    $sql->close();
                     if(count($usuarios) == 1 && ($usuarios[0]["id_pag"] == $_SESSION["id_pag"] || $usuarios[0]["id_pag"] == 0)){
                         return true;
                     }else{
@@ -379,6 +381,40 @@ class Guardar{
         return $info;
 
     }
+    private function verificar_correo($correo){
+        if($sql = $this->con->prepare("SELECT id_user FROM _usinox_usuarios WHERE id_user=? AND eliminado=?")){
+            if($sql->bind_param("si", $correo, $this->eliminado)){
+                if($sql->execute()){
+                    $data = $this->get_result($sql);
+                    $sql->close();
+                    if(count($data) == 0){
+                        return true;
+                    }else{
+                        return false;
+                    }
+                }else{ $this->htmlspecialchars($sql->error); }
+            }else{ $this->htmlspecialchars($sql->error); }
+        }else{ $this->htmlspecialchars($this->con->error); }
+    }
+    private function verificar_correo_id($correo, $id){
+        if($sql = $this->con->prepare("SELECT id_user FROM _usinox_usuarios WHERE id_user=? AND eliminado=?")){
+            if($sql->bind_param("si", $correo, $this->eliminado)){
+                if($sql->execute()){
+                    $data = $this->get_result($sql);
+                    $sql->close();
+                    if(count($data) == 0){
+                        return true;
+                    }else{
+                        if(count($data) == 1 && $data[0]["id_user"] == $id){
+                            return true;
+                        }else{
+                            return false;
+                        }
+                    }
+                }else{ $this->htmlspecialchars($sql->error); }
+            }else{ $this->htmlspecialchars($sql->error); }
+        }else{ $this->htmlspecialchars($this->con->error); }
+    }
     private function crear_usuarios(){
 
         $info['op'] = 2;
@@ -391,17 +427,51 @@ class Guardar{
 
         if($this->verificar_super_usuario()){
 
-            if($sql = $this->con->prepare("INSERT INTO _usinox_usuarios (nombre, correo, password, id_pag, eliminado) VALUES (?, ?, ?, ?, ?)")){
-                if($sql->bind_param("sssii", $nombre, $correo, md5($pass), $id_pag, $this->eliminado)){
-                    if($sql->execute()){
-                        $info['op'] = 1;
-                        $info['mensaje'] = "Usuario ingresado exitosamente";
-                        $info['reload'] = 1;
-                        $info['page'] = "_usinox_crear_usuarios.php";
-                    }else{ $this->htmlspecialchars($sql->error); }
-                }else{ $this->htmlspecialchars($sql->error); }
-            }else{ $this->htmlspecialchars($this->con->error); }
+            if($id > 0){
+                if($this->verificar_correo_id($correo, $id)){
+                    if($pass != ""){
+                        if($sql = $this->con->prepare("UPDATE _usinox_usuarios SET nombre=?, correo=?, password=?, id_pag=?, eliminado=? WHERE id_user=?")){
+                            if($sql->bind_param("sssiii", $nombre, $correo, md5($pass), $id_pag, $this->eliminado, $id)){
+                                if($sql->execute()){
+                                    $info['op'] = 1;
+                                    $info['mensaje'] = "Usuario modificado exitosamente";
+                                    $info['reload'] = 1;
+                                    $info['page'] = "_usinox_crear_usuarios.php";
+                                }else{ $this->htmlspecialchars($sql->error); }
+                            }else{ $this->htmlspecialchars($sql->error); }
+                        }else{ $this->htmlspecialchars($this->con->error); }
+                    }else{
+                        if($sql = $this->con->prepare("UPDATE _usinox_usuarios SET nombre=?, correo=?, id_pag=?, eliminado=? WHERE id_user=?")){
+                            if($sql->bind_param("ssiii", $nombre, $correo, $id_pag, $this->eliminado, $id)){
+                                if($sql->execute()){
+                                    $info['op'] = 1;
+                                    $info['mensaje'] = "Usuario modificado exitosamente";
+                                    $info['reload'] = 1;
+                                    $info['page'] = "_usinox_crear_usuarios.php";
+                                }else{ $this->htmlspecialchars($sql->error); }
+                            }else{ $this->htmlspecialchars($sql->error); }
+                        }else{ $this->htmlspecialchars($this->con->error); }
+                    }
+                    
+                }
+            }
 
+            if($id == 0){
+                if($this->verificar_correo($correo)){
+                    if($sql = $this->con->prepare("INSERT INTO _usinox_usuarios (nombre, correo, password, id_pag, eliminado) VALUES (?, ?, ?, ?, ?)")){
+                        if($sql->bind_param("sssii", $nombre, $correo, md5($pass), $id_pag, $this->eliminado)){
+                            if($sql->execute()){
+                                $info['op'] = 1;
+                                $info['mensaje'] = "Usuario ingresado exitosamente";
+                                $info['reload'] = 1;
+                                $info['page'] = "_usinox_crear_usuarios.php";
+                            }else{ $this->htmlspecialchars($sql->error); }
+                        }else{ $this->htmlspecialchars($sql->error); }
+                    }else{ $this->htmlspecialchars($this->con->error); }
+                }else{
+                    $info['mensaje'] = "Correo ya existe";
+                }
+            }
         }
 
         return $info;
