@@ -21,8 +21,8 @@ $page_prods = "pages/_usinox_usuarios.php";
 $sub_titulo = $sub_titulo1;
 $id = 0;
 
+$that["nombre"] = "";
 $that["correo"] = "";
-$that["password"] = "";
 
 $list_ = $admin->get_usuarios();
 $paginas = $admin->get_paginas();
@@ -61,16 +61,21 @@ if(isset($_GET["id_user"]) && is_numeric($_GET["id_user"]) && $_GET["id_user"] !
                         <input id="nombre" type="text" value="<?php echo $that['nombre']; ?>" />
                         <div class="mensaje"></div>
                     </label>
+                    <label class="nboleta">
+                        <span>Correo:</span>
+                        <input id="correo" type="text" value="<?php echo $that['correo']; ?>" />
+                        <div class="mensaje"></div>
+                    </label>
                     <label>
-                        <span>Url:</span>
-                        <input id="pass" type="text" value="<?php echo $that['password']; ?>" />
+                        <span>Password:</span>
+                        <input id="pass" type="password" value="" />
                         <div class="mensaje"></div>
                     </label>
                     <label>
                         <span>Permiso:</span>
                         <select id="id_pag">
                             <option value="0">Administrador</option>
-                            <?php for($i=0; $i<count($paginas); $i++){ echo '<option value="'.$paginas[$i]["id_pag"].'">Solo '.$paginas[$i]["nombre"].'</option>'; }?>
+                            <?php for($i=0; $i<count($paginas); $i++){ $selected = ($that['id_pag'] == $paginas[$i]["id_pag"]) ? "selected" : ""; echo '<option value="'.$paginas[$i]["id_pag"].'" '.$selected.'>Solo '.$paginas[$i]["nombre"].'</option>'; }?>
                         </select>
                     </label>
                     <label style='margin-top:20px'>
