@@ -160,17 +160,14 @@ if(isset($_GET["id_pro"]) && is_numeric($_GET["id_pro"]) && $_GET["id_pro"] != 0
             <ul class='listUser'>
                 <?php
                 for($i=0; $i<count($list_); $i++){
-                    $id_cat = $list_[$i][$id_list];
+                    $id_pro = $list_[$i][$id_list];
                     $nombre = $list_[$i]['nombre'];
-                    $parent_id = $list_[$i]['parent_id'];
                 ?>
-                <li class="user" rel="<?php echo $id_cat; ?>">
+                <li class="user" rel="<?php echo $id_pro; ?>">
                     <ul class="clearfix">
                         <li class="nombre"><?php echo $nombre; ?></li>
-                        <a title="Eliminar" class="icn borrar" onclick="eliminar('<?php echo $eliminaraccion; ?>', '<?php echo $id_cat; ?>/<?php echo $that['parent_id']; ?>', '<?php echo $eliminarobjeto; ?>', '<?php echo $nombre; ?>')"></a>
-                        <a title="Modificar" class="icn modificar" onclick="navlink('<?php echo $page_mod; ?>?id_cat=<?php echo $id_cat; ?>')"></a>
-                        <a title="Categorias" class="icn produc" onclick="navlink('<?php echo $page_prods; ?>?parent_id=<?php echo $id_cat; ?>')"></a>
-                        <a title="Categorias" class="icn subcat" onclick="navlink('<?php echo $page_mod; ?>?parent_id=<?php echo $id_cat; ?>')"></a>
+                        <a title="Eliminar" class="icn borrar" onclick="eliminar('<?php echo $eliminaraccion; ?>', '<?php echo $id_pro; ?>/<?php echo $id_cat; ?>', '<?php echo $eliminarobjeto; ?>', '<?php echo $nombre; ?>')"></a>
+                        <a title="Modificar" class="icn modificar" onclick="navlink('<?php echo $page_mod; ?>?id_cat=<?php echo $id_cat; ?>&id_pro=<?php echo $id_pro; ?>')"></a>
                     </ul>
                 </li>
                 <?php } ?>
