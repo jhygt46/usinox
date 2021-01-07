@@ -95,17 +95,12 @@ if(isset($_GET["id_pro"]) && is_numeric($_GET["id_pro"]) && $_GET["id_pro"] != 0
                     <input id="accion" type="hidden" value="<?php echo $accion; ?>" />
                     <input id="id_cat" type="hidden" value="<?php echo $id_cat; ?>" />
                     <label class="nboleta">
-                        <span>Nombre Usinox:</span>
-                        <input id="nombre1" type="text" value="<?php echo $that['nombre_u']; ?>" />
-                        <div class="mensaje"></div>
-                    </label>
-                    <label class="nboleta">
-                        <span>Nombre Neptuno:</span>
-                        <input id="nombre2" type="text" value="<?php echo $that['nombre_n']; ?>" />
+                        <span>Nombre:</span>
+                        <input id="nombre2" type="text" value="<?php echo $that['nombre']; ?>" />
                         <div class="mensaje"></div>
                     </label>
                     <label>
-                        <span>Url Ambos:</span>
+                        <span>Url:</span>
                         <input id="url" type="text" value="<?php echo $that['urls']; ?>" />
                         <div class="mensaje"></div>
                     </label>
@@ -115,48 +110,28 @@ if(isset($_GET["id_pro"]) && is_numeric($_GET["id_pro"]) && $_GET["id_pro"] != 0
                         <div class="mensaje"></div>
                     </label>
                     <label>
-                        <span>Catalogo Neptuno:</span>
+                        <span>Manual Usinox:</span>
                         <input id="file_image1" type="file" />
                         <div class="mensaje"></div>
                     </label>
                     <label>
-                        <span>Manual Usinox:</span>
-                        <input id="file_image3" type="file" />
-                        <div class="mensaje"></div>
-                    </label>
-                    <label>
-                        <span>Manual Neptuno:</span>
-                        <input id="file_image4" type="file" />
-                        <div class="mensaje"></div>
-                    </label>
-                    <label>
-                        <span>Descripcion Usinox:</span>
-                        <textarea id="desc1" ></textarea>
-                        <div class="mensaje"></div>
-                    </label>
-                    <label>
-                        <span>Descripcion Neptuno:</span>
-                        <textarea id="desc2" ></textarea>
+                        <span>Descripcion:</span>
+                        <textarea id="desc" ></textarea>
                         <div class="mensaje"></div>
                     </label>
                     <label class="nboleta">
-                        <span>Precio Usinox:</span>
-                        <input id="precio1" type="text" value="<?php echo $that['nombre']; ?>" />
-                        <div class="mensaje"></div>
-                    </label>
-                    <label class="nboleta">
-                        <span>Precio Neptuno:</span>
-                        <input id="precio2" type="text" value="<?php echo $that['nombre']; ?>" />
+                        <span>Precio:</span>
+                        <input id="precio" type="text" value="<?php echo $that['precio']; ?>" />
                         <div class="mensaje"></div>
                     </label>
                     <label class="nboleta">
                         <span>Marca:</span>
-                        <input id="marca" type="text" value="<?php echo $that['nombre']; ?>" />
+                        <input id="marca" type="text" value="<?php echo $that['marca']; ?>" />
                         <div class="mensaje"></div>
                     </label>
                     <label class="nboleta">
                         <span>Modelo:</span>
-                        <input id="modelo" type="text" value="<?php echo $that['nombre']; ?>" />
+                        <input id="modelo" type="text" value="<?php echo $that['modelo']; ?>" />
                         <div class="mensaje"></div>
                     </label>
                     <label style='margin-top:20px'>
