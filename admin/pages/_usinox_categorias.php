@@ -41,10 +41,6 @@ $that["id_pag"] = 0;
 $list_ = $admin->get_categorias($that["parent_id"]);
 $titulo_padre = $admin->get_titulo_padre($that["parent_id"]);
 
-echo "<pre>";
-print_r($list_);
-echo "</pre>";
-
 if(isset($_GET["id_cat"]) && is_numeric($_GET["id_cat"]) && $_GET["id_cat"] != 0){
 
     $id = $_GET["id_cat"];
