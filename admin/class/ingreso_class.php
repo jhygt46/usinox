@@ -62,7 +62,7 @@ class Ingreso {
                             $id_user = $usuarios[0]["id_user"];
                             $acciones = $this->get_acciones($id_user, 1);
                             if($acciones < 5){
-                                $pass = $usuarios[0]["password"];
+                                $pass = $usuarios[0]["pass"];
                                 if($pass == md5($_POST['pass'])){
                                     $secure = $usuarios[0]["secure_hash"];
                                     $tiempo = time() + 10 * 365 * 24 * 60 * 60;
