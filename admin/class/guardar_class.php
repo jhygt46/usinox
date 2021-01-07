@@ -426,6 +426,8 @@ class Guardar{
         $id_pag = $_POST["id_pag"];
         $id = $_POST["id"];
 
+        $info['POST'] = $_POST;
+
         if($this->verificar_super_usuario()){
 
             if($id > 0){
