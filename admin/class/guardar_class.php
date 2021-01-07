@@ -459,8 +459,9 @@ class Guardar{
 
             if($id == 0){
                 if($this->verificar_correo($correo)){
+                    $n_pass = md5($pass);
                     if($sql = $this->con->prepare("INSERT INTO _usinox_usuarios (nombre, correo, password, id_pag, eliminado) VALUES (?, ?, ?, ?, ?)")){
-                        if($sql->bind_param("sssii", $nombre, $correo, md5($pass), $id_pag, $this->eliminado)){
+                        if($sql->bind_param("sssii", $nombre, $correo, $n_pass, $id_pag, $this->eliminado)){
                             if($sql->execute()){
                                 $info['op'] = 1;
                                 $info['mensaje'] = "Usuario ingresado exitosamente";
