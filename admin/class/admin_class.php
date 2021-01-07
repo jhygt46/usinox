@@ -103,17 +103,15 @@ class Admin {
         }
     }
     public function get_paginas(){
-        public function get_productos($id_cat){
-            if($sql = $this->con->prepare("SELECT * FROM _usinox_paginas WHERE eliminado=?")){
-                if($sql->bind_param("i", $this->eliminado)){
-                    if($sql->execute()){
-                        $data = $this->get_result($sql);
-                        $sql->close();
-                        return $data;
-                    }else{ $this->htmlspecialchars($sql->error); }
+        if($sql = $this->con->prepare("SELECT * FROM _usinox_paginas WHERE eliminado=?")){
+            if($sql->bind_param("i", $this->eliminado)){
+                if($sql->execute()){
+                    $data = $this->get_result($sql);
+                    $sql->close();
+                    return $data;
                 }else{ $this->htmlspecialchars($sql->error); }
-            }else{ $this->htmlspecialchars($this->con->error); }
-        }
+            }else{ $this->htmlspecialchars($sql->error); }
+        }else{ $this->htmlspecialchars($this->con->error); }
     }
     public function get_usuarios(){
         if($sql = $this->con->prepare("SELECT * FROM _usinox_usuarios WHERE eliminado=?")){
