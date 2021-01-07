@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 require_once "../class/admin_class.php";
 $admin = new Admin();
 
@@ -100,17 +98,15 @@ if(isset($_GET["id_user"]) && is_numeric($_GET["id_user"]) && $_GET["id_user"] !
             <ul class='listUser'>
                 <?php
                 for($i=0; $i<count($list_); $i++){
-                    $id_cat = $list_[$i][$id_list];
+                    $id_user = $list_[$i][$id_list];
                     $nombre = $list_[$i]['nombre'];
                     $parent_id = $list_[$i]['parent_id'];
                 ?>
-                <li class="user" rel="<?php echo $id_cat; ?>">
+                <li class="user">
                     <ul class="clearfix">
                         <li class="nombre"><?php echo $nombre; ?></li>
-                        <a title="Eliminar" class="icn borrar" onclick="eliminar('<?php echo $eliminaraccion; ?>', '<?php echo $id_cat; ?>/<?php echo $that['parent_id']; ?>', '<?php echo $eliminarobjeto; ?>', '<?php echo $nombre; ?>')"></a>
-                        <a title="Modificar" class="icn modificar" onclick="navlink('<?php echo $page_mod; ?>?id_cat=<?php echo $id_cat; ?>')"></a>
-                        <?php if($list_[$i]['sub_prod'] == 1 || ($list_[$i]['sub_prod'] == 0 && $list_[$i]['sub_cat'] == 0)){ ?><a title="Productos" class="icn produc" onclick="navlink('<?php echo $page_prods; ?>?id_cat=<?php echo $id_cat; ?>')"></a><?php } ?>
-                        <?php if($list_[$i]['sub_cat'] == 1 || ($list_[$i]['sub_prod'] == 0 && $list_[$i]['sub_cat'] == 0)){ ?><a title="Categorias" class="icn subcat" onclick="navlink('<?php echo $page_mod; ?>?parent_id=<?php echo $id_cat; ?>')"></a><?php } ?>
+                        <a title="Eliminar" class="icn borrar" onclick="eliminar('<?php echo $eliminaraccion; ?>', '<?php echo $id_user; ?>', '<?php echo $eliminarobjeto; ?>', '<?php echo $nombre; ?>')"></a>
+                        <a title="Modificar" class="icn modificar" onclick="navlink('<?php echo $page_mod; ?>?id_user=<?php echo $id_user; ?>')"></a>
                     </ul>
                 </li>
                 <?php } ?>
