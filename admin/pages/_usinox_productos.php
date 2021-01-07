@@ -155,7 +155,7 @@ if(isset($_GET["id_pro"]) && is_numeric($_GET["id_pro"]) && $_GET["id_pro"] != 0
         <div class="name"><?php echo $titulo_list; ?></div>
         <ul class="options sort clearfix">
             <li class="opt">
-                <div onclick="navlink('<?php echo $page_mod; ?>?parent_id=<?php echo $that['parent_id']; ?>&sortable=1')" class="order"></div>
+                <div onclick="navlink('<?php echo $page_mod; ?>?id_cat=<?php echo $id_cat; ?>&sortable=1')" class="order"></div>
             </li>
         </ul>
         <div class="message"></div>
@@ -171,6 +171,7 @@ if(isset($_GET["id_pro"]) && is_numeric($_GET["id_pro"]) && $_GET["id_pro"] != 0
                         <li class="nombre"><?php echo $nombre; ?></li>
                         <a title="Eliminar" class="icn borrar" onclick="eliminar('<?php echo $eliminaraccion; ?>', '<?php echo $id_pro; ?>/<?php echo $id_cat; ?>', '<?php echo $eliminarobjeto; ?>', '<?php echo $nombre; ?>')"></a>
                         <a title="Modificar" class="icn modificar" onclick="navlink('<?php echo $page_mod; ?>?id_cat=<?php echo $id_cat; ?>&id_pro=<?php echo $id_pro; ?>')"></a>
+                        <a title="Imagenes" class="icn fotos" onclick="navlink('<?php echo $page_img; ?>?id_pro=<?php echo $id_pro; ?>')"></a>
                     </ul>
                 </li>
                 <?php } ?>
