@@ -418,7 +418,7 @@ class Guardar{
     private function crear_usuarios(){
 
         $info['op'] = 2;
-        $info['mensaje'] = "Producto no se pudo guardar";
+        $info['mensaje'] = "Usuario no se pudo guardar";
 
         $nombre = $_POST["nombre"];
         $correo = $_POST["correo"];
@@ -452,7 +452,6 @@ class Guardar{
                             }else{ $this->htmlspecialchars($sql->error); }
                         }else{ $this->htmlspecialchars($this->con->error); }
                     }
-                    
                 }
             }
 
@@ -472,6 +471,8 @@ class Guardar{
                     $info['mensaje'] = "Correo ya existe";
                 }
             }
+        }else{
+            $info['mensaje'] = "No tiene permisos";
         }
 
         return $info;
