@@ -29,10 +29,10 @@ $that["password"] = "";
 $list_ = $admin->get_usuarios();
 $paginas = $admin->get_paginas();
 
-if(isset($_GET["id_cat"]) && is_numeric($_GET["id_cat"]) && $_GET["id_cat"] != 0){
+if(isset($_GET["id_user"]) && is_numeric($_GET["id_user"]) && $_GET["id_user"] != 0){
 
-    $id = $_GET["id_cat"];
-    $that = $admin->get_producto($id);
+    $id = $_GET["id_user"];
+    $that = $admin->get_usuario($id);
     $sub_titulo = $sub_titulo2;
     
 }

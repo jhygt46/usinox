@@ -102,6 +102,41 @@ class Admin {
             }else{ $this->htmlspecialchars($this->con->error); }
         }
     }
+    public function get_paginas(){
+        public function get_productos($id_cat){
+            if($sql = $this->con->prepare("SELECT * FROM _usinox_paginas WHERE eliminado=?")){
+                if($sql->bind_param("i", $this->eliminado)){
+                    if($sql->execute()){
+                        $data = $this->get_result($sql);
+                        $sql->close();
+                        return $data;
+                    }else{ $this->htmlspecialchars($sql->error); }
+                }else{ $this->htmlspecialchars($sql->error); }
+            }else{ $this->htmlspecialchars($this->con->error); }
+        }
+    }
+    public function get_usuarios(){
+        if($sql = $this->con->prepare("SELECT * FROM _usinox_usuarios WHERE eliminado=?")){
+            if($sql->bind_param("i", $this->eliminado)){
+                if($sql->execute()){
+                    $data = $this->get_result($sql);
+                    $sql->close();
+                    return $data;
+                }else{ $this->htmlspecialchars($sql->error); }
+            }else{ $this->htmlspecialchars($sql->error); }
+        }else{ $this->htmlspecialchars($this->con->error); }
+    }
+    public function get_usuario($id){
+        if($sql = $this->con->prepare("SELECT nombre, password, id_pag  FROM _usinox_usuarios WHERE id_user=?, eliminado=?")){
+            if($sql->bind_param("ii", $id, $this->eliminado)){
+                if($sql->execute()){
+                    $data = $this->get_result($sql);
+                    $sql->close();
+                    return $data[0];
+                }else{ $this->htmlspecialchars($sql->error); }
+            }else{ $this->htmlspecialchars($sql->error); }
+        }else{ $this->htmlspecialchars($this->con->error); }
+    }
     public function get_productos($id_cat){
         if($sql = $this->con->prepare("SELECT * FROM _usinox_productos WHERE id_cat=? AND id_pag=? AND eliminado=?")){
             if($sql->bind_param("iii", $id_cat, $_SESSION["id_pag"], $this->eliminado)){
