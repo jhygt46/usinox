@@ -9,10 +9,10 @@ $titulo = "Usuarios";
 $titulo_list = "Mis Usuarios";
 $sub_titulo1 = "Ingresar Usuarios";
 $sub_titulo2 = "Modificar Usuarios";
-$accion = "crear_usuario";
+$accion = "crear_usuarios";
 $titulo_list = "Lista de Usuarios";
 
-$eliminaraccion = "eliminar_usuario";
+$eliminaraccion = "eliminar_usuarios";
 $eliminarobjeto = "Usuario";
 
 $id_list = "id_user";
