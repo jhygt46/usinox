@@ -424,6 +424,7 @@ class Guardar{
         $correo = $_POST["correo"];
         $pass = $_POST["pass"];
         $id_pag = $_POST["id_pag"];
+        $id = $_POST["id"];
 
         if($this->verificar_super_usuario()){
 
