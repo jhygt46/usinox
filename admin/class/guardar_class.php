@@ -469,9 +469,9 @@ class Guardar{
                                 $info['mensaje'] = "Usuario ingresado exitosamente";
                                 $info['reload'] = 1;
                                 $info['page'] = "_usinox_usuarios.php";
-                            }else{ $info['mensaje2'] = $sql->error; $this->htmlspecialchars($sql->error); }
-                        }else{ $info['mensaje2'] = $sql->error; $this->htmlspecialchars($sql->error); }
-                    }else{ $info['mensaje2'] = $this->con->error; $this->htmlspecialchars($this->con->error); }
+                            }else{ $this->htmlspecialchars($sql->error); }
+                        }else{ $this->htmlspecialchars($sql->error); }
+                    }else{ $this->htmlspecialchars($this->con->error); }
                 }else{
                     $info['mensaje'] = "Correo ya existe";
                 }
@@ -502,7 +502,7 @@ class Guardar{
                         $info['titulo'] = "Eliminado";
                         $info['texto'] = "Usuario ".$nombre." Eliminado";
                         $info['reload'] = 1;
-                        $info['page'] = "_usinox_crear_usuarios.php";
+                        $info['page'] = "_usinox_usuarios.php";
                     }else{ echo htmlspecialchars($sql->error); }
                 }else{ echo htmlspecialchars($sql->error); }
             }else{ echo htmlspecialchars($this->con->error); }
