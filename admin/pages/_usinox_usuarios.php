@@ -67,6 +67,7 @@ if(isset($_GET["id_user"]) && is_numeric($_GET["id_user"]) && $_GET["id_user"] !
                         <div class="mensaje"></div>
                     </label>
                     <label>
+                        <span>Permiso:</span>
                         <select id="id_pag">
                             <option value="0">Administrador</option>
                             <?php for($i=0; $i<count($paginas); $i++){ echo '<option value="'.$paginas[$i]["id_pag"].'">Solo '.$paginas[$i]["nombre"].'</option>'; }?>

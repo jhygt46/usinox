@@ -125,7 +125,7 @@ class Admin {
         }else{ $this->htmlspecialchars($this->con->error); }
     }
     public function get_usuario($id){
-        if($sql = $this->con->prepare("SELECT nombre, password, id_pag  FROM _usinox_usuarios WHERE id_user=?, eliminado=?")){
+        if($sql = $this->con->prepare("SELECT *  FROM _usinox_usuarios WHERE id_user=?, eliminado=?")){
             if($sql->bind_param("ii", $id, $this->eliminado)){
                 if($sql->execute()){
                     $data = $this->get_result($sql);
