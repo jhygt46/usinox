@@ -485,7 +485,8 @@ class Guardar{
     }
     private function eliminar_usuarios(){
         
-	    $info['op'] = 2;
+	    $info['tipo'] = "error";
+        $info['titulo'] = "Error";
         $info['mensaje'] = "No se pudo borrar el usuario";
         
         $id = $_POST['id'];
@@ -496,8 +497,6 @@ class Guardar{
             if($sql = $this->con->prepare("UPDATE _usinox_usuarios SET eliminado='1' WHERE id_user=?")){
                 if($sql->bind_param("i", $id)){
                     if($sql->execute()){
-                        $info['op'] = 1;
-                        $info['mensaje'] = "Usuario eliminado exitosamente";
                         $info['tipo'] = "success";
                         $info['titulo'] = "Eliminado";
                         $info['texto'] = "Usuario ".$nombre." Eliminado";
@@ -507,6 +506,8 @@ class Guardar{
                 }else{ echo htmlspecialchars($sql->error); }
             }else{ echo htmlspecialchars($this->con->error); }
 
+        }else{
+            $info['mensaje'] = "No tiene permisos";
         }
 
         return $info;

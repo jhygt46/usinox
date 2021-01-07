@@ -49,6 +49,7 @@ class Core{
 
             if($url[1] == ""){
                 $info['tipo'] = "inicio";
+                $info['productos'] = $this->get_random_productos(9);
             }else if($url[1] == "contacto" || $url[1] == "nosotros" || $url[1] == "servicios"){
                 $info['tipo'] = "pagina";
                 $info['pagina'] = $url[1];
@@ -60,6 +61,17 @@ class Core{
 
         }
 
+    }
+    private function get_random_productos(){
+        if($sqls = $this->con->prepare("SELECT t1.id_pro, t1.nombre, t1.descripcion, t2.nombre as foto_nombre FROM _usinox_productos t1, _usinox_productos_fotos t2 WHERE t1.id_pro=t2.id_pro AND t1.eliminado=? ORDER BY RAND() LIMIT 9")){
+            if($sqls->bind_param("i", $this->eliminado)){
+                if($sqls->execute()){
+                    $datas = $this->get_result($sqls);
+                    $sqls->close();
+                    return $datas;
+                }else{ $this->htmlspecialchars($sqls->error); }
+            }else{ $this->htmlspecialchars($sqls->error); }
+        }else{ $this->htmlspecialchars($this->con->error); }
     }
     private function buscar_categoria_productos($id_pag, $url){
 
