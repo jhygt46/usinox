@@ -357,7 +357,7 @@ class Guardar{
                                 $sqls->close();
                                 $orden = count($data);
                                 if($sql = $this->con->prepare("INSERT INTO _usinox_productos (nombre, urls, descripcion, marca, modelo, precio, fecha, id_cat, orden, id_pag, eliminado) VALUES (?, ?, ?, ?, ?, ?, now(), ?, ?, ?, ?)")){
-                                    if($sql->bind_param("sssssiiiii", $nombre, $url, $descripcio, $marca, $modelo, $precio, $id_cat, $orden, $_SESSION["id_pag"], $this->eliminado)){
+                                    if($sql->bind_param("sssssiiiii", $nombre, $url, $descripcion, $marca, $modelo, $precio, $id_cat, $orden, $_SESSION["id_pag"], $this->eliminado)){
                                         if($sql->execute()){
                                             $info['op'] = 1;
                                             $info['mensaje'] = "Producto ingresada exitosamente";
