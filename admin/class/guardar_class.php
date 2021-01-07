@@ -320,22 +320,21 @@ class Guardar{
         $info['op'] = 2;
         $info['mensaje'] = "Producto no se pudo guardar";
         
-        $nombre_u = $_POST['nombre1'];
-        $nombre_n = $_POST['nombre2'];
-        $desc_u = $_POST['desc1'];
-        $desc_n = $_POST['desc2'];
+        $nombre = $_POST['nombre'];
+        $desc = $_POST['desc'];
         $url = $_POST['url'];
         $id_cat = $_POST['id_cat'];
         $id = $_POST['id'];
         $marca = $_POST['marca'];
         $modelo = $_POST['modelo'];
+        $precio = $_POST['precio'];
 
         if($this->verificar_usuario()){
 
             if($id > 0){
                 if($this->verificar_urls_pro($url, $id)){
-                    if($sql = $this->con->prepare("UPDATE _usinox_productos SET nombre=?, urls=? WHERE id_cat=? AND id_pag=?")){
-                        if($sql->bind_param("ssii", $nombre, $url, $id, $_SESSION["id_pag"])){
+                    if($sql = $this->con->prepare("UPDATE _usinox_productos SET nombre=?, urls=?, descripcion=?, marca=?, modelo=?, precio=? WHERE id_pro=? AND id_pag=?")){
+                        if($sql->bind_param("sssssiii", $nombre, $url, $descripcion, $marca, $modelo, $precio, $id, $_SESSION["id_pag"])){
                             if($sql->execute()){
                                 $info['op'] = 1;
                                 $info['mensaje'] = "Prodcuto modificada exitosamente";
@@ -357,8 +356,8 @@ class Guardar{
                                 $data = $this->get_result($sqls);
                                 $sqls->close();
                                 $orden = count($data);
-                                if($sql = $this->con->prepare("INSERT INTO _usinox_productos (nombre, urls, fecha, id_cat, orden, id_pag, eliminado) VALUES (?, ?, now(), ?, ?, ?, ?)")){
-                                    if($sql->bind_param("ssiiii", $nombre, $url, $id_cat, $orden, $_SESSION["id_pag"], $this->eliminado)){
+                                if($sql = $this->con->prepare("INSERT INTO _usinox_productos (nombre, urls, descripcion, marca, modelo, precio, fecha, id_cat, orden, id_pag, eliminado) VALUES (?, ?, ?, ?, ?, ?, now(), ?, ?, ?, ?)")){
+                                    if($sql->bind_param("sssssiiiii", $nombre, $url, $descripcio, $marca, $modelo, $precio, $id_cat, $orden, $_SESSION["id_pag"], $this->eliminado)){
                                         if($sql->execute()){
                                             $info['op'] = 1;
                                             $info['mensaje'] = "Producto ingresada exitosamente";
