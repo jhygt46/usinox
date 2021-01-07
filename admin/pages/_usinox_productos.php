@@ -21,7 +21,10 @@ $id = 0;
 
 $that["nombre"] = "";
 $that["urls"] = "";
-$that["id_pag"] = 0;
+$that["descripcion"] = "";
+$that["marca"] = "";
+$that["modelo"] = "";
+$that["precio"] = "";
 
 $id_cat = $_GET["id_cat"];
 
@@ -116,7 +119,7 @@ if(isset($_GET["id_pro"]) && is_numeric($_GET["id_pro"]) && $_GET["id_pro"] != 0
                     </label>
                     <label>
                         <span>Descripcion:</span>
-                        <textarea id="desc" ></textarea>
+                        <textarea id="desc" ><?php echo $that['descripcion']; ?></textarea>
                         <div class="mensaje"></div>
                     </label>
                     <label class="nboleta">
