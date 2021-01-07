@@ -426,8 +426,6 @@ class Guardar{
         $id_pag = $_POST["id_pag"];
         $id = $_POST["id"];
 
-        $info['POST'] = $_POST;
-
         if($this->verificar_super_usuario()){
 
             if($id > 0){
@@ -469,10 +467,10 @@ class Guardar{
                                 $info['op'] = 1;
                                 $info['mensaje'] = "Usuario ingresado exitosamente";
                                 $info['reload'] = 1;
-                                $info['page'] = "_usinox_crear_usuarios.php";
-                            }else{ $this->htmlspecialchars($sql->error); }
-                        }else{ $this->htmlspecialchars($sql->error); }
-                    }else{ $this->htmlspecialchars($this->con->error); }
+                                $info['page'] = "_usinox_usuarios.php";
+                            }else{ $info['mensaje2'] = $sql->error; $this->htmlspecialchars($sql->error); }
+                        }else{ $info['mensaje2'] = $sql->error; $this->htmlspecialchars($sql->error); }
+                    }else{ $info['mensaje2'] = $this->con->error; $this->htmlspecialchars($this->con->error); }
                 }else{
                     $info['mensaje'] = "Correo ya existe";
                 }
