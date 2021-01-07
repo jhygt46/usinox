@@ -10,6 +10,8 @@ class Ingreso {
     public $usuario = null;
     public $password = null;
     public $base_datos = null;
+    public $cookie_secure = null;
+    public $cookie_http_only = null;
     public $eliminado = 0;
 
     public function __construct(){
@@ -18,11 +20,15 @@ class Ingreso {
         global $db_user;
         global $db_password;
         global $db_database;
+        global $cookie_secure;
+        global $cookie_http_only;
 
         $this->host	= $db_host;
         $this->usuario = $db_user;
         $this->password = $db_password;
         $this->base_datos = $db_database;
+        $this->$cookie_secure = $cookie_secure;
+        $this->$cookie_http_only = $cookie_http_only;
 
         $this->con = new mysqli($this->host, $this->usuario, $this->password, $this->base_datos);
 
@@ -66,8 +72,8 @@ class Ingreso {
                                             if($stmt->bind_param('si', $secure_hash, $id_user)){
                                                 if($stmt->execute()){
                                                     $stmt->close();
-                                                    setcookie('id_user', $id_user, $tiempo, '/admin', '', true, true);
-                                                    setcookie('secure_hash', $secure_hash, $tiempo, '/admin', '', true, true);
+                                                    setcookie('id_user', $id_user, $tiempo, '/admin', '', $this->$cookie_secure, $this->$cookie_http_only);
+                                                    setcookie('secure_hash', $secure_hash, $tiempo, '/admin', '', $this->$cookie_secure, $this->$cookie_http_only);
                                                     $info['op'] = 1;
                                                     $info['tipo'] = 0;
                                                     $info['message'] = "Ingreso Exitoso";
@@ -75,8 +81,8 @@ class Ingreso {
                                             }
                                         }
                                     }else{
-                                        setcookie('id_user', $id_user, $tiempo, '/admin', '', true, true);
-                                        setcookie('secure_hash', $secure, $tiempo, '/admin', '', true, true);
+                                        setcookie('id_user', $id_user, $tiempo, '/admin', '', $this->$cookie_secure, $this->$cookie_http_only);
+                                        setcookie('secure_hash', $secure, $tiempo, '/admin', '', $this->$cookie_secure, $this->$cookie_http_only);
                                         $info['op'] = 1;
                                         $info['tipo'] = 0;
                                         $info['message'] = "Ingreso Exitoso";
