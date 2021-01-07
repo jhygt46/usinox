@@ -27,7 +27,7 @@ class Admin {
         $this->con = new mysqli($this->host, $this->usuario, $this->password, $this->base_datos);
 
     }
-    private function verificar_super_usuario(){
+    public function verificar_super_usuario(){
         if($sql = $this->con->prepare("SELECT id_pag FROM _usinox_usuarios WHERE id_user=? AND secure_hash=? AND eliminado=?")){
             if($sql->bind_param("isi", $_COOKIE['id_user'], $_COOKIE['secure_hash'], $this->eliminado)){
                 if($sql->execute()){
