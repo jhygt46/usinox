@@ -146,6 +146,17 @@ class Admin {
             }else{ $this->htmlspecialchars($sql->error); }
         }else{ $this->htmlspecialchars($this->con->error); }
     }
+    public function get_producto($id_pro){
+        if($sql = $this->con->prepare("SELECT * FROM _usinox_productos WHERE id_pro=? AND id_pag=? AND eliminado=?")){
+            if($sql->bind_param("iii", $id_pro, $_SESSION["id_pag"], $this->eliminado)){
+                if($sql->execute()){
+                    $data = $this->get_result($sql);
+                    $sql->close();
+                    return $data[0];
+                }else{ $this->htmlspecialchars($sql->error); }
+            }else{ $this->htmlspecialchars($sql->error); }
+        }else{ $this->htmlspecialchars($this->con->error); }
+    }
     public function get_categorias($id){
         if($sql = $this->con->prepare("SELECT id_cat, nombre, parent_id FROM _usinox_categorias WHERE parent_id=? AND id_pag=? AND eliminado=? ORDER BY orden")){
             if($sql->bind_param("iii", $id, $_SESSION["id_pag"], $this->eliminado)){
