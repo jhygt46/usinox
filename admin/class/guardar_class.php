@@ -439,7 +439,7 @@ class Guardar{
                                     $info['op'] = 1;
                                     $info['mensaje'] = "Usuario modificado exitosamente";
                                     $info['reload'] = 1;
-                                    $info['page'] = "_usinox_crear_usuarios.php";
+                                    $info['page'] = "_usinox_usuarios.php";
                                 }else{ $this->htmlspecialchars($sql->error); }
                             }else{ $this->htmlspecialchars($sql->error); }
                         }else{ $this->htmlspecialchars($this->con->error); }
@@ -450,7 +450,7 @@ class Guardar{
                                     $info['op'] = 1;
                                     $info['mensaje'] = "Usuario modificado exitosamente";
                                     $info['reload'] = 1;
-                                    $info['page'] = "_usinox_crear_usuarios.php";
+                                    $info['page'] = "_usinox_usuarios.php";
                                 }else{ $this->htmlspecialchars($sql->error); }
                             }else{ $this->htmlspecialchars($sql->error); }
                         }else{ $this->htmlspecialchars($this->con->error); }
