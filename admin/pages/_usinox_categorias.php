@@ -6,10 +6,12 @@ $admin = new Admin();
 
 $res = $admin->verificar_usuario();
 if($res['op']){
-    if($res['data']['id_pag'] == $_GET["id_pag"] || $res['data']['id_pag'] == 0){
-        $_SESSION["id_pag"] = $_GET["id_pag"];
-    }else{
-        die('ERROR');
+    if(isset($_GET["id_pag"])){
+        if($res['data']['id_pag'] == $_GET["id_pag"] || $res['data']['id_pag'] == 0){
+            $_SESSION["id_pag"] = $_GET["id_pag"];
+        }else{
+            die('ERROR');
+        }
     }
 }else{
     die('ERROR');
