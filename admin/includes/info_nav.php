@@ -25,6 +25,20 @@
         	unset($aux);
         	unset($array);
         
+		}
+		
+		$array[0]["nombre"] = "Nuevo Usuario";
+        $array[0]["link"] = "pages/_usinox_usuario.php";
+    
+    	if(isset($array)){
+        
+        	$aux["ico"] = 4;
+        	$aux["categoria"] = "Usuarios";
+        	$aux["subcategoria"] = $array;
+        	$menu[] = $aux;
+        	unset($aux);
+        	unset($array);
+        
     	}
 		
 		/*
