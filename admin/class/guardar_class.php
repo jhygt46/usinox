@@ -321,7 +321,7 @@ class Guardar{
         $info['mensaje'] = "Producto no se pudo guardar";
         
         $nombre = $_POST['nombre'];
-        $desc = $_POST['desc'];
+        $descripcion = $_POST['desc'];
         $url = $_POST['url'];
         $id_cat = $_POST['id_cat'];
         $id = $_POST['id'];
