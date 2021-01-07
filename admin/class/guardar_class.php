@@ -341,9 +341,9 @@ class Guardar{
                                 $info['mensaje'] = "Prodcuto modificada exitosamente";
                                 $info['reload'] = 1;
                                 $info['page'] = "_usinox_productos.php?id_cat=".$id_cat;
-                            }else{ $this->htmlspecialchars($sql->error); }
-                        }else{ $this->htmlspecialchars($sql->error); }
-                    }else{ $this->htmlspecialchars($this->con->error); }
+                            }else{ $info['err'] = $this->htmlspecialchars($sql->error); }
+                        }else{ $info['err'] = $this->htmlspecialchars($sql->error); }
+                    }else{ $info['err'] = $this->htmlspecialchars($this->con->error); }
                 }else{
                     $info['mensaje'] = "Producto no se pudo guardar por que ya existe la Url";
                 }
@@ -364,20 +364,17 @@ class Guardar{
                                             $info['mensaje'] = "Producto ingresada exitosamente";
                                             $info['reload'] = 1;
                                             $info['page'] = "_usinox_productos.php?id_cat=".$id_cat;
-                                        }else{ $this->htmlspecialchars($sql->error); }
-                                    }else{ $this->htmlspecialchars($sql->error); }
-                                }else{ $this->htmlspecialchars($this->con->error); }
-                            }else{ $this->htmlspecialchars($sqls->error); }
-                        }else{ $this->htmlspecialchars($sqls->error); }
-                    }else{ $this->htmlspecialchars($this->con->error); }
+                                        }else{ $info['err'] = $this->htmlspecialchars($sql->error); }
+                                    }else{ $info['err'] = $this->htmlspecialchars($sql->error); }
+                                }else{ $info['err'] = $this->htmlspecialchars($this->con->error); }
+                            }else{ $info['err'] = $this->htmlspecialchars($sqls->error); }
+                        }else{ $info['err'] = $this->htmlspecialchars($sqls->error); }
+                    }else{ $info['err'] = $this->htmlspecialchars($this->con->error); }
                 }else{
                     $info['mensaje'] = "Producto no se pudo guardar por que ya existe la Url";
                 }
             }
-
         }
-
-        
         return $info;
 
     }
@@ -502,9 +499,9 @@ class Guardar{
                         $info['texto'] = "Usuario ".$nombre." Eliminado";
                         $info['reload'] = 1;
                         $info['page'] = "_usinox_usuarios.php";
-                    }else{ echo htmlspecialchars($sql->error); }
-                }else{ echo htmlspecialchars($sql->error); }
-            }else{ echo htmlspecialchars($this->con->error); }
+                    }else{ $this->htmlspecialchars($sql->error); }
+                }else{ $this->htmlspecialchars($sql->error); }
+            }else{ $this->htmlspecialchars($this->con->error); }
 
         }else{
             $info['mensaje'] = "No tiene permisos";
@@ -527,7 +524,7 @@ class Guardar{
         }
         return $arrResult;
     }
-    private function htmlspecialchars(){
-        
+    private function htmlspecialchars($data){
+        return $data;
     }
 }
