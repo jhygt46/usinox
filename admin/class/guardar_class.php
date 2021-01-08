@@ -56,7 +56,15 @@ class Guardar{
         if($_POST['accion'] == "eliminar_usuarios"){
             return $this->eliminar_usuarios();
         }
+        if($_POST['accion'] == "crear_foto_producto"){
+            return $this->crear_foto_producto();
+        }
+        if($_POST['accion'] == "eliminar_foto_producto"){
+            return $this->eliminar_foto_producto();
+        }
         
+        
+
     }
     private function verificar_super_usuario(){
         if($sql = $this->con->prepare("SELECT id_pag FROM _usinox_usuarios WHERE id_user=? AND secure_hash=? AND eliminado=?")){
@@ -585,7 +593,7 @@ class Guardar{
             $extension = substr($name, strrpos($name, '.') + 1);
             $extension2 = strtoupper($extension);
             if(in_array($extension2, $file_formats)){
-                if($size < (25 * 1024)){
+                if($size < (25 * 1024 * 1024)){
                     $imagename = $filename.".".$extension;
                     $imagename_new = $filename."x.".strtolower($extension);
                     $tmp = $_FILES['file_image'.$i]['tmp_name'];
