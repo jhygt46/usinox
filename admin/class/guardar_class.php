@@ -343,13 +343,29 @@ class Guardar{
         }else{ $this->htmlspecialchars($this->con->error); }
     }
     private function actualizar_pdf_producto($id, $nombre, $campo){
-        if($sql = $this->con->prepare("UPDATE _usinox_productos SET ".$campo."=? WHERE id_pro=?")){
-            if($sql->bind_param("si", $nombre, $id)){
-                if($sql->execute()){
 
+        $info['op'] = 2;
+        if($campo == "ficha"){
+            if($sql = $this->con->prepare("UPDATE _usinox_productos SET ficha=? WHERE id_pro=?")){
+                if($sql->bind_param("si", $nombre, $id)){
+                    if($sql->execute()){
+                        $info['op'] = 1;
+                        $info['tipo'] = 'ficha';
+                    }else{ $info['err'] = $this->htmlspecialchars($sql->error); }
                 }else{ $info['err'] = $this->htmlspecialchars($sql->error); }
-            }else{ $info['err'] = $this->htmlspecialchars($sql->error); }
-        }else{ $info['err'] = $this->htmlspecialchars($this->con->error); }
+            }else{ $info['err'] = $this->htmlspecialchars($this->con->error); }
+        }
+        if($campo == "manual"){
+            if($sql = $this->con->prepare("UPDATE _usinox_productos SET manual=? WHERE id_pro=?")){
+                if($sql->bind_param("si", $nombre, $id)){
+                    if($sql->execute()){
+                        $info['op'] = 1;
+                        $info['tipo'] = 'manual';
+                    }else{ $info['err'] = $this->htmlspecialchars($sql->error); }
+                }else{ $info['err'] = $this->htmlspecialchars($sql->error); }
+            }else{ $info['err'] = $this->htmlspecialchars($this->con->error); }
+        }
+        return $info;
     }
     private function crear_producto(){
         
@@ -381,12 +397,12 @@ class Guardar{
                                 $ficha = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/", null, 0, $pdf_name["ficha"]);
                                 $info["ficha"] = $ficha;
                                 if($ficha['op'] == 1){
-                                    $this->actualizar_pdf_producto($id, $ficha['image'], 'ficha');
+                                    $info["act_ficha"] = $this->actualizar_pdf_producto($id, $ficha['image'], 'ficha');
                                 }
                                 $manual = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/", null, 1, $pdf_name["manual"]);
                                 $info["manual"] = $manual;
                                 if($manual['op'] == 1){
-                                    $this->actualizar_pdf_producto($id, $manual['image'], 'manual');
+                                    $info["act_manual"] = $this->actualizar_pdf_producto($id, $manual['image'], 'manual');
                                 }
 
                             }else{ $info['err'] = $this->htmlspecialchars($sql->error); }
@@ -416,12 +432,12 @@ class Guardar{
                                             $ficha = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/", null, 0, "");
                                             $info['ficha'] = $ficha;
                                             if($ficha['op'] == 1){
-                                                $this->actualizar_pdf_producto($id, $ficha['image'], 'ficha');
+                                                $info["act_ficha"] = $this->actualizar_pdf_producto($id, $ficha['image'], 'ficha');
                                             }
                                             $manual = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/", null, 1, "");
                                             $info['manual'] = $manual;
                                             if($manual['op'] == 1){
-                                                $this->actualizar_pdf_producto($id, $manual['image'], 'manual');
+                                                $info["act_manual"] = $this->actualizar_pdf_producto($id, $manual['image'], 'manual');
                                             }
                                         }else{ $info['err'] = $this->htmlspecialchars($sql->error); }
                                     }else{ $info['err'] = $this->htmlspecialchars($sql->error); }
