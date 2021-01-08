@@ -119,7 +119,7 @@ if(isset($_GET["id_cat"]) && is_numeric($_GET["id_cat"]) && $_GET["id_cat"] != 0
                     </label>
                     <label>
                         <span>Foto:</span>
-                        <input id="file_image0" type="file" />
+                        <input id="file_image" type="file" />
                         <div class="mensaje"></div>
                     </label>
                     <label style='margin-top:20px'>
