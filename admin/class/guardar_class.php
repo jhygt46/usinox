@@ -66,6 +66,13 @@ class Guardar{
         
 
     }
+    private function pass_generate($n){
+        $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        for($i=0; $i<$n; $i++){
+            $r .= $chars{rand(0, strlen($chars)-1)};
+        }
+        return $r;
+    }
     private function verificar_super_usuario(){
         if($sql = $this->con->prepare("SELECT id_pag FROM _usinox_usuarios WHERE id_user=? AND secure_hash=? AND eliminado=?")){
             if($sql->bind_param("isi", $_COOKIE['id_user'], $_COOKIE['secure_hash'], $this->eliminado)){
