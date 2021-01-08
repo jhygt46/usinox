@@ -727,7 +727,7 @@ class Guardar{
             $extension2 = strtoupper($extension);
             if(in_array($extension2, $file_formats)){
                 if($size < (25 * 1024 * 1024)){
-                    if($old_file != ""){ @unlink($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/".$old_file); }
+                    if($old_file != ""){ @unlink($_SERVER["DOCUMENT_ROOT"]."/uploads/images/".$old_file); }
                     $imagename = $this->get_force_name_upload($filepath, $filename, strtolower($extension));
                     $tmp = $_FILES['file_image'.$i]['tmp_name'];
                     if(move_uploaded_file($tmp, $filepath.$imagename)){
