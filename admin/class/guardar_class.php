@@ -357,10 +357,12 @@ class Guardar{
                                 $info['reload'] = 1;
                                 $info['page'] = "_usinox_productos.php?id_cat=".$id_cat;
                                 $ficha = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/", null, 0);
+                                $info['ficha'] = $ficha;
                                 if($ficha['op'] == 1){
                                     $this->actualizar_pdf_producto($id, $ficha['image'], 'ficha');
                                 }
                                 $manual = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/", null, 0);
+                                $info['manual'] = $manual;
                                 if($manual['op'] == 1){
                                     $this->actualizar_pdf_producto($id, $manual['image'], 'manual');
                                 }
@@ -389,10 +391,12 @@ class Guardar{
                                             $info['page'] = "_usinox_productos.php?id_cat=".$id_cat;
                                             $id = $this->con->insert_id;
                                             $ficha = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/", null, 0);
+                                            $info['ficha'] = $ficha;
                                             if($ficha['op'] == 1){
                                                 $this->actualizar_pdf_producto($id, $ficha['image'], 'ficha');
                                             }
                                             $manual = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/", null, 0);
+                                            $info['manual'] = $manual;
                                             if($manual['op'] == 1){
                                                 $this->actualizar_pdf_producto($id, $manual['image'], 'manual');
                                             }
