@@ -3,7 +3,7 @@
 require_once "../class/admin_class.php";
 $admin = new Admin();
 
-$titulo = "Foto Productos";
+$titulo = "Fotos Producto";
 $titulo_list = "Mis Fotos";
 $sub_titulo = "Ingresar Foto";
 $accion = "crear_foto_producto";
@@ -17,6 +17,7 @@ $eliminarobjeto = "Foto";
 $id_list = "id_prf";
 
 $id_pro = $_GET["id_pro"];
+$nombre = $_GET["nombre"];
 $list_ = $admin->get_foto_producto($id_pro);
 
 ?>
@@ -49,7 +50,7 @@ $list_ = $admin->get_foto_producto($id_pro);
 
 
 <div class="title">
-    <h1><?php echo $titulo; ?></h1>
+    <h1><?php echo $titulo." ".$nombre; ?></h1>
     <ul class="clearfix">
         <li class="back" onclick="backurl()"></li>
     </ul>
@@ -66,6 +67,7 @@ $list_ = $admin->get_foto_producto($id_pro);
 
             <form action="" method="post" class="basic-grey">
                 <fieldset>
+                    <input id="nombre" type="hidden" value="<?php echo $nombre; ?>" />
                     <input id="accion" type="hidden" value="<?php echo $accion; ?>" />
                     <input id="id_pro" type="hidden" value="<?php echo $id_pro; ?>" />
                     <label>
@@ -91,7 +93,7 @@ $list_ = $admin->get_foto_producto($id_pro);
         <div class="name"><?php echo $titulo_list; ?></div>
         <ul class="options sort clearfix">
             <li class="opt">
-                <div onclick="navlink('<?php echo $page_mod; ?>?id_pro=<?php echo $id_pro; ?>&sortable=1')" class="order"></div>
+                <div onclick="navlink('<?php echo $page_mod; ?>?id_pro=<?php echo $id_pro; ?>&nombre=<?php echo $nombre; ?>&sortable=1')" class="order"></div>
             </li>
         </ul>
         <div class="message"></div>
@@ -105,7 +107,7 @@ $list_ = $admin->get_foto_producto($id_pro);
                 <li class="user" rel="<?php echo $id_prf; ?>">
                     <ul class="clearfix">
                         <li class="nombre"><?php echo $nombre; ?></li>
-                        <a title="Eliminar" class="icn borrar" onclick="eliminar('<?php echo $eliminaraccion; ?>', '<?php echo $id_prf; ?>/<?php echo $id_pro; ?>', '<?php echo $eliminarobjeto; ?>', '<?php echo $nombre; ?>')"></a>
+                        <a title="Eliminar" class="icn borrar" onclick="eliminar('<?php echo $eliminaraccion; ?>', '<?php echo $id_prf; ?>/<?php echo $id_pro; ?>/<?php echo $nombre; ?>', '<?php echo $eliminarobjeto; ?>', '<?php echo $nombre; ?>')"></a>
                     </ul>
                 </li>
                 <?php } ?>

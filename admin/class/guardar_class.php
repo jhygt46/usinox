@@ -509,6 +509,116 @@ class Guardar{
         return $info;
         
     }
+    private function verificar_foto_producto($id){
+        if($sql = $this->con->prepare("SELECT id_user FROM _usinox_usuarios WHERE id_user=? AND eliminado=?")){
+            if($sql->bind_param("si", $correo, $this->eliminado)){
+                if($sql->execute()){
+                    $data = $this->get_result($sql);
+                    $sql->close();
+                    if(count($data) == 0){
+                        return true;
+                    }else{
+                        return false;
+                    }
+                }else{ $this->htmlspecialchars($sql->error); }
+            }else{ $this->htmlspecialchars($sql->error); }
+        }else{ $this->htmlspecialchars($this->con->error); }
+    }
+    private function crear_foto_producto(){
+
+        $info['op'] = 2;
+        $info['mensaje'] = "Foto no se pudo guardar";
+
+        $nombre = $_POST["nombre"];
+        $id = $_POST["id_pro"];
+        
+        $image = $this->upload($_SERVER["DOCUMENT_ROOT"]."/uploads", null, 0);
+        if($image['op'] == 1){
+            if($sql = $this->con->prepare("INSERT INTO _usinox_productos_fotos (nombre, id_pro) VALUES (?, ?)")){
+                if($sql->bind_param("si", $image["image"], $id)){
+                    if($sql->execute()){
+                        $info['op'] = 1;
+                        $info['mensaje'] = "Foto ingresada exitosamente";
+                        $info['reload'] = 1;
+                        $info['page'] = "_usinox_productos_image.php?id_pro=".$id."&nombre=".$nombre;
+                    }else{ $this->htmlspecialchars($sql->error); }
+                }else{ $this->htmlspecialchars($sql->error); }
+            }else{ $this->htmlspecialchars($this->con->error); }
+        }else{
+            $info['mensaje'] = "Error al subir la foto";
+        }
+
+        
+        return $info;
+
+    }
+    private function eliminar_foto_producto(){
+        
+	    $info['tipo'] = "error";
+        $info['titulo'] = "Error";
+        $info['mensaje'] = "No se pudo borrar la foto";
+        
+        $id = explode("/", $_POST['id']);
+        
+        if($sql = $this->con->prepare("DELETE FROM _usinox_productos_fotos WHERE id_prf=?")){
+            if($sql->bind_param("i", $id[0])){
+                if($sql->execute()){
+                    $info['tipo'] = "success";
+                    $info['titulo'] = "Eliminado";
+                    $info['texto'] = "Foto ".$id[2]." Eliminada";
+                    $info['reload'] = 1;
+                    $info['page'] = "_usinox_productos_image.php?id_pro=".$id[1]."&nombre=".$id[2];
+                }else{ $this->htmlspecialchars($sql->error); }
+            }else{ $this->htmlspecialchars($sql->error); }
+        }else{ $this->htmlspecialchars($this->con->error); }
+
+        return $info;
+        
+    }
+    public function upload($filepath, $filename, $i){
+
+        $filename = ($filename !== null) ? $filename : $this->pass_generate(20) ;
+        $file_formats = array("JPG", "JPEG");
+        $name = $_FILES['file_image'.$i]['name'];
+        $size = $_FILES['file_image'.$i]['size'];
+        if(strlen($name)){
+            $extension = substr($name, strrpos($name, '.') + 1);
+            $extension2 = strtoupper($extension);
+            if(in_array($extension2, $file_formats)){
+                if($size < (25 * 1024)){
+                    $imagename = $filename.".".$extension;
+                    $imagename_new = $filename."x.".strtolower($extension);
+                    $tmp = $_FILES['file_image'.$i]['tmp_name'];
+                    if(move_uploaded_file($tmp, $filepath.$imagename)){
+                            $data = getimagesize($filepath.$imagename);
+                            if($data['mime'] == "image/jpeg"){
+                                $info['op'] = 1;
+                                $info['mensaje'] = "Imagen subida";
+                                $info['image'] = $imagename_new;
+                                rename($filepath.$imagename, $filepath.$imagename_new);
+                            }else{
+                                $info['op'] = 2;
+                                $info['mensaje'] = "La imagen no es jpg / jpeg";
+                            }
+                    }else{
+                        $info['op'] = 2;
+                        $info['mensaje'] = "No se pudo subir la imagen";
+                    }
+                }else{
+                    $info['op'] = 2;
+                    $info['mensaje'] = "Imagen sobrepasa los 25KB establecidos";
+                }
+            }else{
+                $info['op'] = 2;
+                $info['mensaje'] = "Formato Invalido";
+            }
+        }else{
+            $info['op'] = 2;
+            $info['mensaje'] =  "No ha seleccionado una imagen";
+        }
+        return $info;
+
+    }
     private function get_result($stmt){
         $arrResult = array();
         $stmt->store_result();

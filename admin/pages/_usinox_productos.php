@@ -171,7 +171,7 @@ if(isset($_GET["id_pro"]) && is_numeric($_GET["id_pro"]) && $_GET["id_pro"] != 0
                         <li class="nombre"><?php echo $nombre; ?></li>
                         <a title="Eliminar" class="icn borrar" onclick="eliminar('<?php echo $eliminaraccion; ?>', '<?php echo $id_pro; ?>/<?php echo $id_cat; ?>', '<?php echo $eliminarobjeto; ?>', '<?php echo $nombre; ?>')"></a>
                         <a title="Modificar" class="icn modificar" onclick="navlink('<?php echo $page_mod; ?>?id_cat=<?php echo $id_cat; ?>&id_pro=<?php echo $id_pro; ?>')"></a>
-                        <a title="Imagenes" class="icn fotos" onclick="navlink('<?php echo $page_img; ?>?id_pro=<?php echo $id_pro; ?>')"></a>
+                        <a title="Imagenes" class="icn fotos" onclick="navlink('<?php echo $page_img; ?>?id_pro=<?php echo $id_pro; ?>&nombre=<?php echo $nombre; ?>')"></a>
                     </ul>
                 </li>
                 <?php } ?>
