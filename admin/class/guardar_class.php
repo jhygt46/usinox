@@ -356,6 +356,14 @@ class Guardar{
                                 $info['mensaje'] = "Prodcuto modificada exitosamente";
                                 $info['reload'] = 1;
                                 $info['page'] = "_usinox_productos.php?id_cat=".$id_cat;
+                                $ficha = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf", null, 0);
+                                if($ficha['op'] == 1){
+                                    $this->actualizar_pdf_producto($id, $ficha['image'], 'ficha');
+                                }
+                                $manual = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf", null, 0);
+                                if($manual['op'] == 1){
+                                    $this->actualizar_pdf_producto($id, $manual['image'], 'manual');
+                                }
                             }else{ $info['err'] = $this->htmlspecialchars($sql->error); }
                         }else{ $info['err'] = $this->htmlspecialchars($sql->error); }
                     }else{ $info['err'] = $this->htmlspecialchars($this->con->error); }
@@ -379,6 +387,15 @@ class Guardar{
                                             $info['mensaje'] = "Producto ingresada exitosamente";
                                             $info['reload'] = 1;
                                             $info['page'] = "_usinox_productos.php?id_cat=".$id_cat;
+                                            $id = $this->con->insert_id;
+                                            $ficha = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf", null, 0);
+                                            if($ficha['op'] == 1){
+                                                $this->actualizar_pdf_producto($id, $ficha['image'], 'ficha');
+                                            }
+                                            $manual = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf", null, 0);
+                                            if($manual['op'] == 1){
+                                                $this->actualizar_pdf_producto($id, $manual['image'], 'manual');
+                                            }
                                         }else{ $info['err'] = $this->htmlspecialchars($sql->error); }
                                     }else{ $info['err'] = $this->htmlspecialchars($sql->error); }
                                 }else{ $info['err'] = $this->htmlspecialchars($this->con->error); }
@@ -548,11 +565,8 @@ class Guardar{
         $nombre = $_POST["nombre"];
         $id = $_POST["id_pro"];
 
-        $info['POST'] = $_POST;
-        $info['FILE'] = $_FILES;
-        
-        $image = $this->upload($_SERVER["DOCUMENT_ROOT"]."/uploads/", $nombre, 0);
-        $info['image'] = $image;
+        $image = $this->upload_foto($_SERVER["DOCUMENT_ROOT"]."/uploads/images", $nombre, 0);
+
         if($image['op'] == 1){
             if($sql = $this->con->prepare("INSERT INTO _usinox_productos_fotos (nombre, id_pro) VALUES (?, ?)")){
                 if($sql->bind_param("si", $image["image"], $id)){
@@ -579,18 +593,34 @@ class Guardar{
         $info['mensaje'] = "No se pudo borrar la foto";
         
         $id = explode("/", $_POST['id']);
-        
-        if($sql = $this->con->prepare("DELETE FROM _usinox_productos_fotos WHERE id_prf=?")){
-            if($sql->bind_param("i", $id[0])){
-                if($sql->execute()){
-                    $info['tipo'] = "success";
-                    $info['titulo'] = "Eliminado";
-                    $info['texto'] = "Foto ".$id[2]." Eliminada";
-                    $info['reload'] = 1;
-                    $info['page'] = "_usinox_productos_image.php?id_pro=".$id[1]."&nombre=".$id[2];
-                }else{ $this->htmlspecialchars($sql->error); }
-            }else{ $this->htmlspecialchars($sql->error); }
+
+        if($sqls = $this->con->prepare("SELECT nombre FROM _usinox_productos_fotos WHERE id_prf=? AND id_pro=?")){
+            if($sqls->bind_param("ii", $id[0], $id[1])){
+                if($sqls->execute()){
+                    $data = $this->get_result($sqls);
+                    $sqls->close();
+                    if(count($data) == 1){
+                        $nombre = $data[0]["nombre"];
+                        if($sql = $this->con->prepare("DELETE FROM _usinox_productos_fotos WHERE id_prf=?")){
+                            if($sql->bind_param("i", $id[0])){
+                                if($sql->execute()){
+                                    $info['tipo'] = "success";
+                                    $info['titulo'] = "Eliminado";
+                                    $info['texto'] = "Foto ".$nombre." Eliminada";
+                                    $info['reload'] = 1;
+                                    $info['page'] = "_usinox_productos_image.php?id_pro=".$id[1]."&nombre=".$id[2];
+                                    @unlink($_SERVER["DOCUMENT_ROOT"]."/uploads/images/".$nombre);
+                                }else{ $this->htmlspecialchars($sql->error); }
+                            }else{ $this->htmlspecialchars($sql->error); }
+                        }else{ $this->htmlspecialchars($this->con->error); }
+                    }else{
+                        $info['mensaje'] = "No se pudo borrar la foto";
+                    }
+                }else{ $this->htmlspecialchars($sqls->error); }
+            }else{ $this->htmlspecialchars($sqls->error); }
         }else{ $this->htmlspecialchars($this->con->error); }
+
+        
 
         return $info;
         
@@ -610,11 +640,52 @@ class Guardar{
         }
 
     }
-    private function upload($filepath, $filename, $i){
+    private function upload_foto($filepath, $filename, $i){
 
         $filename = ($filename !== null) ? $filename : $this->pass_generate(20) ;
-        $info['i'] = $filename;
         $file_formats = array("JPG", "JPEG");
+        $name = $_FILES['file_image'.$i]['name'];
+        $size = $_FILES['file_image'.$i]['size'];
+        if(strlen($name)){
+            $extension = substr($name, strrpos($name, '.') + 1);
+            $extension2 = strtoupper($extension);
+            if(in_array($extension2, $file_formats)){
+                if($size < (25 * 1024 * 1024)){
+                    $imagename = $this->get_force_name_upload($filepath, $filename, strtolower($extension));
+                    $tmp = $_FILES['file_image'.$i]['tmp_name'];
+                    if(move_uploaded_file($tmp, $filepath.$imagename)){
+                            $data = getimagesize($filepath.$imagename);
+                            if($data['mime'] == "image/jpeg"){
+                                $info['op'] = 1;
+                                $info['mensaje'] = "Imagen subida";
+                                $info['image'] = $imagename;
+                            }else{
+                                $info['op'] = 2;
+                                $info['mensaje'] = "La imagen no es jpg / jpeg";
+                            }
+                    }else{
+                        $info['op'] = 2;
+                        $info['mensaje'] = "No se pudo subir la imagen";
+                    }
+                }else{
+                    $info['op'] = 2;
+                    $info['mensaje'] = "Imagen sobrepasa los 25KB establecidos";
+                }
+            }else{
+                $info['op'] = 2;
+                $info['mensaje'] = "Formato Invalido";
+            }
+        }else{
+            $info['op'] = 2;
+            $info['mensaje'] =  "No ha seleccionado una imagen";
+        }
+        return $info;
+
+    }
+    private function upload_pdf($filepath, $filename, $i){
+
+        $filename = ($filename !== null) ? $filename : $_FILES['file_image'.$i]['name'] ;
+        $file_formats = array("PDF");
         $name = $_FILES['file_image'.$i]['name'];
         $size = $_FILES['file_image'.$i]['size'];
         if(strlen($name)){

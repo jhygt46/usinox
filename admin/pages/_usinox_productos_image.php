@@ -107,7 +107,7 @@ $list_ = $admin->get_foto_producto($id_pro);
                 <li class="user" rel="<?php echo $id_prf; ?>">
                     <ul class="clearfix">
                         <li class="nombre"><?php echo $nombre; ?></li>
-                        <a title="Eliminar" class="icn borrar" onclick="eliminar('<?php echo $eliminaraccion; ?>', '<?php echo $id_prf; ?>/<?php echo $id_pro; ?>/<?php echo $nombre; ?>', '<?php echo $eliminarobjeto; ?>', '<?php echo $nombre; ?>')"></a>
+                        <a title="Eliminar" class="icn borrar" onclick="eliminar('<?php echo $eliminaraccion; ?>', '<?php echo $id_prf; ?>/<?php echo $id_pro; ?>', '<?php echo $eliminarobjeto; ?>', '<?php echo $nombre; ?>')"></a>
                     </ul>
                 </li>
                 <?php } ?>
