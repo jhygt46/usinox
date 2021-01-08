@@ -721,7 +721,7 @@ class Guardar{
                     $tmp = $_FILES['file_image'.$i.$i]['tmp_name'];
                     if(move_uploaded_file($tmp, $filepath.$imagename)){
                             $data = getimagesize($filepath.$imagename);
-                            if($data['mime'] == "image/jpeg"){
+                            if($data['mime'] == "application/pdf"){
                                 $info['op'] = 1;
                                 $info['mensaje'] = "Imagen subida";
                                 $info['image'] = $imagename;
