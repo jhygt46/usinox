@@ -90,6 +90,10 @@ class Core{
                 if($sql->execute()){
                     $data = $this->get_result($sql);
 
+                    echo "<pre>";
+                    print_r($data);
+                    echo "</pre>";
+
                     if(!count($data) == 0){
                         $info['tipo'] = "categoria";
                         $info['data'] = $data[0];
@@ -98,12 +102,15 @@ class Core{
                             if($sqls->bind_param("isi", $id_pag, $url, $this->eliminado)){
                                 if($sqls->execute()){
                                     $datas = $this->get_result($sqls);
+                                    echo "<pre>";
+                                    print_r($datas);
+                                    echo "</pre>";
                                     if(!count($datas) == 0){
                                         $info['tipo'] = "producto";
                                         $info['data'] = $datas[0];
                                     }else{
-                                        header("HTTP/1.1 404 Not Found");
-                                        require '404.php';
+                                        //header("HTTP/1.1 404 Not Found");
+                                        //require '404.php';
                                         exit;
                                     }
                                     $sqls->close();
