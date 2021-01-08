@@ -343,7 +343,6 @@ class Guardar{
         }else{ $this->htmlspecialchars($this->con->error); }
     }
     private function actualizar_pdf_producto($id, $nombre, $campo){
-
         if($sql = $this->con->prepare("UPDATE _usinox_productos SET ".$campo."=? WHERE id_pro=?")){
             if($sql->bind_param("si", $nombre, $id)){
                 if($sql->execute()){
@@ -351,7 +350,6 @@ class Guardar{
                 }else{ $info['err'] = $this->htmlspecialchars($sql->error); }
             }else{ $info['err'] = $this->htmlspecialchars($sql->error); }
         }else{ $info['err'] = $this->htmlspecialchars($this->con->error); }
-
     }
     private function crear_producto(){
         
@@ -718,6 +716,7 @@ class Guardar{
     }
     private function upload_pdf($filepath, $filename, $i, $old_file){
 
+        $info['old_file'] = $old_file;
         $filename = ($filename !== null) ? $filename : $this->file_name($_FILES['file_image'.$i.$i]['name']) ;
         $file_formats = array("PDF");
         $name = $_FILES['file_image'.$i.$i]['name'];
