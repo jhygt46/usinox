@@ -331,6 +331,17 @@ class Guardar{
         return $info;
 
     }
+    private function get_pdf_producto($id){
+        if($sqls = $this->con->prepare("SELECT ficha, manual FROM _usinox_productos WHERE id_pro=? AND eliminado=?")){
+            if($sqls->bind_param("ii", $id, $this->eliminado)){
+                if($sqls->execute()){
+                    $datas = $this->get_result($sqls);
+                    $sqls->close();
+                    return $datas[0];
+                }else{ $this->htmlspecialchars($sqls->error); }
+            }else{ $this->htmlspecialchars($sqls->error); }
+        }else{ $this->htmlspecialchars($this->con->error); }
+    }
     private function crear_producto(){
         
         $info['op'] = 2;
@@ -356,16 +367,17 @@ class Guardar{
                                 $info['mensaje'] = "Prodcuto modificada exitosamente";
                                 $info['reload'] = 1;
                                 $info['page'] = "_usinox_productos.php?id_cat=".$id_cat;
-                                $ficha = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/", null, 0);
-                                $info['ficha'] = $ficha;
+                                
+                                $pdf_name = $this->get_pdf_producto($id);
+                                $ficha = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/", null, 0, $pdf_name["ficha"]);
                                 if($ficha['op'] == 1){
                                     $this->actualizar_pdf_producto($id, $ficha['image'], 'ficha');
                                 }
-                                $manual = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/", null, 0);
-                                $info['manual'] = $manual;
+                                $manual = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/", null, 1, $pdf_name["manual"]);
                                 if($manual['op'] == 1){
                                     $this->actualizar_pdf_producto($id, $manual['image'], 'manual');
                                 }
+
                             }else{ $info['err'] = $this->htmlspecialchars($sql->error); }
                         }else{ $info['err'] = $this->htmlspecialchars($sql->error); }
                     }else{ $info['err'] = $this->htmlspecialchars($this->con->error); }
@@ -390,12 +402,12 @@ class Guardar{
                                             $info['reload'] = 1;
                                             $info['page'] = "_usinox_productos.php?id_cat=".$id_cat;
                                             $id = $this->con->insert_id;
-                                            $ficha = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/", null, 0);
+                                            $ficha = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/", null, 0, "");
                                             $info['ficha'] = $ficha;
                                             if($ficha['op'] == 1){
                                                 $this->actualizar_pdf_producto($id, $ficha['image'], 'ficha');
                                             }
-                                            $manual = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/", null, 1);
+                                            $manual = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/", null, 1, "");
                                             $info['manual'] = $manual;
                                             if($manual['op'] == 1){
                                                 $this->actualizar_pdf_producto($id, $manual['image'], 'manual');
@@ -686,19 +698,18 @@ class Guardar{
         return $info;
 
     }
-    private function upload_pdf($filepath, $filename, $i){
+    private function upload_pdf($filepath, $filename, $i, $old_file){
 
         $filename = ($filename !== null) ? $filename : $_FILES['file_image'.$i]['name'] ;
         $file_formats = array("PDF");
         $name = $_FILES['file_image'.$i.$i]['name'];
         $size = $_FILES['file_image'.$i.$i]['size'];
-        $info['files'] = $_FILES;
-        $info['i'] = $i;
         if(strlen($name)){
             $extension = substr($name, strrpos($name, '.') + 1);
             $extension2 = strtoupper($extension);
             if(in_array($extension2, $file_formats)){
                 if($size < (25 * 1024 * 1024)){
+                    if($old_file != ""){ @unlink($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/".$old_file); }
                     $imagename = $this->get_force_name_upload($filepath, $filename, strtolower($extension));
                     $tmp = $_FILES['file_image'.$i.$i]['tmp_name'];
                     if(move_uploaded_file($tmp, $filepath.$imagename)){
