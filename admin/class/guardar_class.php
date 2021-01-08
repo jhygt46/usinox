@@ -613,6 +613,7 @@ class Guardar{
     private function upload($filepath, $filename, $i){
 
         $filename = ($filename !== null) ? $filename : $this->pass_generate(20) ;
+        $info['i'] = $filename;
         $file_formats = array("JPG", "JPEG");
         $name = $_FILES['file_image'.$i]['name'];
         $size = $_FILES['file_image'.$i]['size'];
