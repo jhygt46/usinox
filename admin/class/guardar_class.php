@@ -700,7 +700,7 @@ class Guardar{
             if(in_array($extension2, $file_formats)){
                 if($size < (25 * 1024 * 1024)){
                     $imagename = $this->get_force_name_upload($filepath, $filename, strtolower($extension));
-                    $tmp = $_FILES['file_image'.$i]['tmp_name'];
+                    $tmp = $_FILES['file_image'.$i.$i]['tmp_name'];
                     if(move_uploaded_file($tmp, $filepath.$imagename)){
                             $data = getimagesize($filepath.$imagename);
                             if($data['mime'] == "image/jpeg"){
