@@ -547,6 +547,9 @@ class Guardar{
 
         $nombre = $_POST["nombre"];
         $id = $_POST["id_pro"];
+
+        $info['POST'] = $_POST;
+        $info['FILE'] = $_FILES;
         
         $image = $this->upload($_SERVER["DOCUMENT_ROOT"]."/uploads", null, 0);
         if($image['op'] == 1){
@@ -595,8 +598,8 @@ class Guardar{
 
         $filename = ($filename !== null) ? $filename : $this->pass_generate(20) ;
         $file_formats = array("JPG", "JPEG");
-        $name = $_FILES['file_image0']['name'];
-        $size = $_FILES['file_image0']['size'];
+        $name = $_FILES['file_image'.$i]['name'];
+        $size = $_FILES['file_image'.$i]['size'];
         if(strlen($name)){
             $extension = substr($name, strrpos($name, '.') + 1);
             $extension2 = strtoupper($extension);

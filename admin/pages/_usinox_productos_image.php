@@ -72,7 +72,7 @@ $list_ = $admin->get_foto_producto($id_pro);
                     <input id="id_pro" type="hidden" value="<?php echo $id_pro; ?>" />
                     <label>
                         <span>Foto Producto:</span>
-                        <input id="file_image0" type="file" />
+                        <input id="file_image" type="file" />
                         <div class="mensaje"></div>
                     </label>
                     <label style='margin-top:20px'>
