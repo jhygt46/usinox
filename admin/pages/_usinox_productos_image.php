@@ -102,11 +102,11 @@ $list_ = $admin->get_foto_producto($id_pro);
                 <?php
                 for($i=0; $i<count($list_); $i++){
                     $id_prf = $list_[$i][$id_list];
-                    $nombre = $list_[$i]['nombre'];
+                    $nombre_f = $list_[$i]['nombre'];
                 ?>
                 <li class="user" rel="<?php echo $id_prf; ?>">
                     <ul class="clearfix">
-                        <li class="nombre"><?php echo $nombre; ?></li>
+                        <li class="nombre"><?php echo $nombre_f; ?></li>
                         <a title="Eliminar" class="icn borrar" onclick="eliminar('<?php echo $eliminaraccion; ?>', '<?php echo $id_prf; ?>/<?php echo $id_pro; ?>/<?php echo $nombre; ?>', '<?php echo $eliminarobjeto; ?>', '<?php echo $nombre; ?>')"></a>
                     </ul>
                 </li>
