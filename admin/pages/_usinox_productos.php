@@ -109,12 +109,12 @@ if(isset($_GET["id_pro"]) && is_numeric($_GET["id_pro"]) && $_GET["id_pro"] != 0
                     </label>
                     <label>
                         <span>Catalogo Usinox:</span>
-                        <input id="file_image" type="file" />
+                        <input id="file_image0" type="file" />
                         <div class="mensaje"></div>
                     </label>
                     <label>
                         <span>Manual Usinox:</span>
-                        <input id="file_image" type="file" />
+                        <input id="file_image1" type="file" />
                         <div class="mensaje"></div>
                     </label>
                     <label>
