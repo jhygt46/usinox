@@ -356,11 +356,11 @@ class Guardar{
                                 $info['mensaje'] = "Prodcuto modificada exitosamente";
                                 $info['reload'] = 1;
                                 $info['page'] = "_usinox_productos.php?id_cat=".$id_cat;
-                                $ficha = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf", null, 0);
+                                $ficha = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/", null, 0);
                                 if($ficha['op'] == 1){
                                     $this->actualizar_pdf_producto($id, $ficha['image'], 'ficha');
                                 }
-                                $manual = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf", null, 0);
+                                $manual = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/", null, 0);
                                 if($manual['op'] == 1){
                                     $this->actualizar_pdf_producto($id, $manual['image'], 'manual');
                                 }
@@ -388,11 +388,11 @@ class Guardar{
                                             $info['reload'] = 1;
                                             $info['page'] = "_usinox_productos.php?id_cat=".$id_cat;
                                             $id = $this->con->insert_id;
-                                            $ficha = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf", null, 0);
+                                            $ficha = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/", null, 0);
                                             if($ficha['op'] == 1){
                                                 $this->actualizar_pdf_producto($id, $ficha['image'], 'ficha');
                                             }
-                                            $manual = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf", null, 0);
+                                            $manual = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/", null, 0);
                                             if($manual['op'] == 1){
                                                 $this->actualizar_pdf_producto($id, $manual['image'], 'manual');
                                             }
@@ -565,7 +565,7 @@ class Guardar{
         $nombre = $_POST["nombre"];
         $id = $_POST["id_pro"];
 
-        $image = $this->upload_foto($_SERVER["DOCUMENT_ROOT"]."/uploads/images", $nombre, 0);
+        $image = $this->upload_foto($_SERVER["DOCUMENT_ROOT"]."/uploads/images/", $nombre, 0);
 
         if($image['op'] == 1){
             if($sql = $this->con->prepare("INSERT INTO _usinox_productos_fotos (nombre, id_pro) VALUES (?, ?)")){
