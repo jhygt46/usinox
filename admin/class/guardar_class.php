@@ -342,6 +342,17 @@ class Guardar{
             }else{ $this->htmlspecialchars($sqls->error); }
         }else{ $this->htmlspecialchars($this->con->error); }
     }
+    private function actualizar_pdf_producto($id, $nombre, $campo){
+
+        if($sql = $this->con->prepare("UPDATE _usinox_productos SET ".$campo."=? WHERE id_pro=?")){
+            if($sql->bind_param("si", $nombre, $id)){
+                if($sql->execute()){
+
+                }else{ $info['err'] = $this->htmlspecialchars($sql->error); }
+            }else{ $info['err'] = $this->htmlspecialchars($sql->error); }
+        }else{ $info['err'] = $this->htmlspecialchars($this->con->error); }
+
+    }
     private function crear_producto(){
         
         $info['op'] = 2;
