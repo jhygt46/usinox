@@ -720,9 +720,16 @@ class Guardar{
                     $imagename = $this->get_force_name_upload($filepath, $filename, strtolower($extension));
                     $tmp = $_FILES['file_image'.$i.$i]['tmp_name'];
                     if(move_uploaded_file($tmp, $filepath.$imagename)){
-                        $info['op'] = 1;
-                        $info['mensaje'] = "Imagen subida";
-                        $info['image'] = $imagename;
+                            $data = getimagesize($filepath.$imagename);
+                            $info['mime'] = $data['mime'];
+                            if($data['mime'] == "application/pdf"){
+                                $info['op'] = 1;
+                                $info['mensaje'] = "Imagen subida";
+                                $info['image'] = $imagename;
+                            }else{
+                                $info['op'] = 2;
+                                $info['mensaje'] = "La imagen no es jpg / jpeg";
+                            }
                     }else{
                         $info['op'] = 2;
                         $info['mensaje'] = "No se pudo subir la imagen";
