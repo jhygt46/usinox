@@ -551,7 +551,7 @@ class Guardar{
         $info['POST'] = $_POST;
         $info['FILE'] = $_FILES;
         
-        $image = $this->upload($_SERVER["DOCUMENT_ROOT"]."/uploads", null, 0);
+        $image = $this->upload($_SERVER["DOCUMENT_ROOT"]."/uploads/", null, 0);
         $info['image'] = $image;
         if($image['op'] == 1){
             if($sql = $this->con->prepare("INSERT INTO _usinox_productos_fotos (nombre, id_pro) VALUES (?, ?)")){
