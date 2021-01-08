@@ -698,9 +698,14 @@ class Guardar{
         return $info;
 
     }
+    private function file_name($nombre){
+        $n = explode(".", $nombre);
+        $res = str_replace(' ', '_', strtolower($n[0]));
+        return $res;
+    }
     private function upload_pdf($filepath, $filename, $i, $old_file){
 
-        $filename = ($filename !== null) ? $filename : $_FILES['file_image'.$i.$i]['name'] ;
+        $filename = ($filename !== null) ? $filename : $this->file_name($_FILES['file_image'.$i.$i]['name']) ;
         $file_formats = array("PDF");
         $name = $_FILES['file_image'.$i.$i]['name'];
         $size = $_FILES['file_image'.$i.$i]['size'];
