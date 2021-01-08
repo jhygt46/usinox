@@ -100,6 +100,17 @@ class Core{
                                     if(!count($datas) == 0){
                                         $info['tipo'] = "producto";
                                         $info['data'] = $datas[0];
+                                        if($sqlr = $this->con->prepare("SELECT * FROM _usinox_productos_fotos WHERE id_pro=?")){
+                                            if($sqlr->bind_param("i", $info['data']['id_pro'])){
+                                                if($sqlr->execute()){
+                                                    $datar = $this->get_result($sqlr);
+                                                    if(count($datar) > 0){
+                                                        $info['data']['fotos'] = $datar;
+                                                    }
+                                                    $sqls->close();
+                                                }else{ $this->htmlspecialchars($sqlr->error); }
+                                            }else{ $this->htmlspecialchars($sqlr->error); }
+                                        }else{ $this->htmlspecialchars($this->con->error); }
                                     }else{
                                         header("HTTP/1.1 404 Not Found");
                                         require '404.php';
