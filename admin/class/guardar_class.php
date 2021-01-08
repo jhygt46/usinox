@@ -692,6 +692,8 @@ class Guardar{
         $file_formats = array("PDF");
         $name = $_FILES['file_image'.$i.$i]['name'];
         $size = $_FILES['file_image'.$i.$i]['size'];
+        $info['files'] = $_FILES;
+        $info['i'] = $i;
         if(strlen($name)){
             $extension = substr($name, strrpos($name, '.') + 1);
             $extension2 = strtoupper($extension);
