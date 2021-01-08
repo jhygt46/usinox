@@ -551,7 +551,7 @@ class Guardar{
         $info['POST'] = $_POST;
         $info['FILE'] = $_FILES;
         
-        $image = $this->upload($_SERVER["DOCUMENT_ROOT"]."/uploads/", null, 0);
+        $image = $this->upload($_SERVER["DOCUMENT_ROOT"]."/uploads/", $nombre, 0);
         $info['image'] = $image;
         if($image['op'] == 1){
             if($sql = $this->con->prepare("INSERT INTO _usinox_productos_fotos (nombre, id_pro) VALUES (?, ?)")){
@@ -595,7 +595,22 @@ class Guardar{
         return $info;
         
     }
-    public function upload($filepath, $filename, $i){
+    private function get_force_name_upload($filepath, $filename, $extension){
+
+        $w = true;
+        $aux = "";
+        $count = 0;
+        while($w){
+            if(!file_exists($filepath.$filename.$aux.".".$extension)){
+                return $filename.$aux.".".$extension;
+            }else{
+                $aux = "_".$count;
+                $count++;
+            }
+        }
+
+    }
+    private function upload($filepath, $filename, $i){
 
         $filename = ($filename !== null) ? $filename : $this->pass_generate(20) ;
         $file_formats = array("JPG", "JPEG");
@@ -606,16 +621,14 @@ class Guardar{
             $extension2 = strtoupper($extension);
             if(in_array($extension2, $file_formats)){
                 if($size < (25 * 1024 * 1024)){
-                    $imagename = $filename.".".$extension;
-                    $imagename_new = $filename."x.".strtolower($extension);
+                    $imagename = $this->get_force_name_upload($filepath, $filename, strtolower($extension));
                     $tmp = $_FILES['file_image'.$i]['tmp_name'];
                     if(move_uploaded_file($tmp, $filepath.$imagename)){
                             $data = getimagesize($filepath.$imagename);
                             if($data['mime'] == "image/jpeg"){
                                 $info['op'] = 1;
                                 $info['mensaje'] = "Imagen subida";
-                                $info['image'] = $imagename_new;
-                                rename($filepath.$imagename, $filepath.$imagename_new);
+                                $info['image'] = $imagename;
                             }else{
                                 $info['op'] = 2;
                                 $info['mensaje'] = "La imagen no es jpg / jpeg";
