@@ -395,7 +395,7 @@ class Guardar{
                                             if($ficha['op'] == 1){
                                                 $this->actualizar_pdf_producto($id, $ficha['image'], 'ficha');
                                             }
-                                            $manual = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/", null, 0);
+                                            $manual = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/", null, 1);
                                             $info['manual'] = $manual;
                                             if($manual['op'] == 1){
                                                 $this->actualizar_pdf_producto($id, $manual['image'], 'manual');
