@@ -272,6 +272,17 @@ class Guardar{
         return $info;
 
     }
+    private function get_foto_categoria($id){
+        if($sqls = $this->con->prepare("SELECT foto FROM _usinox_categorias WHERE id_cat=? AND eliminado=?")){
+            if($sqls->bind_param("ii", $id, $this->eliminado)){
+                if($sqls->execute()){
+                    $datas = $this->get_result($sqls);
+                    $sqls->close();
+                    return $datas[0]['foto'];
+                }else{ $this->htmlspecialchars($sqls->error); }
+            }else{ $this->htmlspecialchars($sqls->error); }
+        }else{ $this->htmlspecialchars($this->con->error); }
+    }
     private function crear_categoria(){
         
         $info['op'] = 2;
@@ -293,6 +304,12 @@ class Guardar{
                                 $info['mensaje'] = "Categoria modificada exitosamente";
                                 $info['reload'] = 1;
                                 $info['page'] = "_usinox_categorias.php?parent_id=".$parent_id;
+                                $old_file = $this->get_foto_categoria($id);
+                                $image = $this->upload_foto($_SERVER["DOCUMENT_ROOT"]."/uploads/images/", $nombre, 0, $old_file);
+                                if($image['op'] == 1){
+                                    $this->actualizar_foto_categoria($id, $image['image']);
+                                }
+
                             }else{ $this->htmlspecialchars($sql->error); }
                         }else{ $this->htmlspecialchars($sql->error); }
                     }else{ $this->htmlspecialchars($this->con->error); }
@@ -316,6 +333,13 @@ class Guardar{
                                             $info['mensaje'] = "Categoria ingresada exitosamente";
                                             $info['reload'] = 1;
                                             $info['page'] = "_usinox_categorias.php?parent_id=".$parent_id;
+
+                                            $id = $this->con->insert_id;
+                                            $image = $this->upload_foto($_SERVER["DOCUMENT_ROOT"]."/uploads/images/", $nombre, 0, "");
+                                            if($image['op'] == 1){
+                                                $this->actualizar_foto_categoria($id, $image['image']);
+                                            }
+
                                         }else{ $this->htmlspecialchars($sql->error); }
                                     }else{ $this->htmlspecialchars($sql->error); }
                                 }else{ $this->htmlspecialchars($this->con->error); }
@@ -367,6 +391,19 @@ class Guardar{
         }
         return $info;
     }
+    private function actualizar_foto_categoria($id, $nombre){
+
+        $info['op'] = 2;
+        if($sql = $this->con->prepare("UPDATE _usinox_categorias SET foto=? WHERE id_cat=?")){
+            if($sql->bind_param("si", $nombre, $id)){
+                if($sql->execute()){
+                    $info['op'] = 1;
+                    $info['tipo'] = 'ficha';
+                }else{ $info['err'] = $this->htmlspecialchars($sql->error); }
+            }else{ $info['err'] = $this->htmlspecialchars($sql->error); }
+        }else{ $info['err'] = $this->htmlspecialchars($this->con->error); }
+        return $info;
+    }
     private function crear_producto(){
         
         $info['op'] = 2;
@@ -395,14 +432,12 @@ class Guardar{
                                 
                                 $pdf_name = $this->get_pdf_producto($id);
                                 $ficha = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/", null, 0, $pdf_name["ficha"]);
-                                $info["ficha"] = $ficha;
                                 if($ficha['op'] == 1){
-                                    $info["act_ficha"] = $this->actualizar_pdf_producto($id, $ficha['image'], 'ficha');
+                                    $this->actualizar_pdf_producto($id, $ficha['image'], 'ficha');
                                 }
                                 $manual = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/", null, 1, $pdf_name["manual"]);
-                                $info["manual"] = $manual;
                                 if($manual['op'] == 1){
-                                    $info["act_manual"] = $this->actualizar_pdf_producto($id, $manual['image'], 'manual');
+                                    $this->actualizar_pdf_producto($id, $manual['image'], 'manual');
                                 }
 
                             }else{ $info['err'] = $this->htmlspecialchars($sql->error); }
@@ -430,14 +465,12 @@ class Guardar{
                                             $info['page'] = "_usinox_productos.php?id_cat=".$id_cat;
                                             $id = $this->con->insert_id;
                                             $ficha = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/", null, 0, "");
-                                            $info['ficha'] = $ficha;
                                             if($ficha['op'] == 1){
-                                                $info["act_ficha"] = $this->actualizar_pdf_producto($id, $ficha['image'], 'ficha');
+                                                $this->actualizar_pdf_producto($id, $ficha['image'], 'ficha');
                                             }
                                             $manual = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/", null, 1, "");
-                                            $info['manual'] = $manual;
                                             if($manual['op'] == 1){
-                                                $info["act_manual"] = $this->actualizar_pdf_producto($id, $manual['image'], 'manual');
+                                                $this->actualizar_pdf_producto($id, $manual['image'], 'manual');
                                             }
                                         }else{ $info['err'] = $this->htmlspecialchars($sql->error); }
                                     }else{ $info['err'] = $this->htmlspecialchars($sql->error); }
@@ -608,7 +641,7 @@ class Guardar{
         $nombre = $_POST["nombre"];
         $id = $_POST["id_pro"];
 
-        $image = $this->upload_foto($_SERVER["DOCUMENT_ROOT"]."/uploads/images/", $nombre, 0);
+        $image = $this->upload_foto($_SERVER["DOCUMENT_ROOT"]."/uploads/images/", $nombre, 0, "");
 
         if($image['op'] == 1){
             if($sql = $this->con->prepare("INSERT INTO _usinox_productos_fotos (nombre, id_pro) VALUES (?, ?)")){
@@ -683,7 +716,7 @@ class Guardar{
         }
 
     }
-    private function upload_foto($filepath, $filename, $i){
+    private function upload_foto($filepath, $filename, $i, $old_file){
 
         $filename = ($filename !== null) ? $filename : $this->pass_generate(20) ;
         $file_formats = array("JPG", "JPEG");
@@ -694,6 +727,7 @@ class Guardar{
             $extension2 = strtoupper($extension);
             if(in_array($extension2, $file_formats)){
                 if($size < (25 * 1024 * 1024)){
+                    if($old_file != ""){ @unlink($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/".$old_file); }
                     $imagename = $this->get_force_name_upload($filepath, $filename, strtolower($extension));
                     $tmp = $_FILES['file_image'.$i]['tmp_name'];
                     if(move_uploaded_file($tmp, $filepath.$imagename)){
@@ -742,7 +776,7 @@ class Guardar{
             $extension2 = strtoupper($extension);
             if(in_array($extension2, $file_formats)){
                 if($size < (25 * 1024 * 1024)){
-                    if($old_file != ""){ $info['delete'] = $_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/".$old_file; @unlink($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/".$old_file); }
+                    if($old_file != ""){ @unlink($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/".$old_file); }
                     $imagename = $this->get_force_name_upload($filepath, $filename, strtolower($extension));
                     $tmp = $_FILES['file_image'.$i.$i]['tmp_name'];
                     if(move_uploaded_file($tmp, $filepath.$imagename)){
