@@ -305,6 +305,7 @@ class Guardar{
                                 $info['reload'] = 1;
                                 $info['page'] = "_usinox_categorias.php?parent_id=".$parent_id;
                                 $old_file = $this->get_foto_categoria($id);
+                                $info["old_file"] = $old_file;
                                 $image = $this->upload_foto($_SERVER["DOCUMENT_ROOT"]."/uploads/images/", $nombre, 0, $old_file);
                                 $info["image"] = $image;
                                 if($image['op'] == 1){
