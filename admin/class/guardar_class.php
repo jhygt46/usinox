@@ -67,6 +67,7 @@ class Guardar{
 
     }
     private function pass_generate($n){
+        $r = "";
         $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         for($i=0; $i<$n; $i++){
             $r .= $chars{rand(0, strlen($chars)-1)};
@@ -594,8 +595,8 @@ class Guardar{
 
         $filename = ($filename !== null) ? $filename : $this->pass_generate(20) ;
         $file_formats = array("JPG", "JPEG");
-        $name = $_FILES['file_image'.$i]['name'];
-        $size = $_FILES['file_image'.$i]['size'];
+        $name = $_FILES['file_image0']['name'];
+        $size = $_FILES['file_image0']['size'];
         if(strlen($name)){
             $extension = substr($name, strrpos($name, '.') + 1);
             $extension2 = strtoupper($extension);
