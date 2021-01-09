@@ -213,7 +213,14 @@ class Core{
                     $sql->close();
                     $cat = $this->process_categoria($data, $url);
                     if($cat == null){
-                        return $this->process_producto($data, $url);
+                        $pro = $this->process_producto($data, $url);
+                        if($pro == null){
+                            header("HTTP/1.1 404 Not Found");
+                            require '404.php';
+                            exit;
+                        }else{
+                            return $pro;
+                        }
                     }else{
                         return $cat;
                     }
