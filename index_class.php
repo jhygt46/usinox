@@ -142,21 +142,23 @@ class Core{
 
                     $datas = $this->get_result($sqls);
                     $sqls->close();
-                    $id = $datas[0]["id_pro"];
-                    $res[$id]["id_pro"] = $datas[0]["id_pro"];
-                    $res[$id]["nombre"] = $datas[0]["nombre"];
-                    $res[$id]["descripcion"] = $datas[0]["descripcion"];
-                    for($i=0; $i<count($datas); $i++){
-                        $res[$id]["fotos"][] = $datas[$i]["foto_nombre"];
-                    }
-                    $res['parents'] = $this->resp_categorias($data, $datas[0]["id_cat"]);
-                    $res[$id]['relacionados'] = $this->get_relacionados($datas[0]['id_cat']);
-                    return $res;
 
+                    if(count($datas) == 1){
+                        $id = $datas[0]["id_pro"];
+                        $res[$id]["id_pro"] = $datas[0]["id_pro"];
+                        $res[$id]["nombre"] = $datas[0]["nombre"];
+                        $res[$id]["descripcion"] = $datas[0]["descripcion"];
+                        for($i=0; $i<count($datas); $i++){
+                            $res[$id]["fotos"][] = $datas[$i]["foto_nombre"];
+                        }
+                        $res['parents'] = $this->resp_categorias($data, $datas[0]["id_cat"]);
+                        $res[$id]['relacionados'] = $this->get_relacionados($datas[0]['id_cat']);
+                    }
+                    
                 }else{ $this->htmlspecialchars($sqls->error); }
             }else{ $this->htmlspecialchars($sqls->error); }
         }else{ $this->htmlspecialchars($this->con->error); }
-        return null;
+        return $res;
 
     }
     private function process_categoria($data, $url){
