@@ -83,11 +83,31 @@ class Core{
             }else{ $this->htmlspecialchars($sqls->error); }
         }else{ $this->htmlspecialchars($this->con->error); }
     }
+    private function child_prods($id_cat){
+        if($sqls = $this->con->prepare("SELECT t1.id_pro, t1.nombre, t1.descripcion, t2.nombre as foto_nombre FROM _usinox_productos t1, _usinox_productos_fotos t2 WHERE t1.id_cat=? AND t1.id_pro=t2.id_pro AND t1.eliminado=?")){
+            if($sqls->bind_param("ii", $id_cat, $this->eliminado)){
+                if($sqls->execute()){
+
+                    $datas = $this->get_result($sqls);
+                    $sqls->close();
+                    for($i=0; $i<count($datas); $i++){
+                        $id = $datas[$i]["id_pro"];
+                        $res[$id]["id_pro"] = $datas[$i]["id_pro"];
+                        $res[$id]["nombre"] = $datas[$i]["nombre"];
+                        $res[$id]["descripcion"] = $datas[$i]["descripcion"];
+                        $res[$id]["fotos"][] = $datas[$i]["foto_nombre"];
+                    }
+                    return $res;
+
+                }else{ $this->htmlspecialchars($sqls->error); }
+            }else{ $this->htmlspecialchars($sqls->error); }
+        }else{ $this->htmlspecialchars($this->con->error); }
+    }
     private function child_categoria($data, $id){
         $res = array();
         for($i=0; $i<count($data); $i++){
             if($data[$i]['parent_id'] == $id){
-
+                $res[] = $data[$i];
             }
         }
         return $res;
