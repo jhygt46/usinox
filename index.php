@@ -11,11 +11,7 @@
         require "index_class.php";
         $core = new Core();
         $inicio = $core->iniciar();
-        echo "<pre>";
-        print_r($inicio);
-        echo "</pre>";
-        exit;
-        
+                
         
     ?>
 
@@ -99,6 +95,14 @@
                                 </table>
                                 <div class="titulo"><div class="nombre">Vitrina de productos</div></div>
                                 <div class="lista_productos clearfix">
+
+                                    <?php
+                                        echo "<pre>";
+                                        print_r($inicio);
+                                        echo "</pre>";
+                                    ?>
+
+
                                     <?php if($_GET["tipo"] == 1){ ?>
                                     <?php for($i=0; $i<10; $i++){ ?>
                                     <div class="producto">

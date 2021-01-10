@@ -45,7 +45,7 @@ class Core{
                 $sitio = 1;
             }
             
-            //$info["config"] = $this->get_config($sitio);
+            $info["base"] = $this->get_base($sitio);
 
             if($url[1] == ""){
                 $info['tipo'] = "inicio";
@@ -60,6 +60,19 @@ class Core{
             return $info;
 
         }
+
+    }
+    private function get_base($id_pag){
+
+        if($sql = $this->con->prepare("SELECT * FROM _usinox_categorias WHERE id_pag=? AND parent_id=? AND eliminado=?")){
+            if($sql->bind_param("iii", $id_pag, $this->eliminado, $this->eliminado)){
+                if($sql->execute()){
+                    $data = $this->get_result($sql);
+                    $sql->close();
+                    return $data;
+                }else{ $this->htmlspecialchars($sql->error); }
+            }else{ $this->htmlspecialchars($sql->error); }
+        }else{ $this->htmlspecialchars($this->con->error); }
 
     }
     private function get_random_productos(){
@@ -231,51 +244,7 @@ class Core{
         }else{ $this->htmlspecialchars($this->con->error); }
 
     }
-    private function buscar_categoria_productos($id_pag, $url){
-
-        if($sql = $this->con->prepare("SELECT id_cat, nombre, urls, foto, parent_id FROM _usinox_categorias WHERE id_pag=? AND urls=? AND eliminado=?")){
-            if($sql->bind_param("isi", $id_pag, $url, $this->eliminado)){
-                if($sql->execute()){
-                    $data = $this->get_result($sql);
-                    if(!count($data) == 0){
-                        $info['tipo'] = "categoria";
-                        $info['data'] = $data[0];
-                    }else{
-                        if($sqls = $this->con->prepare("SELECT id_pro, nombre, urls, descripcion, marca, modelo, precio, ficha, manual FROM _usinox_productos WHERE id_pag=? AND urls=? AND eliminado=?")){
-                            if($sqls->bind_param("isi", $id_pag, $url, $this->eliminado)){
-                                if($sqls->execute()){
-                                    $datas = $this->get_result($sqls);
-                                    if(!count($datas) == 0){
-                                        $info['tipo'] = "producto";
-                                        $info['data'] = $datas[0];
-                                        if($sqlr = $this->con->prepare("SELECT nombre FROM _usinox_productos_fotos WHERE id_pro=?")){
-                                            if($sqlr->bind_param("i", $info['data']['id_pro'])){
-                                                if($sqlr->execute()){
-                                                    $datar = $this->get_result($sqlr);
-                                                    if(count($datar) > 0){
-                                                        $info['data']['fotos'] = $datar;
-                                                    }
-                                                    $sqls->close();
-                                                }else{ $this->htmlspecialchars($sqlr->error); }
-                                            }else{ $this->htmlspecialchars($sqlr->error); }
-                                        }else{ $this->htmlspecialchars($this->con->error); }
-                                    }else{
-                                        header("HTTP/1.1 404 Not Found");
-                                        require '404.php';
-                                        exit;
-                                    }
-                                    $sqls->close();
-                                }else{ $this->htmlspecialchars($sqls->error); }
-                            }else{ $this->htmlspecialchars($sqls->error); }
-                        }else{ $this->htmlspecialchars($this->con->error); }
-                    }
-                    $sql->close();
-                }else{ $this->htmlspecialchars($sql->error); }
-            }else{ $this->htmlspecialchars($sql->error); }
-        }else{ $this->htmlspecialchars($this->con->error); }
-        return $info;
-
-    }
+    
     private function get_result($stmt){
         $arrResult = array();
         $stmt->store_result();
