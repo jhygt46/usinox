@@ -69,7 +69,7 @@ class Core{
     }
     private function get_pagina(){
 
-        if($sql = $this->con->prepare("SELECT * FROM usinox_pagina_url t1, _usinox_paginas t2 WHERE t1.urls=? AND t1.id_pag=t2.id_pag AND t2.eliminado=?")){
+        if($sql = $this->con->prepare("SELECT * FROM _usinox_pagina_url t1, _usinox_paginas t2 WHERE t1.urls=? AND t1.id_pag=t2.id_pag AND t2.eliminado=?")){
             if($sql->bind_param("si", $_SERVER['HTTP_HOST'], $this->eliminado)){
                 if($sql->execute()){
                     $data = $this->get_result($sql);
