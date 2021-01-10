@@ -11,7 +11,6 @@
         require "index_class.php";
         $core = new Core();
         $inicio = $core->iniciar();
-                
         
     ?>
 

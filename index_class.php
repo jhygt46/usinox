@@ -45,7 +45,7 @@ class Core{
                 $sitio = 1;
             }
             
-            $info["base"] = $this->get_base($sitio);
+            
 
             if($url[1] == ""){
                 $info['tipo'] = "inicio";
@@ -234,9 +234,11 @@ class Core{
                             require '404.php';
                             exit;
                         }else{
+                            $pro['base'] = $this->get_base($id_pag);
                             return $pro;
                         }
                     }else{
+                        $cat['base'] = $this->get_base($id_pag);
                         return $cat;
                     }
                 }else{ $this->htmlspecialchars($sql->error); }
