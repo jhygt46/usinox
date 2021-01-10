@@ -6,6 +6,7 @@ class Core{
     
     public $con = null;
     public $eliminado = 0;
+    public $id_pag = 0;
     
     public function __construct(){
 
@@ -27,39 +28,19 @@ class Core{
             $redirect = "https://".$domain.$_SERVER['REQUEST_URI'];
             header("Location: ".$redirect);
         }else{
-
-            if($domain == "www.usinox.cl"){ 
-                $sitio = 1;
-            }
-            if($domain == "www.marmitas.cl"){ 
-                $sitio = 1;
-            }
-            if($domain == "www.equiposgastronomicosneptuno.cl"){ 
-                $sitio = 2;
-            }
-            if($domain == "www.egneptuno.cl"){ 
-                $sitio = 2;
-            }
-            if($_SERVER['HTTP_HOST'] == "35.202.149.15"){
-                $sitio = 1;
-            }
             
             $info['pagina'] = $this->get_pagina();
-
-            echo "<pre>";
-            print_r($info['pagina']);
-            echo "</pre>";
 
             if($url[1] == ""){
                 $info['tipo'] = "inicio";
                 $info['productos'] = $this->get_random_productos(9);
-                $info['base'] = $this->get_base($sitio);
+                $info['base'] = $this->get_base();
             }else if($url[1] == "contacto" || $url[1] == "nosotros" || $url[1] == "servicios"){
                 $info['tipo'] = "pagina";
                 $info['pagina'] = $url[1];
-                $info['base'] = $this->get_base($sitio);
+                $info['base'] = $this->get_base();
             }else{
-                $info = $this->buscar_cat_pro($sitio, $url[1]);
+                $info = $this->buscar_cat_pro($url[1]);
             }
 
             return $info;
@@ -74,16 +55,21 @@ class Core{
                 if($sql->execute()){
                     $data = $this->get_result($sql);
                     $sql->close();
-                    return $data[0];
+                    if(count($data) == 1){
+                        $this->id_pag = $data[0]['id_pag'];
+                        return $data[0];
+                    }else{
+                        die("PAGINA NO ENCONTRADA");
+                    }
                 }else{ $this->htmlspecialchars($sql->error); }
             }else{ $this->htmlspecialchars($sql->error); }
         }else{ $this->htmlspecialchars($this->con->error); }
 
     }
-    private function get_base($id_pag){
+    private function get_base(){
 
         if($sql = $this->con->prepare("SELECT * FROM _usinox_categorias WHERE id_pag=? AND parent_id=? AND eliminado=?")){
-            if($sql->bind_param("iii", $id_pag, $this->eliminado, $this->eliminado)){
+            if($sql->bind_param("iii", $this->id_pag, $this->eliminado, $this->eliminado)){
                 if($sql->execute()){
                     $data = $this->get_result($sql);
                     $sql->close();
@@ -94,8 +80,8 @@ class Core{
 
     }
     private function get_random_productos(){
-        if($sqls = $this->con->prepare("SELECT t1.id_pro, t1.nombre, t1.descripcion, t2.nombre as foto_nombre FROM _usinox_productos t1, _usinox_productos_fotos t2 WHERE t1.id_pro=t2.id_pro AND t1.eliminado=? ORDER BY RAND() LIMIT 9")){
-            if($sqls->bind_param("i", $this->eliminado)){
+        if($sqls = $this->con->prepare("SELECT t1.id_pro, t1.nombre, t1.descripcion, t2.nombre as foto_nombre FROM _usinox_productos t1, _usinox_productos_fotos t2 WHERE t1.id_pro=t2.id_pro AND t1.id_pag=? AND t1.eliminado=? ORDER BY RAND() LIMIT 9")){
+            if($sqls->bind_param("ii", $this->id_pag, $this->eliminado)){
                 if($sqls->execute()){
 
                     $datas = $this->get_result($sqls);
@@ -237,10 +223,10 @@ class Core{
         }
         return "en ".implode(" > ", array_reverse($n));
     }
-    private function buscar_cat_pro($id_pag, $url){
+    private function buscar_cat_pro($url){
 
         if($sql = $this->con->prepare("SELECT id_cat, nombre, urls, foto, parent_id FROM _usinox_categorias WHERE id_pag=? AND eliminado=?")){
-            if($sql->bind_param("ii", $id_pag, $this->eliminado)){
+            if($sql->bind_param("ii", $this->id_pag, $this->eliminado)){
                 if($sql->execute()){
                     $data = $this->get_result($sql);
                     $sql->close();
@@ -252,11 +238,11 @@ class Core{
                             require '404.php';
                             exit;
                         }else{
-                            $pro['base'] = $this->get_base($id_pag);
+                            $pro['base'] = $this->get_base();
                             return $pro;
                         }
                     }else{
-                        $cat['base'] = $this->get_base($id_pag);
+                        $cat['base'] = $this->get_base();
                         return $cat;
                     }
                 }else{ $this->htmlspecialchars($sql->error); }
