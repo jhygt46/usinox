@@ -82,9 +82,11 @@
                                 <div class="lista_productos clearfix">
 
                                     <?php
+                                        /*
                                         echo "<pre>";
                                         print_r($inicio);
                                         echo "</pre>";
+                                        */
                                     ?>
 
                                     <?php if(isset($inicio['childs_cat'])){ for($i=0; $i<count($inicio['childs_cat']); $i++){ ?>
@@ -94,8 +96,8 @@
                                                 <div class="c_pfoto">
                                                     <img src="https://www.usinox.cl/foto.php?archivo=http://www.usinox.cl/admin/imagenes/572anafe_bajo_de_8_pl.jpg&ancho=218&alto=180" alt="" />
                                                 </div>
-                                                <div class="c_pttl">Anafe Bajo a Gas 8 platos</div>
-                                                <div class="c_pdesc">Anafe bajo a gas de acero inoxidable AISI 304 de 8 quemadores de ø180mm, parrillas porta o</div>
+                                                <div class="c_pttl"><?php echo $inicio['childs_cat'][$i]['nombre']; ?></div>
+                                                <div class="c_pdesc"><?php echo $inicio['childs_cat'][$i]['descripcion']; ?></div>
                                                 <div class="c_pbtn clearfix">
                                                     <div class="btn_cotizar">Cotizar</div>
                                                     <div class="btn_mostrar btn_mostrar_prod"><div class="txt">Mostrar</div><div class="punto valign"></div></div>
@@ -104,8 +106,7 @@
                                         </div>
                                     </div>
                                     <?php }} ?>
-                                    <?php if($_GET["tipo"] == 2){ ?>
-                                    <?php for($i=0; $i<10; $i++){ ?>
+                                    <?php if(isset($inicio['childs_pro'])){ for($i=0; $i<count($inicio['childs_pro']); $i++){ ?>
                                     <div class="producto">
                                         <div class="pro">
                                             <div class="c_pro">

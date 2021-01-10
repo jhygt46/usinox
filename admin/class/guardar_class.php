@@ -291,14 +291,15 @@ class Guardar{
         $nombre = $_POST['nombre'];
         $url = $_POST['url'];
         $parent_id = $_POST['parent_id'];
+        $desc = ($parent_id > 0) ? $_POST['desc'] : "" ;
         $id = $_POST['id'];
 
         if($this->verificar_usuario()){
 
             if($id > 0){
                 if($this->verificar_urls_cat($url, $id)){
-                    if($sql = $this->con->prepare("UPDATE _usinox_categorias SET nombre=?, urls=? WHERE id_cat=? AND id_pag=?")){
-                        if($sql->bind_param("ssii", $nombre, $url, $id, $_SESSION["id_pag"])){
+                    if($sql = $this->con->prepare("UPDATE _usinox_categorias SET nombre=?, urls=?, descripcion=? WHERE id_cat=? AND id_pag=?")){
+                        if($sql->bind_param("sssii", $nombre, $url, $desc, $id, $_SESSION["id_pag"])){
                             if($sql->execute()){
                                 $info['op'] = 1;
                                 $info['mensaje'] = "Categoria modificada exitosamente";
@@ -327,8 +328,8 @@ class Guardar{
                                 $data = $this->get_result($sqls);
                                 $sqls->close();
                                 $orden = count($data);
-                                if($sql = $this->con->prepare("INSERT INTO _usinox_categorias (nombre, urls, fecha, parent_id, orden, id_pag, eliminado) VALUES (?, ?, now(), ?, ?, ?, ?)")){
-                                    if($sql->bind_param("ssiiii", $nombre, $url, $parent_id, $orden, $_SESSION["id_pag"], $this->eliminado)){
+                                if($sql = $this->con->prepare("INSERT INTO _usinox_categorias (nombre, urls, descripcion, fecha, parent_id, orden, id_pag, eliminado) VALUES (?, ?, ?, now(), ?, ?, ?, ?)")){
+                                    if($sql->bind_param("sssiiii", $nombre, $url, $desc, $parent_id, $orden, $_SESSION["id_pag"], $this->eliminado)){
                                         if($sql->execute()){
                                             $info['op'] = 1;
                                             $info['mensaje'] = "Categoria ingresada exitosamente";

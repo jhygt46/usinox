@@ -35,6 +35,7 @@ $id = 0;
 
 $that["nombre"] = "";
 $that["urls"] = "";
+$that["descripcion"] = "";
 $that["parent_id"] = (isset($_GET["parent_id"])) ? $_GET["parent_id"] : 0;
 $that["id_pag"] = 0;
 
@@ -117,11 +118,18 @@ if(isset($_GET["id_cat"]) && is_numeric($_GET["id_cat"]) && $_GET["id_cat"] != 0
                         <input id="url" type="text" value="<?php echo $that['urls']; ?>" />
                         <div class="mensaje"></div>
                     </label>
+                    <?php if($that["parent_id"] > 0){ ?>
                     <label>
                         <span>Foto:</span>
                         <input id="file_image" type="file" />
                         <div class="mensaje"></div>
                     </label>
+                    <label>
+                        <span>Descripcion:</span>
+                        <textarea id="desc" ><?php echo $that['descripcion']; ?></textarea>
+                        <div class="mensaje"></div>
+                    </label>
+                    <?php } ?>
                     <label style='margin-top:20px'>
                         <span>&nbsp;</span>
                         <a id='button' onclick="form()">Enviar</a>

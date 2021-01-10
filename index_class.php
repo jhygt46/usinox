@@ -40,11 +40,15 @@ class Core{
             if($domain == "www.egneptuno.cl"){ 
                 $sitio = 2;
             }
-
             if($_SERVER['HTTP_HOST'] == "35.202.149.15"){
                 $sitio = 1;
             }
             
+            $info['pagina'] = $this->get_pagina();
+
+            echo "<pre>";
+            print_r($info['pagina']);
+            echo "</pre>";
 
             if($url[1] == ""){
                 $info['tipo'] = "inicio";
@@ -61,6 +65,19 @@ class Core{
             return $info;
 
         }
+
+    }
+    private function get_pagina(){
+
+        if($sql = $this->con->prepare("SELECT * FROM usinox_pagina_url t1, _usinox_paginas t2 WHERE t1.urls=? AND t1.id_pag=t2.id_pag AND t2.eliminado=?")){
+            if($sql->bind_param("si", $_SERVER['HTTP_HOST'], $this->eliminado)){
+                if($sql->execute()){
+                    $data = $this->get_result($sql);
+                    $sql->close();
+                    return $data[0];
+                }else{ $this->htmlspecialchars($sql->error); }
+            }else{ $this->htmlspecialchars($sql->error); }
+        }else{ $this->htmlspecialchars($this->con->error); }
 
     }
     private function get_base($id_pag){
