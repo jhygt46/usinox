@@ -50,9 +50,11 @@ class Core{
             if($url[1] == ""){
                 $info['tipo'] = "inicio";
                 $info['productos'] = $this->get_random_productos(9);
+                $info['base'] = $this->get_base($sitio);
             }else if($url[1] == "contacto" || $url[1] == "nosotros" || $url[1] == "servicios"){
                 $info['tipo'] = "pagina";
                 $info['pagina'] = $url[1];
+                $info['base'] = $this->get_base($sitio);
             }else{
                 $info = $this->buscar_cat_pro($sitio, $url[1]);
             }
