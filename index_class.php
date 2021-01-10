@@ -45,7 +45,6 @@ class Core{
                 $sitio = 1;
             }
             
-            
 
             if($url[1] == ""){
                 $info['tipo'] = "inicio";

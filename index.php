@@ -1,13 +1,6 @@
     <?php
 
         date_default_timezone_set('america/santiago');
-        
-        /*
-        ini_set('display_errors', 1);
-        ini_set('display_startup_errors', 1);
-        error_reporting(E_ALL);
-        */
-
         require "index_class.php";
         $core = new Core();
         $inicio = $core->iniciar();
@@ -94,9 +87,7 @@
                                         echo "</pre>";
                                     ?>
 
-
-                                    <?php if($_GET["tipo"] == 1){ ?>
-                                    <?php for($i=0; $i<10; $i++){ ?>
+                                    <?php if(isset($inicio['childs_cat'])){ for($i=0; $i<count($inicio['childs_cat']); $i++){ ?>
                                     <div class="producto">
                                         <div class="pro">
                                             <div class="c_pro">
