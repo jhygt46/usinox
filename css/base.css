@@ -366,11 +366,14 @@ html body .contenedor .sitio .medio .info .data .lista_productos .producto .pro 
   right: 5px;
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_info {
-  width: 45%;
+  width: 55%;
   float: right;
 }
+html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_info .titulo_pro {
+  font-size: 22px;
+}
 html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_fotos {
-  width: 55%;
+  width: calc(45% - 2px);
   float: left;
   border: 1px solid #ccc;
   height: 400px;

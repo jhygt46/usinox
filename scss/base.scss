@@ -384,11 +384,17 @@ html{
                                 }
                                 .detalle_producto{
                                     .pro_info{
-                                        width: 45%;
-                                        float: right;        
+                                        width: 55%;
+                                        float: right;
+                                        .titulo_pro{
+                                            font-size: 22px;
+                                        }
+                                        .cotizar_pro{
+                                            
+                                        }       
                                     }
                                     .pro_fotos{
-                                        width: 55%;
+                                        width: calc(45% - 2px);
                                         float: left;
                                         border: 1px solid #ccc;
                                         height: 400px;
