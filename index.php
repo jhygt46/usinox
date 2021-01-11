@@ -82,11 +82,11 @@
                                 <div class="lista_productos clearfix">
 
                                     <?php
-                                        /*
+                                        
                                         echo "<pre>";
                                         print_r($inicio);
                                         echo "</pre>";
-                                        */
+                                        
                                     ?>
 
                                     <?php if(isset($inicio['childs_pro'])){ for($i=0; $i<count($inicio['childs_pro']); $i++){ ?>
@@ -94,7 +94,7 @@
                                         <div class="pro">
                                             <div class="c_pro">
                                                 <div class="c_pfoto">
-                                                    <img src="https://www.usinox.cl/foto.php?archivo=http://www.usinox.cl/admin/imagenes/572anafe_bajo_de_8_pl.jpg&ancho=218&alto=180" alt="" />
+                                                    <a class="link" href="<?php echo $inicio['childs_cat'][$i]['urls']; ?>"><img src="https://www.usinox.cl/foto.php?archivo=http://www.usinox.cl/admin/imagenes/572anafe_bajo_de_8_pl.jpg&ancho=218&alto=180" alt="" /></a>
                                                 </div>
                                                 <div class="c_pttl"><?php echo $inicio['childs_pro'][$i]['nombre']; ?></div>
                                                 <div class="c_pdesc"><?php echo $inicio['childs_pro'][$i]['descripcion']; ?></div>
