@@ -111,6 +111,7 @@ class Core{
                         $id = $datas[$i]["id_pro"];
                         $res[$id]["id_pro"] = $datas[$i]["id_pro"];
                         $res[$id]["nombre"] = $datas[$i]["nombre"];
+                        $res[$id]["urls"] = $datas[$i]["urls"];
                         $res[$id]["descripcion"] = $datas[$i]["descripcion"];
                         if($datas[$i]["foto_nombre"] != null){
                             $res[$id]["fotos"][] = $datas[$i]["foto_nombre"];

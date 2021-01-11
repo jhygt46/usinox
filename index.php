@@ -87,23 +87,18 @@
                                         print_r($inicio);
                                         echo "</pre>";
                                         */
-                                        foreach ($inicio['childs_pro'] as $valor) {
-                                            echo "<pre>";
-                                            print_r($valor);
-                                            echo "</pre>";
-                                        }
 
                                     ?>
 
-                                    <?php if(isset($inicio['childs_pro'])){ for($i=0; $i<count($inicio['childs_pro']); $i++){ ?>
+                                    <?php if(isset($inicio['childs_pro'])){ foreach ($inicio['childs_pro'] as $valor){ ?>
                                     <div class="producto">
                                         <div class="pro">
                                             <div class="c_pro">
                                                 <div class="c_pfoto">
-                                                    <a class="link" href="<?php echo $inicio['childs_cat'][$i]['urls']; ?>"><img src="https://www.usinox.cl/foto.php?archivo=http://www.usinox.cl/admin/imagenes/572anafe_bajo_de_8_pl.jpg&ancho=218&alto=180" alt="" /></a>
+                                                    <a class="link" href="<?php echo $valor['urls']; ?>"><img src="https://www.usinox.cl/foto.php?archivo=http://35.202.149.15/uploads/images/<?php echo $valor['fotos'][0]; ?>&ancho=218&alto=180" alt="" /></a>
                                                 </div>
-                                                <div class="c_pttl"><?php echo $inicio['childs_pro'][$i]['nombre']; ?></div>
-                                                <div class="c_pdesc"><?php echo $inicio['childs_pro'][$i]['descripcion']; ?></div>
+                                                <div class="c_pttl"><?php echo $valor['nombre']; ?></div>
+                                                <div class="c_pdesc"><?php echo $valor['descripcion']; ?></div>
                                                 <div class="c_pbtn clearfix">
                                                     <div class="btn_cotizar">Cotizar</div>
                                                     <div class="btn_mostrar btn_mostrar_prod"><div class="txt">Mostrar</div><div class="punto valign"></div></div>
