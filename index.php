@@ -109,7 +109,7 @@
                                     <?php if(isset($inicio['childs_cat'])){ for($i=0; $i<count($inicio['childs_cat']); $i++){ $foto = ($inicio['childs_cat'][$i]['foto'] == "") ? "sin_imagen.jpg" : $inicio['childs_cat'][$i]['foto'] ; ?>
                                     <div class="producto">
                                         <div class="pro">
-                                            <a href="<?php echo $inicio['childs_cat'][$i]['urls']; ?>">
+                                            <a class="link" href="<?php echo $inicio['childs_cat'][$i]['urls']; ?>">
                                             <div class="c_pro">
                                                 <div class="c_pfoto">
                                                     <img src="https://www.usinox.cl/foto.php?archivo=http://35.202.149.15/uploads/images/<?php echo $foto; ?>&ancho=218&alto=180" alt="" />
