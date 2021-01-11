@@ -111,7 +111,7 @@
                                         <div class="pro">
                                             <div class="c_pro">
                                                 <div class="c_pfoto">
-                                                    <img src="https://www.usinox.cl/foto.php?archivo=http://www.usinox.cl/admin/imagenes/572anafe_bajo_de_8_pl.jpg&ancho=218&alto=180" alt="" />
+                                                    <a href=""><img src="https://www.usinox.cl/foto.php?archivo=http://www.usinox.cl/admin/imagenes/572anafe_bajo_de_8_pl.jpg&ancho=218&alto=180" alt="" /></a>
                                                 </div>
                                                 <div class="c_pttl">Anafe Bajo a Gas 8 platos</div>
                                                 <div class="c_pbtn clearfix">
