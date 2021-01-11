@@ -166,19 +166,18 @@ class Core{
                     $sqls->close();
 
                     if(count($datas) > 0){
-                        $id = $datas[0]["id_pro"];
-                        $res[$id]["id_pro"] = $datas[0]["id_pro"];
-                        $res[$id]["nombre"] = $datas[0]["nombre"];
-                        $res[$id]["descripcion"] = $datas[0]["descripcion"];
+                        $res['pro']["id_pro"] = $datas[0]["id_pro"];
+                        $res['pro']["nombre"] = $datas[0]["nombre"];
+                        $res['pro']["descripcion"] = $datas[0]["descripcion"];
                         for($i=0; $i<count($datas); $i++){
                             if($datas[$i]["foto_nombre"] != null){
-                                $res[$id]["fotos"][] = $datas[$i]["foto_nombre"];
+                                $res['pro']["fotos"][] = $datas[$i]["foto_nombre"];
                             }else{
-                                $res[$id]["fotos"][0] = "sin_imagen.jpg";
+                                $res['pro']["fotos"][0] = "sin_imagen.jpg";
                             }
                         }
                         $res['parents'] = $this->resp_categorias($data, $datas[0]["id_cat"]);
-                        $res[$id]['relacionados'] = $this->get_relacionados($datas[0]['id_cat']);
+                        $res['pro']['relacionados'] = $this->get_relacionados($datas[0]['id_cat']);
                     }
                     
                 }else{ $this->htmlspecialchars($sqls->error); }
