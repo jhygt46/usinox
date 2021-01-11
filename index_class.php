@@ -171,7 +171,11 @@ class Core{
                         $res[$id]["nombre"] = $datas[0]["nombre"];
                         $res[$id]["descripcion"] = $datas[0]["descripcion"];
                         for($i=0; $i<count($datas); $i++){
-                            $res[$id]["fotos"][] = $datas[$i]["foto_nombre"];
+                            if($datas[$i]["foto_nombre"] != null){
+                                $res[$id]["fotos"][] = $datas[$i]["foto_nombre"];
+                            }else{
+                                $res[$id]["fotos"][0] = "sin_imagen.jpg";
+                            }
                         }
                         $res['parents'] = $this->resp_categorias($data, $datas[0]["id_cat"]);
                         $res[$id]['relacionados'] = $this->get_relacionados($datas[0]['id_cat']);
