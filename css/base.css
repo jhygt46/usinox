@@ -313,6 +313,7 @@ html body .contenedor .sitio .medio .info .data .lista_productos .producto .pro 
   color: #666;
   height: 40px;
   padding-top: 5px;
+  text-decoration: none;
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .producto .pro .c_pro .c_pdesc {
   font-size: 12px;
@@ -354,6 +355,7 @@ html body .contenedor .sitio .medio .info .data .lista_productos .producto .pro 
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .producto .pro .c_pro .c_pbtn .btn_mostrar .txt {
   padding: 9px 5px 0px 10px;
+  text-decoration: none;
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .producto .pro .c_pro .c_pbtn .btn_mostrar .punto {
   width: 6px;
