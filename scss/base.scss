@@ -315,6 +315,9 @@ html{
                                         margin: 5px auto 10px auto;
                                         border: 1px solid #ccc;
                                         border-radius: 10px;
+                                        .link{
+                                            text-decoration: none;
+                                        }
                                         .c_pro{
                                             padding: 5px;
                                             .c_pfoto{
@@ -327,7 +330,6 @@ html{
                                                 color: #666;
                                                 height: 40px;
                                                 padding-top: 5px;
-                                                text-decoration: none;
                                             }
                                             .c_pdesc{
                                                 font-size: 12px;
@@ -367,7 +369,7 @@ html{
                                                     position: relative;
                                                     .txt{
                                                         padding: 9px 5px 0px 10px;
-                                                        text-decoration: none;
+                                                        color: #666;
                                                     }
                                                     .punto{
                                                         width: 6px;
