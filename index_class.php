@@ -114,7 +114,7 @@ class Core{
                         $res[$id]["descripcion"] = $datas[$i]["descripcion"];
                         $res[$id]["fotos"][] = $datas[$i]["foto_nombre"];
                     }
-                    return $res;
+                    return $datas;
 
                 }else{ return $this->htmlspecialchars($sqls->error); }
             }else{ return $this->htmlspecialchars($sqls->error); }
