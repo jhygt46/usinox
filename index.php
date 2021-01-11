@@ -91,7 +91,7 @@
                                     <?php if(isset($inicio['pro'])){ ?>
                                     <div class="detalle_producto">
                                         <div class="pro_info">
-                                            <div class="titulo_pro"><?php echo $inicio['pro']['titulo']; ?></div>
+                                            <div class="titulo_pro"><?php echo $inicio['pro']['nombre']; ?></div>
                                         </div>
                                         <div class="pro_fotos"></div>
                                     </div>
