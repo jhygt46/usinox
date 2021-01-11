@@ -373,7 +373,7 @@ html body .contenedor .sitio .medio .info .data .lista_productos .detalle_produc
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_fotos {
   width: 55%;
-  float: right;
+  float: left;
 }
 html body .contenedor .sitio .footer {
   width: 100%;
