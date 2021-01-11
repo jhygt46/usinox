@@ -191,6 +191,7 @@ class Core{
                     $res['childs_cat'] = $childs_cat;
                 }else{
                     $childs_prod = $this->child_prods($data[$i]['id_cat']);
+                    $res['n_prod'] = $childs_prod;
                     if(count($childs_prod) > 0){
                         $res['childs_pro'] = $childs_prod;
                     }else{
