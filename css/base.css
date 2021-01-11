@@ -368,12 +368,12 @@ html body .contenedor .sitio .medio .info .data .lista_productos .producto .pro 
 html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_info {
   width: 45%;
   float: right;
-  height: 400px;
-  border: 1px solid #ccc;
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_fotos {
   width: 55%;
   float: left;
+  border: 1px solid #ccc;
+  height: 400px;
 }
 html body .contenedor .sitio .footer {
   width: 100%;
