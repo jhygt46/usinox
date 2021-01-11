@@ -186,6 +186,11 @@ class Core{
                 if($data[$i]['parent_id'] > 0){
                     $res['parents'] = $this->resp_categorias($data, $data[$i]['parent_id']);
                 }
+
+                $res['n_data'] = $data;
+                $res['n_id_cat'] = $data[$i]['id_cat'];
+                $res['n_child_cat'] = $this->child_categoria($data, $data[$i]['id_cat']);
+
                 $childs_cat = $this->child_categoria($data, $data[$i]['id_cat']);
                 if(count($childs_cat) > 0){
                     $res['childs_cat'] = $childs_cat;
