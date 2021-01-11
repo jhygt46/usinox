@@ -115,7 +115,7 @@
                                                 <div class="c_pfoto">
                                                     <img src="https://www.usinox.cl/foto.php?archivo=http://35.202.149.15/uploads/images/<?php echo $foto; ?>&ancho=218&alto=180" alt="" />
                                                 </div>
-                                                <div class="c_pttl">Anafe Bajo a Gas 8 platos</div>
+                                                <div class="c_pttl"><?php echo $inicio['childs_cat'][$i]['nombre']; ?></div>
                                                 <div class="c_pbtn clearfix">
                                                     <div class="btn_mostrar btn_ver_prod"><div class="txt">Ver Productos</div><div class="punto valign"></div></div>
                                                 </div>
