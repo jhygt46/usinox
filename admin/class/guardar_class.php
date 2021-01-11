@@ -62,8 +62,6 @@ class Guardar{
         if($_POST['accion'] == "eliminar_foto_producto"){
             return $this->eliminar_foto_producto();
         }
-        
-        
 
     }
     private function pass_generate($n){
