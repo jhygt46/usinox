@@ -82,11 +82,17 @@
                                 <div class="lista_productos clearfix">
 
                                     <?php
-                                        
+                                        /*
                                         echo "<pre>";
                                         print_r($inicio);
                                         echo "</pre>";
-                                        
+                                        */
+                                        foreach ($inicio['childs_pro'] as $valor) {
+                                            echo "<pre>";
+                                            print_r($valor);
+                                            echo "</pre>";
+                                        }
+
                                     ?>
 
                                     <?php if(isset($inicio['childs_pro'])){ for($i=0; $i<count($inicio['childs_pro']); $i++){ ?>

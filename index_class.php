@@ -118,7 +118,7 @@ class Core{
                             $res[$id]["fotos"][0] = "sin_imagen.jpg";
                         }
                     }
-                    return $datas;
+                    return $res;
 
                 }else{ return $this->htmlspecialchars($sqls->error); }
             }else{ return $this->htmlspecialchars($sqls->error); }
