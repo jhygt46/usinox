@@ -101,7 +101,7 @@ class Core{
         }else{ $this->htmlspecialchars($this->con->error); }
     }
     private function child_prods($id_cat){
-        if($sqls = $this->con->prepare("SELECT t1.id_pro, t1.nombre, t1.descripcion, t2.nombre as foto_nombre FROM _usinox_productos t1 LEFT JOIN _usinox_productos_fotos t2 ON t1.id_pro=t2.id_pro WHERE t1.id_cat=?  AND t1.eliminado=?")){
+        if($sqls = $this->con->prepare("SELECT t1.id_pro, t1.nombre, t1.urls, t1.descripcion, t2.nombre as foto_nombre FROM _usinox_productos t1 LEFT JOIN _usinox_productos_fotos t2 ON t1.id_pro=t2.id_pro WHERE t1.id_cat=?  AND t1.eliminado=?")){
             if($sqls->bind_param("ii", $id_cat, $this->eliminado)){
                 if($sqls->execute()){
 
@@ -195,8 +195,6 @@ class Core{
                     $res['childs_cat'] = $childs_cat;
                 }else{
                     $childs_prod = $this->child_prods($data[$i]['id_cat']);
-                    $res['n_prod'] = $childs_prod;
-                    $res['n_id_cat'] = $data[$i]['id_cat'];
                     if(count($childs_prod) > 0){
                         $res['childs_pro'] = $childs_prod;
                     }else{
