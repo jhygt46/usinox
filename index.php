@@ -82,11 +82,11 @@
                                 <div class="lista_productos clearfix">
 
                                     <?php
-                                        /*
+                                        
                                         echo "<pre>";
                                         print_r($inicio);
                                         echo "</pre>";
-                                        */
+                                        
 
                                     ?>
 
