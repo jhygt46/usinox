@@ -365,6 +365,14 @@ html body .contenedor .sitio .medio .info .data .lista_productos .producto .pro 
   background: url("../images/punto.png");
   right: 5px;
 }
+html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_info {
+  width: 50%;
+  float: right;
+}
+html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_fotos {
+  width: 50%;
+  float: right;
+}
 html body .contenedor .sitio .footer {
   width: 100%;
   height: 150px;
