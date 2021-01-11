@@ -116,9 +116,9 @@ class Core{
                     }
                     return $res;
 
-                }else{ $this->htmlspecialchars($sqls->error); }
-            }else{ $this->htmlspecialchars($sqls->error); }
-        }else{ $this->htmlspecialchars($this->con->error); }
+                }else{ return $this->htmlspecialchars($sqls->error); }
+            }else{ return $this->htmlspecialchars($sqls->error); }
+        }else{ return $this->htmlspecialchars($this->con->error); }
     }
     private function child_categoria($data, $id){
         $res = array();
@@ -192,6 +192,7 @@ class Core{
                 }else{
                     $childs_prod = $this->child_prods($data[$i]['id_cat']);
                     $res['n_prod'] = $childs_prod;
+                    $res['n_id_cat'] = $data[$i]['id_cat'];
                     if(count($childs_prod) > 0){
                         $res['childs_pro'] = $childs_prod;
                     }else{
@@ -265,6 +266,9 @@ class Core{
             $stmt->fetch();
         }
         return $arrResult;
+    }
+    private function htmlspecialchars($msg){
+        return $msg;
     }
 
 }
