@@ -158,14 +158,14 @@ class Core{
     }
     private function process_producto($data, $url){
 
-        if($sqls = $this->con->prepare("SELECT t1.id_cat, t1.id_pro, t1.nombre, t1.descripcion, t2.nombre as foto_nombre FROM _usinox_productos t1, _usinox_productos_fotos t2 WHERE t1.urls=? AND t1.id_pro=t2.id_pro AND t1.eliminado=? ORDER BY RAND() LIMIT 4")){
-            if($sqls->bind_param("si", $url, $this->eliminado)){
+        if($sqls = $this->con->prepare("SELECT t1.id_pro, t1.nombre, t1.urls, t1.descripcion, t2.nombre as foto_nombre FROM _usinox_productos t1 LEFT JOIN _usinox_productos_fotos t2 ON t1.id_pro=t2.id_pro WHERE t1.urls=? AND t1.id_pag=?  AND t1.eliminado=?")){
+            if($sqls->bind_param("sii", $url, $this->id_pag, $this->eliminado)){
                 if($sqls->execute()){
 
                     $datas = $this->get_result($sqls);
                     $sqls->close();
 
-                    if(count($datas) == 1){
+                    if(count($datas) > 0){
                         $id = $datas[0]["id_pro"];
                         $res[$id]["id_pro"] = $datas[0]["id_pro"];
                         $res[$id]["nombre"] = $datas[0]["nombre"];
@@ -255,7 +255,6 @@ class Core{
         }else{ $this->htmlspecialchars($this->con->error); }
 
     }
-    
     private function get_result($stmt){
         $arrResult = array();
         $stmt->store_result();
