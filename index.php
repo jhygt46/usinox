@@ -93,9 +93,9 @@
                                         <div class="pro_info">
                                             <div class="titulo_pro"><?php echo $inicio['pro']['nombre']; ?></div>
                                             <div class="cotizar_pro clearfix">
-                                                <div class="cotizar_pro1">Cantidad</div>
+                                                <div class="cotizar_pro1">Cant</div>
                                                 <div class="cotizar_pro2"><input type="text" id="pro_cant"></div>
-                                                <div class="cotizar_pro3">Cotizar</div>
+                                                <div class="cotizar_pro3"><div class="btn">Cotizar</div></div>
                                             </div>
                                         </div>
                                         <div class="pro_fotos"></div>

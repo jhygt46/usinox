@@ -398,10 +398,22 @@ html{
                                             .cotizar_pro2{
                                                 width: 40px;
                                                 float: left;
+                                                input{
+                                                    width: 100%;
+                                                }
                                             }
                                             .cotizar_pro3{
                                                 width: calc(100% - 100px);
                                                 float: left;
+                                                .btn{
+                                                    width: 100%;
+                                                    max-width: 120px;
+                                                    background: #E13535 url('../images/cart1.jpg') no-repeat;
+                                                    height: 26px;
+                                                    border-radius: 5px;
+                                                    padding: 9px 0px 0px 42px;
+                                                    color: #fff;
+                                                }
                                             }
                                         }       
                                     }
