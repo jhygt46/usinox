@@ -462,6 +462,16 @@ html body .contenedor .sitio .footer {
     width: 96%;
   }
 }
+@media only screen and (min-width: 500px) {
+  .pro_info {
+    background: #f00;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .pro_info {
+    background: #0f0;
+  }
+}
 @media only screen and (min-width: 850px) {
   html body .contenedor .menu {
     display: none;
