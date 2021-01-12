@@ -403,6 +403,9 @@ html body .contenedor .sitio .medio .info .data .lista_productos .detalle_produc
   padding: 9px 0px 0px 42px;
   color: #fff;
 }
+html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_info .desc_pro {
+  font-size: 16px;
+}
 html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_fotos {
   width: calc(45% - 2px);
   float: left;
