@@ -99,6 +99,11 @@
                                             </div>
                                             <div class="desc_ttl">Descripcion</div>
                                             <div class="desc_pro"><?php echo $inicio['pro']['descripcion']; ?></div>
+                                            <div class="redes clearfix">
+                                                <div class="red1"></div>
+                                                <div class="red2"></div>
+                                                <div class="red3"></div>
+                                            </div>
                                         </div>
                                         <div class="pro_fotos"></div>
                                     </div>

@@ -378,26 +378,26 @@ html body .contenedor .sitio .medio .info .data .lista_productos .detalle_produc
   border-bottom: 1px solid #ccc;
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_info .cotizar_pro .cotizar_pro1 {
-  width: 50px;
+  width: 40px;
   float: left;
   padding-top: 8px;
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_info .cotizar_pro .cotizar_pro2 {
   width: 40px;
   float: left;
-  padding-right: 10px;
+  padding-right: 5px;
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_info .cotizar_pro .cotizar_pro2 input {
   height: 35px;
   width: 100%;
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_info .cotizar_pro .cotizar_pro3 {
-  width: calc(100% - 100px);
+  width: calc(100% - 85px);
   float: left;
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_info .cotizar_pro .cotizar_pro3 .btn {
   width: 100%;
-  max-width: 120px;
+  max-width: 95px;
   background: #E13535 url("../images/cart1.jpg") no-repeat;
   height: 26px;
   border-radius: 5px;
@@ -408,7 +408,7 @@ html body .contenedor .sitio .medio .info .data .lista_productos .detalle_produc
   padding: 10px 0px 10px 0px;
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_info .desc_pro {
-  font-size: 16px;
+  font-size: 14px;
   padding: 0px 0px 20px 0px;
   border-bottom: 1px solid #ccc;
 }
