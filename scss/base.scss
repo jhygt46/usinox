@@ -391,15 +391,19 @@ html{
                                             font-size: 22px;
                                         }
                                         .cotizar_pro{
+                                            padding: 10px 0px 20px 0px;
+                                            border-bottom: 1px solid #ccc;
                                             .cotizar_pro1{
-                                                width: 60px;
+                                                width: 50px;
                                                 float: left;
+                                                padding-top: 8px;
                                             }
                                             .cotizar_pro2{
                                                 width: 40px;
                                                 float: left;
+                                                padding-right: 10px;
                                                 input{
-                                                    width: 100%;
+                                                    width: 35px;
                                                 }
                                             }
                                             .cotizar_pro3{

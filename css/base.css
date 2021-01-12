@@ -373,16 +373,22 @@ html body .contenedor .sitio .medio .info .data .lista_productos .detalle_produc
 html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_info .titulo_pro {
   font-size: 22px;
 }
+html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_info .cotizar_pro {
+  padding: 10px 0px 20px 0px;
+  border-bottom: 1px solid #ccc;
+}
 html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_info .cotizar_pro .cotizar_pro1 {
-  width: 60px;
+  width: 50px;
   float: left;
+  padding-top: 8px;
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_info .cotizar_pro .cotizar_pro2 {
   width: 40px;
   float: left;
+  padding-right: 10px;
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_info .cotizar_pro .cotizar_pro2 input {
-  width: 100%;
+  width: 35px;
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_info .cotizar_pro .cotizar_pro3 {
   width: calc(100% - 100px);
