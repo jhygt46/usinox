@@ -384,8 +384,6 @@ html{
                                 }
                                 .detalle_producto{
                                     .pro_info{
-                                        width: calc(55% - 20px);
-                                        float: right;
                                         padding-left: 20px;
                                         .titulo_pro{
                                             font-size: 22px;
@@ -431,8 +429,6 @@ html{
                                         }     
                                     }
                                     .pro_fotos{
-                                        width: calc(45% - 2px);
-                                        float: left;
                                         border: 1px solid #ccc;
                                         height: 400px;
                                     }
@@ -504,12 +500,20 @@ html{
 
 @media only screen and (min-width: 500px){
     .pro_info{
-        background: #f00;
+        width: calc(55% - 20px);
+        float: right;
+    }
+    .pro_fotos{
+        width: calc(45% - 2px);
+        float: left;
     }
 }
 @media only screen and (max-width: 500px){
     .pro_info{
-        background: #0f0;
+        width: 100%;
+    }
+    .pro_fotos{
+        width: calc(100% - 2px);
     }
 }
 
