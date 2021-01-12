@@ -384,13 +384,25 @@ html{
                                 }
                                 .detalle_producto{
                                     .pro_info{
-                                        width: 55%;
+                                        width: calc(55% - 20px);
                                         float: right;
+                                        padding-left: 20px;
                                         .titulo_pro{
                                             font-size: 22px;
                                         }
                                         .cotizar_pro{
-                                            
+                                            .cotizar_pro1{
+                                                width: 60px;
+                                                float: left;
+                                            }
+                                            .cotizar_pro2{
+                                                width: 40px;
+                                                float: left;
+                                            }
+                                            .cotizar_pro3{
+                                                width: calc(100% - 100px);
+                                                float: left;
+                                            }
                                         }       
                                     }
                                     .pro_fotos{
