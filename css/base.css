@@ -388,7 +388,7 @@ html body .contenedor .sitio .medio .info .data .lista_productos .detalle_produc
   padding-right: 10px;
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_info .cotizar_pro .cotizar_pro2 input {
-  width: 35px;
+  height: 35px;
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_info .cotizar_pro .cotizar_pro3 {
   width: calc(100% - 100px);
