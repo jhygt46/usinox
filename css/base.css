@@ -374,7 +374,7 @@ html body .contenedor .sitio .medio .info .data .lista_productos .detalle_produc
   font-size: 22px;
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_info .cotizar_pro {
-  padding: 10px 0px 20px 0px;
+  padding: 10px 0px 10px 0px;
   border-bottom: 1px solid #ccc;
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_info .cotizar_pro .cotizar_pro1 {
@@ -402,6 +402,9 @@ html body .contenedor .sitio .medio .info .data .lista_productos .detalle_produc
   border-radius: 5px;
   padding: 9px 0px 0px 42px;
   color: #fff;
+}
+html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_info .desc_ttl {
+  padding: 0px 0px 20px 0px;
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_info .desc_pro {
   font-size: 16px;

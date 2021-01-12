@@ -97,6 +97,7 @@
                                                 <div class="cotizar_pro2"><input type="text" id="pro_cant"></div>
                                                 <div class="cotizar_pro3"><div class="btn">Cotizar</div></div>
                                             </div>
+                                            <div class="desc_ttl">Descripcion</div>
                                             <div class="desc_pro"><?php echo $inicio['pro']['descripcion']; ?></div>
                                         </div>
                                         <div class="pro_fotos"></div>
