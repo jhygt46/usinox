@@ -82,11 +82,11 @@
                                 <div class="lista_productos clearfix">
 
                                     <?php
-                                        /*
+                                        
                                         echo "<pre>";
                                         print_r($inicio);
                                         echo "</pre>";
-                                        */
+                                        
                                     ?>
                                     <?php if(isset($inicio['pro'])){ ?>
                                     <div class="detalle_producto">
@@ -105,7 +105,10 @@
                                                 <div class="red3"></div>
                                             </div>
                                         </div>
-                                        <div class="pro_fotos"></div>
+                                        <div class="pro_fotos">
+                                            <div class="pro_fotos_principal"></div>
+                                            <div class="pro_fotos_otras"></div>    
+                                        </div>
                                     </div>
                                     <?php } ?>
                                     <?php if(isset($inicio['childs_pro'])){ foreach ($inicio['childs_pro'] as $valor){ ?>
