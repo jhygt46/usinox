@@ -391,7 +391,7 @@ html{
                                             font-size: 22px;
                                         }
                                         .cotizar_pro{
-                                            padding: 10px 0px 10px 0px;
+                                            padding: 10px 0px 20px 0px;
                                             border-bottom: 1px solid #ccc;
                                             .cotizar_pro1{
                                                 width: 50px;
@@ -404,6 +404,7 @@ html{
                                                 padding-right: 10px;
                                                 input{
                                                     height: 35px;
+                                                    width: 100%;
                                                 }
                                             }
                                             .cotizar_pro3{
@@ -421,10 +422,12 @@ html{
                                             }
                                         }
                                         .desc_ttl{
-                                            padding: 0px 0px 20px 0px;
+                                            padding: 10px 0px 10px 0px;
                                         }
                                         .desc_pro{
                                             font-size: 16px;
+                                            padding: 0px 0px 20px 0px;
+                                            border-bottom: 1px solid #ccc;
                                         }     
                                     }
                                     .pro_fotos{
