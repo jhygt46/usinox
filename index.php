@@ -5,10 +5,6 @@
     require "index_class.php";
     $core = new Core();
     $inicio = $core->iniciar();
-    
-    echo "<pre>";
-    print_r($_SERVER);
-    echo "</pre>";
 
     /*
     echo "<pre>";
