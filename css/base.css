@@ -476,6 +476,9 @@ html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro .cot_p
   height: 120px;
 }
 html body .contenedor .sitio .medio .info .data .cotizar_btn .mas_productos {
+  float: left;
+  width: 45%;
+  max-width: 120px;
   height: 33px;
   border-radius: 5px;
   border: 1px solid #c1c1c1;
@@ -494,6 +497,9 @@ html body .contenedor .sitio .medio .info .data .cotizar_btn .mas_productos .pun
   right: 5px;
 }
 html body .contenedor .sitio .medio .info .data .cotizar_btn .enviar_cotizacion {
+  width: 45%;
+  max-width: 120px;
+  float: right;
   height: 33px;
   border-radius: 5px;
   border: 1px solid #c1c1c1;
