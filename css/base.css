@@ -427,16 +427,20 @@ html body .contenedor .sitio .medio .info .data .lista_productos .detalle_produc
 html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_fotos .pro_fotos_otras .foto_prev img {
   width: 100%;
 }
+html body .contenedor .sitio .medio .info .data .lista_cotizador {
+  margin: 10px auto;
+}
 html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro {
   border: 1px solid #ccc;
   border-radius: 10px;
   margin-bottom: 15px;
 }
 html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro .cot_pro_foto {
-  width: 20%;
+  width: calc(20% - 2px);
   float: left;
   position: relative;
   height: 120px;
+  padding: 1px;
 }
 html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro .cot_pro_foto img {
   width: 100%;

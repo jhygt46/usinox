@@ -452,15 +452,17 @@ html{
                                 }
                             }
                             .lista_cotizador{
+                                margin: 10px auto;
                                 .cot_pro{
                                     border: 1px solid #ccc;
                                     border-radius: 10px;
                                     margin-bottom: 15px;
                                     .cot_pro_foto{
-                                        width: 20%;
+                                        width: calc(20% - 2px);
                                         float: left;
                                         position: relative;
                                         height: 120px;
+                                        padding: 1px;
                                         img{
                                             width: 100%;
                                             border-radius: 10px;
