@@ -477,8 +477,7 @@ html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro .cot_p
 }
 html body .contenedor .sitio .medio .info .data .cotizar_btn .mas_productos {
   float: left;
-  width: 45%;
-  max-width: 150px;
+  max-width: 162px;
   height: 33px;
   border-radius: 5px;
   border: 1px solid #c1c1c1;
@@ -487,9 +486,9 @@ html body .contenedor .sitio .medio .info .data .cotizar_btn .mas_productos {
   position: relative;
 }
 html body .contenedor .sitio .medio .info .data .cotizar_btn .mas_productos .txt {
-  padding: 7px 5px 0px 10px;
+  padding: 8px 5px 0px 10px;
   color: #666;
-  font-size: 12px;
+  font-size: 14px;
 }
 html body .contenedor .sitio .medio .info .data .cotizar_btn .mas_productos .punto {
   width: 6px;
@@ -498,8 +497,7 @@ html body .contenedor .sitio .medio .info .data .cotizar_btn .mas_productos .pun
   right: 5px;
 }
 html body .contenedor .sitio .medio .info .data .cotizar_btn .enviar_cotizacion {
-  width: 45%;
-  max-width: 150px;
+  width: 130px;
   float: right;
   height: 33px;
   border-radius: 5px;
@@ -509,9 +507,9 @@ html body .contenedor .sitio .medio .info .data .cotizar_btn .enviar_cotizacion 
   position: relative;
 }
 html body .contenedor .sitio .medio .info .data .cotizar_btn .enviar_cotizacion .txt {
-  padding: 7px 5px 0px 10px;
+  padding: 8px 5px 0px 10px;
   color: #666;
-  font-size: 12px;
+  font-size: 14px;
 }
 html body .contenedor .sitio .medio .info .data .cotizar_btn .enviar_cotizacion .punto {
   width: 6px;
