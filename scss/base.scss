@@ -458,24 +458,28 @@ html{
                                     margin-bottom: 15px;
                                     .cot_pro_foto{
                                         width: 20%;
+                                        float: left;
                                     }
                                     .cot_pro_info{
                                         width: 55%;
+                                        float: left;
                                         .cot_pro_titulo{
 
                                         }
                                         .cot_pro_desc{
-                                            
+
                                         }
                                     }
                                     .cot_pro_cant{
                                         width: 15%;
+                                        float: left;
                                         input{
                                             width: 100%;
                                         }
                                     }
                                     .cot_pro_del{
                                         width: 10%;
+                                        float: left;
                                     }
                                 }
                             }

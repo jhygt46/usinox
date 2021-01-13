@@ -434,18 +434,22 @@ html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro {
 }
 html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro .cot_pro_foto {
   width: 20%;
+  float: left;
 }
 html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro .cot_pro_info {
   width: 55%;
+  float: left;
 }
 html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro .cot_pro_cant {
   width: 15%;
+  float: left;
 }
 html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro .cot_pro_cant input {
   width: 100%;
 }
 html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro .cot_pro_del {
   width: 10%;
+  float: left;
 }
 html body .contenedor .sitio .footer {
   width: 100%;
