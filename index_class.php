@@ -88,16 +88,11 @@ class Core{
                 if($sqls->execute()){
                     $datas = $this->get_result($sqls);
                     $sqls->close();
-                    for($i=0; $i<count($datas); $i++){
-                        $id = $datas[$i]["id_pro"];
-                        $res[$id]["id_pro"] = $datas[$i]["id_pro"];
-                        $res[$id]["nombre"] = $datas[$i]["nombre"];
-                        $res[$id]["descripcion"] = $datas[$i]["descripcion"];
-                        if($datas[$i]["foto_nombre"] != null){
-                            $res[$id]["fotos"][] = $datas[$i]["foto_nombre"];
-                        }else{
-                            $res[$id]["fotos"][0] = "sin_imagen.jpg";
-                        }
+                    if(count($datas) == 1){
+                        $res["id_pro"] = $datas[0]["id_pro"];
+                        $res["nombre"] = $datas[0]["nombre"];
+                        $res["descripcion"] = $datas[0]["descripcion"];
+                        $res["foto_nombre"] = ($datas[0]["foto_nombre"] == null) ? 'sin_imagen.jpg' : $datas[0]["foto_nombre"] ;
                     }
                     return $res;
                 }else{ $this->htmlspecialchars($sqls->error); }
