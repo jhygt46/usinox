@@ -432,7 +432,22 @@ html{
                                     }
                                     .pro_fotos{
                                         border: 1px solid #ccc;
-                                        height: 400px;
+                                        .pro_fotos_principal{
+                                            padding: 10px;
+                                            img{
+                                                width: 100%;
+                                            }
+                                        }
+                                        .pro_fotos_otras{
+                                            .foto_prev{
+                                                width: 25%;
+                                                float: left;
+                                                padding: 2px;
+                                                img{
+                                                    width: 100%;
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }

@@ -5,6 +5,12 @@
         $core = new Core();
         $inicio = $core->iniciar();
         
+        
+        echo "<pre>";
+        print_r($inicio);
+        echo "</pre>";
+        
+
     ?>
 
     <html>
@@ -22,16 +28,7 @@
                     <div class="opciones"></div>
                 </div>
                 <div class="sitio">
-                    <div class="header">
-                        <div class="logo"><a href="/"><img src="images/logo.jpg" alt="" /></a></div>
-                        <div class="tmenu">
-                            <div class="btn b2"><a href="">Nosotros</a></div>
-                            <div class="btn b3"><a href="">Servicios</a></div>
-                            <div class="btn b4"><a href="">Novedades</a></div>
-                            <div class="btn b5"><a href="">Ofertas</a></div>
-                            <div class="btn b7"><a href="">Contacto</a></div>
-                        </div>
-                    </div>
+                    <?php include("includes/nav.php"); ?>
                     <div class="medio clearfix">
                         <div class="pmenu">
                             <div class="nav">
@@ -108,9 +105,9 @@
                                         <div class="pro_fotos">
                                             <div class="pro_fotos_principal"><img src="https://www.usinox.cl/foto.php?archivo=http://35.202.149.15/uploads/images/<?php echo $inicio['pro']['fotos'][0]; ?>&ancho=218&alto=180" alt="" /></div>
                                             <?php if(count($inicio['pro']['fotos']) > 1){ ?>
-                                            <div class="pro_fotos_otras">
+                                            <div class="pro_fotos_otras clearfix">
                                                 <?php for($i=1; $i<count($inicio['pro']['fotos']); $i++){ ?>
-                                                    <div><img src="https://www.usinox.cl/foto.php?archivo=http://35.202.149.15/uploads/images/<?php echo $inicio['pro']['fotos'][$i]; ?>&ancho=218&alto=180" alt="" /></div>
+                                                    <div class="foto_prev"><img src="https://www.usinox.cl/foto.php?archivo=http://35.202.149.15/uploads/images/<?php echo $inicio['pro']['fotos'][$i]; ?>&ancho=218&alto=180" alt="" /></div>
                                                 <?php } ?>
                                             </div>
                                             <?php } ?>

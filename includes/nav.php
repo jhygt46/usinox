@@ -1,12 +1,10 @@
 <div class="header">
-    <div class="logo"><a href="<?=$url;?>" ><img src="<?php echo $url; ?>/images/logo_n.jpg" alt="" /></a></div>
-    <ul class="btn clearfix">
-        <li><a href="<?php echo $url; ?>">Inicio</a></li>
-        <li><a href="<?php echo $url."/nosotros"; ?>">Nosotros</a></li>
-        <li><a href="<?php echo $url."/servicios"; ?>">Servicios</a></li>
-        <li><a href="<?php echo $url."/novedades"; ?>">Novedades</a></li>
-        <li><a href="<?php echo $url."/ofertas"; ?>">Ofertas</a></li>
-        <li><a href="<?php echo $url."/videos"; ?>">Videos</a></li>
-        <li><a href="<?php echo $url."/contacto"; ?>">Contacto</a></li>
-    </ul>
+    <div class="logo"><a href="/"><img src="images/logo.jpg" alt="" /></a></div>
+    <div class="tmenu">
+        <div class="btn b2"><a href="">Nosotros</a></div>
+        <div class="btn b3"><a href="">Servicios</a></div>
+        <div class="btn b4"><a href="">Novedades</a></div>
+        <div class="btn b5"><a href="">Ofertas</a></div>
+        <div class="btn b7"><a href="">Contacto</a></div>
+    </div>
 </div>

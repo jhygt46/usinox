@@ -412,7 +412,20 @@ html body .contenedor .sitio .medio .info .data .lista_productos .detalle_produc
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_fotos {
   border: 1px solid #ccc;
-  height: 400px;
+}
+html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_fotos .pro_fotos_principal {
+  padding: 10px;
+}
+html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_fotos .pro_fotos_principal img {
+  width: 100%;
+}
+html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_fotos .pro_fotos_otras .foto_prev {
+  width: 25%;
+  float: left;
+  padding: 2px;
+}
+html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_fotos .pro_fotos_otras .foto_prev img {
+  width: 100%;
 }
 html body .contenedor .sitio .footer {
   width: 100%;
