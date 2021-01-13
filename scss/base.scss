@@ -459,6 +459,10 @@ html{
                                     .cot_pro_foto{
                                         width: 20%;
                                         float: left;
+                                        img{
+                                            width: 100%;
+                                            border-radius: 10px;
+                                        }
                                     }
                                     .cot_pro_info{
                                         width: 55%;
