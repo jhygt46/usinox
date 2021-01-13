@@ -443,6 +443,7 @@ html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro .cot_p
 html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro .cot_pro_info {
   width: 55%;
   float: left;
+  height: 120px;
 }
 html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro .cot_pro_cant {
   width: 15%;

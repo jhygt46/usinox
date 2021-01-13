@@ -4,8 +4,10 @@
         <div class="cot_pro clearfix">
             <div class="cot_pro_foto"><img src="https://www.usinox.cl/foto.php?archivo=<?php echo $_SERVER["REQUEST_SCHEME"]; ?>://<?php echo $_SERVER["HTTP_HOST"]; ?>/uploads/images/<?php echo $cot_pro["foto_nombre"]; ?>&ancho=218&alto=180" alt="" /></div>
             <div class="cot_pro_info">
-                <div class="cot_pro_titulo"><?php echo $cot_pro["nombre"]; ?></div>
-                <div class="cot_pro_desc"><?php echo $cot_pro["descripcion"]; ?></div>
+                <div class="valign">
+                    <div class="cot_pro_titulo"><?php echo $cot_pro["nombre"]; ?></div>
+                    <div class="cot_pro_desc"><?php echo $cot_pro["descripcion"]; ?></div>
+                </div>
             </div>
             <div class="cot_pro_cant"><input type="text" value="<?php echo $cot_cant; ?>" /></div>
             <div class="cot_pro_del"><img src="" alt=""></div>
