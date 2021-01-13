@@ -1,4 +1,5 @@
     <?php
+        session_start();
 
         date_default_timezone_set('america/santiago');
         require "index_class.php";
@@ -45,22 +46,7 @@
                         </div>
                         <div class="info">
                             <div class="data">
-                                <div class="conthead clearfix">
-                                    <div class="search">
-                                        <div class="sh clearfix">
-                                            <div class="l"></div>
-                                            <div class="i"><input type="text" id="search" value=""></div>
-                                            <div class="s"><a class="vhalign" href="">BUSCAR</a></div>
-                                        </div>
-                                    </div>
-                                    <div class="carro">
-                                        <div class="ca clearfix">
-                                            <div class="icon"></div>
-                                            <div class="item"><div class="txt vhalign">0 Item</div></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="aviso">***No olvide Seleccionar los Productos para Recibir en linea Cotizacion en su e-mail***</div>
+                                <?php include("includes/searchcart.php"); ?>
                                 <div class="carrusel">
                                     <div class="foto fo1"><img src="images/foto1.jpg" alt="" /></div>
                                     <div class="foto fo2 none"><img src="images/foto2.jpg" alt="" /></div>
