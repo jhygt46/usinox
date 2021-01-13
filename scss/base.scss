@@ -458,18 +458,18 @@ html{
                                     border-radius: 10px;
                                     margin-bottom: 15px;
                                     .cot_pro_foto{
-                                        width: calc(20% - 2px);
+                                        width: 20%;
                                         float: left;
                                         position: relative;
-                                        height: 116px;
-                                        padding: 1px;
+                                        height: 120px;
                                         img{
-                                            width: 100%;
+                                            width: 98%;
                                             border-radius: 10px;
+                                            margin: 0 auto;
                                         }
                                     }
                                     .cot_pro_info{
-                                        width: 60%;
+                                        width: calc(80% - 60px);
                                         float: left;
                                         height: 120px;
                                         .cot_pro_titulo{
@@ -480,15 +480,17 @@ html{
                                         }
                                     }
                                     .cot_pro_cant{
-                                        width: 10%;
+                                        width: 30px;
                                         float: left;
+                                        position: relative;
                                         input{
                                             width: 100%;
                                         }
                                     }
                                     .cot_pro_del{
-                                        width: 10%;
+                                        width: 30px;
                                         float: left;
+                                        position: relative;
                                     }
                                 }
                             }
