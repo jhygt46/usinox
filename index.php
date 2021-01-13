@@ -47,94 +47,26 @@
                         <div class="info">
                             <div class="data">
                                 <?php include("includes/searchcart.php"); ?>
-                                <div class="carrusel">
-                                    <div class="foto fo1"><img src="images/foto1.jpg" alt="" /></div>
-                                    <div class="foto fo2 none"><img src="images/foto2.jpg" alt="" /></div>
-                                    <div class="foto fo3 none"><img src="images/foto3.jpg" alt="" /></div>
-                                    <div class="flecha f1 valign" onclick="next(-1)"><img src="images/flechaleft.png" alt=""></div>
-                                    <div class="flecha f2 valign" onclick="next(1)"><img src="images/flecharight.png" alt=""></div>
-                                </div>
-                                <table class="otros" cellspacing="0" cellpadding="0" border="0">
-                                    <tr>
-                                        <td class="otro ot1" valign="middle"><div class="t1">NOTICIAS</div><div class="t2">Lee todas nuestras noticias</div></td>
-                                        <td class="otro ot2" valign="middle"><div class="t1">PROYECTOS</div><div class="t2">Revisa todos nuestros proyectos</div></td>
-                                        <td class="otro ot3" valign="middle"><div class="t1">GALERIA</div><div class="t2">Mira nuestra galeria de imagenes</div></td>
-                                    </tr>
-                                </table>
-                                <div class="titulo"><div class="nombre">Vitrina de productos</div></div>
-                                <div class="lista_productos clearfix">
 
-                                    <?php
-                                        /*
-                                        echo "<pre>";
-                                        print_r($inicio);
-                                        echo "</pre>";
-                                        */
-                                    ?>
-                                    <?php if(isset($inicio['pro'])){ ?>
-                                    <div class="detalle_producto">
-                                        <div class="pro_info">
-                                            <div class="titulo_pro"><?php echo $inicio['pro']['nombre']; ?></div>
-                                            <div class="cotizar_pro clearfix">
-                                                <div class="cotizar_pro1">Cant</div>
-                                                <div class="cotizar_pro2"><input type="text" id="pro_cant" value="1"></div>
-                                                <div class="cotizar_pro3"><div class="btn">Cotizar</div></div>
-                                            </div>
-                                            <div class="desc_ttl">Descripcion</div>
-                                            <div class="desc_pro"><?php echo $inicio['pro']['descripcion']; ?></div>
-                                            <div class="redes clearfix">
-                                                <div class="red1"></div>
-                                                <div class="red2"></div>
-                                                <div class="red3"></div>
-                                            </div>
-                                        </div>
-                                        <div class="pro_fotos">
-                                            <div class="pro_fotos_principal"><img src="https://www.usinox.cl/foto.php?archivo=http://35.202.149.15/uploads/images/<?php echo $inicio['pro']['fotos'][0]; ?>&ancho=218&alto=180" alt="" /></div>
-                                            <?php if(count($inicio['pro']['fotos']) > 1){ ?>
-                                            <div class="pro_fotos_otras clearfix">
-                                                <?php for($i=1; $i<count($inicio['pro']['fotos']); $i++){ ?>
-                                                    <div class="foto_prev"><img src="https://www.usinox.cl/foto.php?archivo=http://35.202.149.15/uploads/images/<?php echo $inicio['pro']['fotos'][$i]; ?>&ancho=218&alto=180" alt="" /></div>
-                                                <?php } ?>
-                                            </div>
-                                            <?php } ?>
-                                        </div>
-                                    </div>
-                                    <?php } ?>
-                                    <?php if(isset($inicio['childs_pro'])){ foreach ($inicio['childs_pro'] as $valor){ ?>
-                                    <div class="producto">
-                                        <div class="pro">
-                                            <div class="c_pro">
-                                                <div class="c_pfoto">
-                                                    <a class="link" href="<?php echo $valor['urls']; ?>"><img src="https://www.usinox.cl/foto.php?archivo=http://35.202.149.15/uploads/images/<?php echo $valor['fotos'][0]; ?>&ancho=218&alto=180" alt="" /></a>
-                                                </div>
-                                                <div class="c_pttl"><?php echo $valor['nombre']; ?></div>
-                                                <div class="c_pdesc"><?php echo $valor['descripcion']; ?></div>
-                                                <div class="c_pbtn clearfix">
-                                                    <div class="btn_cotizar">Cotizar</div>
-                                                    <div class="btn_mostrar btn_mostrar_prod"><div class="txt">Mostrar</div><div class="punto valign"></div></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <?php }} ?>
-                                    <?php if(isset($inicio['childs_cat'])){ for($i=0; $i<count($inicio['childs_cat']); $i++){ $foto = ($inicio['childs_cat'][$i]['foto'] == "") ? "sin_imagen.jpg" : $inicio['childs_cat'][$i]['foto'] ; ?>
-                                    <div class="producto">
-                                        <div class="pro">
-                                            <a class="link" href="<?php echo $inicio['childs_cat'][$i]['urls']; ?>">
-                                            <div class="c_pro">
-                                                <div class="c_pfoto">
-                                                    <img src="https://www.usinox.cl/foto.php?archivo=http://35.202.149.15/uploads/images/<?php echo $foto; ?>&ancho=218&alto=180" alt="" />
-                                                </div>
-                                                <div class="c_pttl"><?php echo $inicio['childs_cat'][$i]['nombre']; ?></div>
-                                                <div class="c_pbtn clearfix">
-                                                    <div class="btn_mostrar btn_ver_prod"><div class="txt">Ver Productos</div><div class="punto valign"></div></div>
-                                                </div>
-                                            </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <?php }} ?>
-                                </div>
+                                <?php
+
+                                    switch ($inicio["tipo"]) {
+                                        case "inicio":
+                                            include("includes/_pagina_inicio.php");
+                                            break;
+                                        case "categorias":
+                                            include("includes/_pagina_categorias.php");
+                                            break;
+                                        case "productos":
+                                                include("includes/_pagina_productos.php");
+                                                break;
+                                        case "producto":
+                                            include("includes/_pagina_detalle_producto.php");
+                                            break;
+                                    }
+
+                                ?>
+
                             </div>
                         </div>
                     </div>

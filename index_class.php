@@ -189,17 +189,19 @@ class Core{
     private function process_categoria($data, $url){
         for($i=0; $i<count($data); $i++){
             if($data[$i]['urls'] == $url){
-                $res['tipo'] = 'categoria';
+                
                 $res['nombre'] = $data[$i]['nombre'];
                 if($data[$i]['parent_id'] > 0){
                     $res['parents'] = $this->resp_categorias($data, $data[$i]['parent_id']);
                 }
                 $childs_cat = $this->child_categoria($data, $data[$i]['id_cat']);
                 if(count($childs_cat) > 0){
+                    $res['tipo'] = 'categorias';
                     $res['childs_cat'] = $childs_cat;
                 }else{
                     $childs_prod = $this->child_prods($data[$i]['id_cat']);
                     if(count($childs_prod) > 0){
+                        $res['tipo'] = 'productos';
                         $res['childs_pro'] = $childs_prod;
                     }else{
                         $res['mensaje'] = "No tiene categorias o productos hijos";
@@ -246,6 +248,7 @@ class Core{
                             require '404.php';
                             exit;
                         }else{
+                            $pro['tipo'] = "producto";
                             $pro['base'] = $this->get_base();
                             return $pro;
                         }
