@@ -470,6 +470,9 @@ html body .contenedor .sitio .footer {
   html body .contenedor .sitio .medio .info .data .lista_productos {
     width: 96%;
   }
+  html body .contenedor .sitio .medio .info .data .lista_cotizador {
+    width: 96%;
+  }
 }
 @media only screen and (min-width: 500px) {
   .pro_info {
