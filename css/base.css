@@ -458,7 +458,8 @@ html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro .cot_p
   height: 120px;
 }
 html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro .cot_pro_cant input {
-  width: 100%;
+  width: 80%;
+  margin: 0 10%;
 }
 html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro .cot_pro_del {
   width: 40px;

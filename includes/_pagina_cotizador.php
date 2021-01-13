@@ -14,7 +14,7 @@
                 </table>
             </div>
             <div class="cot_pro_cant"><input class="valign" type="text" value="<?php echo $cot_cant; ?>" /></div>
-            <div class="cot_pro_del"><img class="valign" src="" alt=""></div>
+            <div class="cot_pro_del"><img class="valign" src="images/delete.png" alt=""></div>
         </div>
     <?php } ?>
 </div>
