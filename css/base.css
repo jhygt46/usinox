@@ -460,6 +460,7 @@ html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro .cot_p
 html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro .cot_pro_cant input {
   width: 80%;
   margin: 0 10%;
+  height: 30px;
 }
 html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro .cot_pro_del {
   width: 40px;
