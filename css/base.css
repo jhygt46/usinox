@@ -427,6 +427,26 @@ html body .contenedor .sitio .medio .info .data .lista_productos .detalle_produc
 html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_fotos .pro_fotos_otras .foto_prev img {
   width: 100%;
 }
+html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro .cot_pro_foto {
+  width: 20%;
+}
+html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro .cot_pro_info {
+  width: 55%;
+}
+html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro .cot_pro_cant {
+  width: 15%;
+}
+html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro .cot_pro_cant input {
+  width: 100%;
+}
+html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro .cot_pro_del {
+  width: 10%;
+}
 html body .contenedor .sitio .footer {
   width: 100%;
   height: 150px;
@@ -529,6 +549,9 @@ html body .contenedor .sitio .footer {
     width: 100%;
   }
   html body .contenedor .sitio .medio .info .data .lista_productos {
+    width: 100%;
+  }
+  html body .contenedor .sitio .medio .info .data .lista_cotizador {
     width: 100%;
   }
 }

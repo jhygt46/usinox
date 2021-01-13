@@ -82,6 +82,28 @@ class Core{
         }else{ $this->htmlspecialchars($this->con->error); }
 
     }
+    private function get_prod($id){
+        if($sqls = $this->con->prepare("SELECT t1.id_pro, t1.nombre, t1.descripcion, t2.nombre as foto_nombre FROM _usinox_productos t1, _usinox_productos_fotos t2 WHERE t1.id_pro=t2.id_pro AND t1.id_pro=? AND t1.eliminado=? LIMIT 1")){
+            if($sqls->bind_param("ii", $id, $this->eliminado)){
+                if($sqls->execute()){
+                    $datas = $this->get_result($sqls);
+                    $sqls->close();
+                    for($i=0; $i<count($datas); $i++){
+                        $id = $datas[$i]["id_pro"];
+                        $res[$id]["id_pro"] = $datas[$i]["id_pro"];
+                        $res[$id]["nombre"] = $datas[$i]["nombre"];
+                        $res[$id]["descripcion"] = $datas[$i]["descripcion"];
+                        if($datas[$i]["foto_nombre"] != null){
+                            $res[$id]["fotos"][] = $datas[$i]["foto_nombre"];
+                        }else{
+                            $res[$id]["fotos"][0] = "sin_imagen.jpg";
+                        }
+                    }
+                    return $res;
+                }else{ $this->htmlspecialchars($sqls->error); }
+            }else{ $this->htmlspecialchars($sqls->error); }
+        }else{ $this->htmlspecialchars($this->con->error); }
+    }
     private function get_random_productos(){
         if($sqls = $this->con->prepare("SELECT t1.id_pro, t1.nombre, t1.descripcion, t2.nombre as foto_nombre FROM _usinox_productos t1, _usinox_productos_fotos t2 WHERE t1.id_pro=t2.id_pro AND t1.id_pag=? AND t1.eliminado=? ORDER BY RAND() LIMIT 9")){
             if($sqls->bind_param("ii", $this->id_pag, $this->eliminado)){
