@@ -5,7 +5,7 @@
         <div class="pro">
             <div class="c_pro">
                 <div class="c_pfoto">
-                    <a class="link" href="<?php echo $valor['urls']; ?>"><img src="https://www.usinox.cl/foto.php?archivo=http://35.202.149.15/uploads/images/<?php echo $valor['fotos'][0]; ?>&ancho=218&alto=180" alt="" /></a>
+                    <a class="link" href="<?php echo $valor['urls']; ?>"><img src="https://www.usinox.cl/foto.php?archivo=/uploads/images/<?php echo $valor['fotos'][0]; ?>&ancho=218&alto=180" alt="" /></a>
                 </div>
                 <div class="c_pttl"><?php echo $valor['nombre']; ?></div>
                 <div class="c_pdesc"><?php echo $valor['descripcion']; ?></div>
