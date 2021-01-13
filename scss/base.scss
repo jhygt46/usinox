@@ -469,7 +469,7 @@ html{
                                         }
                                     }
                                     .cot_pro_info{
-                                        width: calc(80% - 60px);
+                                        width: calc(80% - 80px);
                                         float: left;
                                         height: 120px;
                                         .cot_pro_titulo{
@@ -480,17 +480,19 @@ html{
                                         }
                                     }
                                     .cot_pro_cant{
-                                        width: 30px;
+                                        width: 40px;
                                         float: left;
                                         position: relative;
+                                        height: 120px;
                                         input{
                                             width: 100%;
                                         }
                                     }
                                     .cot_pro_del{
-                                        width: 30px;
+                                        width: 40px;
                                         float: left;
                                         position: relative;
+                                        height: 120px;
                                     }
                                 }
                             }
