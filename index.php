@@ -82,11 +82,11 @@
                                 <div class="lista_productos clearfix">
 
                                     <?php
-                                        
+                                        /*
                                         echo "<pre>";
                                         print_r($inicio);
                                         echo "</pre>";
-                                        
+                                        */
                                     ?>
                                     <?php if(isset($inicio['pro'])){ ?>
                                     <div class="detalle_producto">
@@ -106,11 +106,11 @@
                                             </div>
                                         </div>
                                         <div class="pro_fotos">
-                                            <div class="pro_fotos_principal"><?php echo $inicio['pro']['foto'][0]; ?></div>
-                                            <?php if(count($inicio['pro']['foto']) > 1){ ?>
+                                            <div class="pro_fotos_principal"><?php echo $inicio['pro']['fotos'][0]; ?></div>
+                                            <?php if(count($inicio['pro']['fotos']) > 1){ ?>
                                             <div class="pro_fotos_otras">
-                                                <?php for($i=1; $i<count($inicio['pro']['foto']); $i++){ ?>
-                                                    <div><?php echo $inicio['pro']['foto'][$i]; ?></div>
+                                                <?php for($i=1; $i<count($inicio['pro']['fotos']); $i++){ ?>
+                                                    <div><?php echo $inicio['pro']['fotos'][$i]; ?></div>
                                                 <?php } ?>
                                             </div>
                                             <?php } ?>
