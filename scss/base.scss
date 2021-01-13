@@ -502,7 +502,7 @@ html{
                             .cotizar_btn{
                                 .mas_productos{
                                     float: left;
-                                    max-width: 162px;
+                                    width: 162px;
                                     height: 33px;
                                     border-radius: 5px;
                                     border: 1px solid #c1c1c1;
@@ -713,6 +713,7 @@ html{
         }
         .carro{
             width: 25%;
+            cursor: pointer;
             .ca{
                 .icon{
 

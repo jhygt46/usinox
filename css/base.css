@@ -477,7 +477,7 @@ html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro .cot_p
 }
 html body .contenedor .sitio .medio .info .data .cotizar_btn .mas_productos {
   float: left;
-  max-width: 162px;
+  width: 162px;
   height: 33px;
   border-radius: 5px;
   border: 1px solid #c1c1c1;
@@ -643,6 +643,7 @@ html body .contenedor .sitio .footer {
   }
   .conthead .carro {
     width: 25%;
+    cursor: pointer;
   }
   .conthead .carro .ca .item .txt {
     font-size: 16px;

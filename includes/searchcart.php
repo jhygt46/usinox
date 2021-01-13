@@ -12,11 +12,11 @@
             <div class="s"><a class="vhalign" href="">BUSCAR</a></div>
         </div>
     </div>
-    <div class="carro">
+    <a href="/cotizador" class="carro">
         <div class="ca clearfix">
             <div class="icon"></div>
             <div class="item"><div class="txt vhalign"><?php echo $count; ?> Item</div></div>
         </div>
-    </div>
+    </a>
 </div>
 <div class="aviso">***No olvide Seleccionar los Productos para Recibir en linea Cotizacion en su e-mail***</div>
