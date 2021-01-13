@@ -6,11 +6,11 @@
         $core = new Core();
         $inicio = $core->iniciar();
         
-        /*
+        
         echo "<pre>";
         print_r($inicio);
         echo "</pre>";
-        */
+        
 
     ?>
 
@@ -58,10 +58,16 @@
                                             include("includes/_pagina_categorias.php");
                                             break;
                                         case "productos":
-                                                include("includes/_pagina_productos.php");
-                                                break;
+                                            include("includes/_pagina_productos.php");
+                                            break;
                                         case "producto":
                                             include("includes/_pagina_detalle_producto.php");
+                                            break;
+                                        case "cotizador":
+                                            include("includes/_pagina_cotizador.php");
+                                            break;
+                                        case "paginas":
+                                            include("includes/_pagina_paginas.php");
                                             break;
                                     }
 
