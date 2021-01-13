@@ -679,6 +679,7 @@ html body .contenedor .sitio .footer {
   }
   .conthead .search .sh .s {
     width: calc(40% - 22px);
+    cursor: pointer;
   }
   .conthead .search .sh .s div {
     font-size: 13px;
