@@ -10,7 +10,7 @@ function next(n){
     docClass('fo'+carr).style.display = "block";
 }
 function docClass(n, i = 0){ return document.getElementsByClassName(n)[i] }
-function docId(n){ return document.getElementsById(n) }
+function docId(n){ return document.getElementById(n) }
 function cotizar(id, cant){
     $.ajax({
         url: "/ajax/",
