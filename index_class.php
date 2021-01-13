@@ -83,7 +83,7 @@ class Core{
 
     }
     public function get_prod($id){
-        if($sqls = $this->con->prepare("SELECT t1.id_pro, t1.nombre, t1.descripcion, t2.nombre as foto_nombre FROM _usinox_productos t1, _usinox_productos_fotos t2 WHERE t1.id_pro=t2.id_pro AND t1.id_pro=? AND t1.eliminado=? LIMIT 1")){
+        if($sqls = $this->con->prepare("SELECT t1.id_pro, t1.nombre, t1.descripcion, t2.nombre as foto_nombre FROM _usinox_productos t1, _usinox_productos_fotos t2 WHERE t1.id_pro=t2.id_pro AND t1.id_pro=? AND t1.eliminado=?")){
             if($sqls->bind_param("ii", $id, $this->eliminado)){
                 if($sqls->execute()){
                     $datas = $this->get_result($sqls);
