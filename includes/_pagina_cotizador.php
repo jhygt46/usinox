@@ -24,7 +24,7 @@
         <div class="punto valign"></div>
     </div>
     <div class="enviar_cotizacion">
-        <div class="txt">Enviar email con cotización</div>
+        <div class="txt">Enviar cotización</div>
         <div class="punto valign"></div>
     </div>
 </div>
