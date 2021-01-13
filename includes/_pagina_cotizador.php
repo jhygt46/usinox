@@ -1,11 +1,6 @@
-<?php
-    echo "<pre>";
-    print_r($_SESSION);
-    echo "</pre>";
-?>
 <div class="titulo"><div class="nombre">Vitrina de productos</div></div>
 <div class="lista_cotizador">
-    <?php for($i=0; $i<count($_SESSION["prods"]); $i++){ $cot_pro = $core->get_prod($_SESSION["prods"][$i]['id']); echo "<pre>"; print_r($cot_pro); echo "</pre>"; $cot_cant = $_SESSION["prods"][$i]['cant']; ?>
+    <?php for($i=0; $i<count($_SESSION["prods"]); $i++){ $cot_pro = $core->get_prod($_SESSION["prods"][$i]['id']); $cot_cant = $_SESSION["prods"][$i]['cant']; ?>
         <div class="cot_pro">
             <div class="cot_pro_foto"><img src="https://www.usinox.cl/foto.php?archivo=<?php echo $_SERVER["REQUEST_SCHEME"]; ?>://<?php echo $_SERVER["HTTP_HOST"]; ?>/uploads/images/<?php echo $cot_pro["foto_nombre"]; ?>&ancho=218&alto=180" alt="" /></div>
             <div class="cot_pro_info">
