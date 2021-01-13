@@ -12,14 +12,12 @@ function next(n){
 function docClass(n, i = 0){ return document.getElementsByClassName(n)[i] }
 function cotizar(id, cant){
     $.ajax({
-        url: "https://www.usinox.cl/ajax/index.php",
+        url: "/ajax/",
         type: "POST",
         data: "accion=cotizar&id="+id+"&cant="+cant,
         success: function(data){
             $('.item a').html(data.count + " item");
-            if(data.url)
-                window.location.href = data.url;
+            window.location.href = "/cotizador";
         }
     });
-    return false;
 }

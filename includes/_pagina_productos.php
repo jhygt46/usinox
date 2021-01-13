@@ -10,7 +10,7 @@
                 <div class="c_pttl"><?php echo $valor['nombre']; ?></div>
                 <div class="c_pdesc"><?php echo $valor['descripcion']; ?></div>
                 <div class="c_pbtn clearfix">
-                    <div class="btn_cotizar">Cotizar</div>
+                    <div class="btn_cotizar" onclick="cotizar(<?php echo $valor['id_pro']; ?>, 1)">Cotizar</div>
                     <div class="btn_mostrar btn_mostrar_prod"><div class="txt">Mostrar</div><div class="punto valign"></div></div>
                 </div>
             </div>
