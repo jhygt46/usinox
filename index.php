@@ -69,6 +69,9 @@
                                     case "paginas":
                                         include("includes/_pagina_paginas.php");
                                         break;
+                                    case "busqueda":
+                                        include("includes/_pagina_busqueda.php");
+                                        break;
                                 }
 
                             ?>

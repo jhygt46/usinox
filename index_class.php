@@ -42,6 +42,10 @@ class Core{
             }else if($url[1] == "cotizador"){
                 $info['tipo'] = "cotizador";
                 $info['base'] = $this->get_base();
+            }else if($url[1] == "busqueda"){
+                $info['tipo'] = "busqueda";
+                $info['base'] = $this->get_base();
+                $info['childs_pro'] = $this->busqueda($url[2]);
             }else{
                 $info = $this->buscar_cat_pro($url[1]);
             }
@@ -49,6 +53,9 @@ class Core{
             return $info;
 
         }
+
+    }
+    private function busqueda($palabra){
 
     }
     private function get_pagina(){
