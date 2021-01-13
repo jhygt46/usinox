@@ -475,6 +475,42 @@ html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro .cot_p
   position: relative;
   height: 120px;
 }
+html body .contenedor .sitio .medio .info .data .cotizar_btn .mas_productos {
+  height: 33px;
+  border-radius: 5px;
+  border: 1px solid #c1c1c1;
+  background-image: linear-gradient(180deg, #fefefe 0%, #e8e8e8 100%);
+  background-repeat: no-repeat;
+  position: relative;
+}
+html body .contenedor .sitio .medio .info .data .cotizar_btn .mas_productos .txt {
+  padding: 9px 5px 0px 10px;
+  color: #666;
+}
+html body .contenedor .sitio .medio .info .data .cotizar_btn .mas_productos .punto {
+  width: 6px;
+  height: 9px;
+  background: url("../images/punto.png");
+  right: 5px;
+}
+html body .contenedor .sitio .medio .info .data .cotizar_btn .enviar_cotizacion {
+  height: 33px;
+  border-radius: 5px;
+  border: 1px solid #c1c1c1;
+  background-image: linear-gradient(180deg, #fefefe 0%, #e8e8e8 100%);
+  background-repeat: no-repeat;
+  position: relative;
+}
+html body .contenedor .sitio .medio .info .data .cotizar_btn .enviar_cotizacion .txt {
+  padding: 9px 5px 0px 10px;
+  color: #666;
+}
+html body .contenedor .sitio .medio .info .data .cotizar_btn .enviar_cotizacion .punto {
+  width: 6px;
+  height: 9px;
+  background: url("../images/punto.png");
+  right: 5px;
+}
 html body .contenedor .sitio .footer {
   width: 100%;
   height: 150px;

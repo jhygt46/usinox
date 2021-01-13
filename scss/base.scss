@@ -499,6 +499,44 @@ html{
                                     }
                                 }
                             }
+                            .cotizar_btn{
+                                .mas_productos{
+                                    height: 33px;
+                                    border-radius: 5px;
+                                    border: 1px solid #c1c1c1;
+                                    background-image: linear-gradient(180deg, rgba(254,254,254,1) 0%, rgba(232,232,232,1) 100%);
+                                    background-repeat: no-repeat;
+                                    position: relative;
+                                    .txt{
+                                        padding: 9px 5px 0px 10px;
+                                        color: #666;
+                                    }
+                                    .punto{
+                                        width: 6px;
+                                        height: 9px;
+                                        background: url('../images/punto.png');
+                                        right: 5px;
+                                    }
+                                }
+                                .enviar_cotizacion{
+                                    height: 33px;
+                                    border-radius: 5px;
+                                    border: 1px solid #c1c1c1;
+                                    background-image: linear-gradient(180deg, rgba(254,254,254,1) 0%, rgba(232,232,232,1) 100%);
+                                    background-repeat: no-repeat;
+                                    position: relative;
+                                    .txt{
+                                        padding: 9px 5px 0px 10px;
+                                        color: #666;
+                                    }
+                                    .punto{
+                                        width: 6px;
+                                        height: 9px;
+                                        background: url('../images/punto.png');
+                                        right: 5px;
+                                    }
+                                }
+                            }
                         }
                     }
                 }
