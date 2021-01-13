@@ -441,12 +441,13 @@ html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro .cot_p
   border-radius: 10px;
 }
 html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro .cot_pro_info {
-  width: 55%;
+  width: 60%;
   float: left;
   height: 120px;
+  position: relative;
 }
 html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro .cot_pro_cant {
-  width: 15%;
+  width: 10%;
   float: left;
 }
 html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro .cot_pro_cant input {
