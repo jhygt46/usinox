@@ -9,7 +9,7 @@
         <div class="sh clearfix">
             <div class="l"></div>
             <div class="i"><input type="text" id="search" value=""></div>
-            <div class="s" onclick="search()"><a class="vhalign" href="">BUSCAR</a></div>
+            <div class="s" onclick="search()"><div class="vhalign" href="">BUSCAR</div></div>
         </div>
     </div>
     <a href="/cotizador" class="carro">
