@@ -6,11 +6,11 @@
         $core = new Core();
         $inicio = $core->iniciar();
         
-        
+        /*
         echo "<pre>";
         print_r($inicio);
         echo "</pre>";
-        
+        */
 
     ?>
 
