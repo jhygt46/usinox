@@ -18,11 +18,11 @@
             </div>
         </div>
         <div class="pro_fotos">
-            <div class="pro_fotos_principal"><img src="https://www.usinox.cl/foto.php?archivo=/uploads/images/<?php echo $inicio['pro']['fotos'][0]; ?>&ancho=218&alto=180" alt="" /></div>
+            <div class="pro_fotos_principal"><img src="https://www.usinox.cl/foto.php?archivo=http://35.202.149.15/uploads/images/<?php echo $inicio['pro']['fotos'][0]; ?>&ancho=218&alto=180" alt="" /></div>
             <?php if(count($inicio['pro']['fotos']) > 1){ ?>
             <div class="pro_fotos_otras clearfix">
                 <?php for($i=1; $i<count($inicio['pro']['fotos']); $i++){ ?>
-                    <div class="foto_prev"><img src="https://www.usinox.cl/foto.php?archivo=/uploads/images/<?php echo $inicio['pro']['fotos'][$i]; ?>&ancho=218&alto=180" alt="" /></div>
+                    <div class="foto_prev"><img src="https://www.usinox.cl/foto.php?archivo=http://35.202.149.15/uploads/images/<?php echo $inicio['pro']['fotos'][$i]; ?>&ancho=218&alto=180" alt="" /></div>
                 <?php } ?>
             </div>
             <?php } ?>
