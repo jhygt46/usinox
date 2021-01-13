@@ -436,6 +436,7 @@ html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro .cot_p
   width: 20%;
   float: left;
   position: relative;
+  height: 120px;
 }
 html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro .cot_pro_foto img {
   width: 100%;
@@ -445,7 +446,6 @@ html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro .cot_p
   width: 60%;
   float: left;
   height: 120px;
-  position: relative;
 }
 html body .contenedor .sitio .medio .info .data .lista_cotizador .cot_pro .cot_pro_cant {
   width: 10%;
