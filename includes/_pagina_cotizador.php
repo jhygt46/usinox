@@ -19,11 +19,11 @@
     <?php } ?>
 </div>
 <div class="cotizar_btn clearfix">
-    <a href="" class="mas_productos">
+    <a href="javascript:history.go(-1)" class="mas_productos">
         <div class="txt">Agregar más productos</div>
         <div class="punto valign"></div>
     </a>
-    <a href="" class="enviar_cotizacion">
+    <a href="/enviar_cotizacion" class="enviar_cotizacion">
         <div class="txt">Enviar cotización</div>
         <div class="punto valign"></div>
     </a>
