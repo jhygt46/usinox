@@ -39,6 +39,24 @@ html body .contenedor .menu .btn_toogle .b {
   margin: 6px 0;
   transition: 0.4s;
 }
+html body .contenedor .menu .titulo {
+  width: 100px;
+}
+html body .contenedor .menu .opciones {
+  width: 100%;
+  height: calc(100% - 100px);
+  overflow-y: auto;
+}
+html body .contenedor .menu .opciones .lp {
+  font-size: 12px;
+  padding-bottom: 10px;
+}
+html body .contenedor .menu .opciones .ls {
+  font-size: 16px;
+  padding-bottom: 2px;
+  margin-bottom: 2px;
+  border-bottom: 1px solid #ddd;
+}
 html body .contenedor .close {
   -webkit-transform: translate(220px, 0px);
   transform: translate(220px, 0px);

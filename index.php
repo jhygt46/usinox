@@ -1,6 +1,6 @@
 <?php
     session_start();
-
+    
     date_default_timezone_set('america/santiago');
     require "index_class.php";
     $core = new Core();
@@ -27,11 +27,13 @@
                 <div class="btn_toogle" onclick="tooglemenu(this)"><div class="b b1"></div><div class="b b2"></div><div class="b b3"></div></div>
                 <div class="titulo">Usinox</div>
                 <div class="opciones">
-                        <div class="lp">CATEGORIAS</div>
-                        <?php for($i=0; $i<count($inicio['base']); $i++){ ?>
-                        <div class="ls"><a href="<?php echo $inicio['base'][$i]['urls']; ?>"><?php echo $inicio['base'][$i]['nombre']; ?></a></div>
-                        <?php } ?>
-                        <div class="ls"><a href="/todos-los-productos">Todos los Productos</a></div>
+                    
+                    <div class="lp">CATEGORIAS</div>
+                    <?php for($i=0; $i<count($inicio['base']); $i++){ ?>
+                    <div class="ls"><a href="<?php echo $inicio['base'][$i]['urls']; ?>"><?php echo $inicio['base'][$i]['nombre']; ?></a></div>
+                    <?php } ?>
+                    <div class="ls"><a href="/todos-los-productos">Todos los Productos</a></div>
+                
                 </div>
             </div>
             <div class="sitio">
