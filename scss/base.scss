@@ -40,6 +40,7 @@ html{
                 }
                 .titulo{
                     padding-top: 40px;
+                    padding-left: 4px;
                     height: 60px;
                 }
                 .opciones{
@@ -49,14 +50,16 @@ html{
                     .lp{
                         font-size: 12px;
                         padding-bottom: 10px;
+                        padding-left: 4px;
                     }
                     .ls{
                         font-size: 16px;
                         padding-bottom: 2px;
-                        margin-bottom: 2px;
+                        margin: 0px 4px 2px 4px;
                         border-bottom: 1px solid #ddd;
                         a{
                             text-decoration: none;
+                            color: #000;
                         }
                     }
                 }

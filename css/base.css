@@ -41,6 +41,7 @@ html body .contenedor .menu .btn_toogle .b {
 }
 html body .contenedor .menu .titulo {
   padding-top: 40px;
+  padding-left: 4px;
   height: 60px;
 }
 html body .contenedor .menu .opciones {
@@ -51,15 +52,17 @@ html body .contenedor .menu .opciones {
 html body .contenedor .menu .opciones .lp {
   font-size: 12px;
   padding-bottom: 10px;
+  padding-left: 4px;
 }
 html body .contenedor .menu .opciones .ls {
   font-size: 16px;
   padding-bottom: 2px;
-  margin-bottom: 2px;
+  margin: 0px 4px 2px 4px;
   border-bottom: 1px solid #ddd;
 }
 html body .contenedor .menu .opciones .ls a {
   text-decoration: none;
+  color: #000;
 }
 html body .contenedor .menu .bajada {
   height: 100px;
