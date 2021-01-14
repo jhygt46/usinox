@@ -557,7 +557,6 @@ html{
                             .map{
                                 width: calc(45% - 24px);
                                 padding: 12px;
-                                float: left;
                                 .titulo{
                                     font-size: 18px;
                                     padding-bottom: 12px;
@@ -571,7 +570,6 @@ html{
                             }
                             .foo_info{
                                 width: calc(55% - 24px);
-                                float: left;
                                 padding: 12px 12px 6px 12px;
                                 .titulo{
                                     font-size: 18px;
@@ -672,6 +670,24 @@ html{
         width: calc(45% - 2px);
         float: left;
     }
+    .footer{
+        .contfooter{
+            .foo{
+                .map{
+                    width: calc(45% - 24px);
+                    float: left;
+                    #googleMap{
+                        height: 235px;
+                    }
+                }
+                .foo_info{
+                    width: calc(55% - 24px);
+                    float: left;
+                }
+            }
+        }
+        
+    }
 }
 @media only screen and (max-width: 500px){
     .pro_info{
@@ -679,6 +695,22 @@ html{
     }
     .pro_fotos{
         width: calc(100% - 2px);
+    }
+    .footer{
+        .contfooter{
+            .foo{
+                .map{
+                    width: calc(100% - 24px);
+                    #googleMap{
+                        height: 150px;
+                    }
+                }
+                .foo_info{
+                    width: calc(100% - 24px);
+                }
+            }
+        }
+        
     }
 }
 
