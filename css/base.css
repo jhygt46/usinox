@@ -553,9 +553,12 @@ html body .contenedor .sitio .footer .contfooter .foo .foo_info .titulo {
 }
 html body .contenedor .sitio .footer .contfooter .foo .foo_info .tipo1 {
   color: #fff;
+  font-size: 13px;
 }
 html body .contenedor .sitio .footer .contfooter .foo .foo_info .tipo2 {
   color: #fff;
+  font-size: 16px;
+  padding-bottom: 4px;
 }
 html body .contenedor .sitio .footer .contfooter .foo .foo_info .tipo2 a {
   text-decoration: none;
