@@ -79,7 +79,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="footer"></div>
+                <?php include("includes/footer.php"); ?>
             </div>
         </div>
     </body>
