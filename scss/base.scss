@@ -554,14 +554,20 @@ html{
                         background: #000;
                         .foo{
                             .map{
+                                width: 45%;
+                                float: left;
                                 .titulo{
 
                                 }
                                 #googleMap{
-
+                                    width: 100%;
+                                    height: 300px;
+                                    background: #fff;
                                 }
                             }
                             .foo_info{
+                                width: 55%;
+                                float: left;
                                 .titulo{
 
                                 }
