@@ -526,11 +526,9 @@ html body .contenedor .sitio .footer .contfooter {
   background: #000;
 }
 html body .contenedor .sitio .footer .contfooter .foo .map {
-  width: 45%;
+  width: calc(45% - 16px);
+  padding: 8px;
   float: left;
-}
-html body .contenedor .sitio .footer .contfooter .foo .map .titulo {
-  font-size: 18px;
 }
 html body .contenedor .sitio .footer .contfooter .foo .map #googleMap {
   width: 100%;
@@ -538,8 +536,9 @@ html body .contenedor .sitio .footer .contfooter .foo .map #googleMap {
   background: #fff;
 }
 html body .contenedor .sitio .footer .contfooter .foo .foo_info {
-  width: 55%;
+  width: calc(55% - 8px);
   float: left;
+  padding: 8px 8px 8px 0px;
 }
 html body .contenedor .sitio .footer .links_boletas .boleta {
   float: right;

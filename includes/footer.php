@@ -2,7 +2,6 @@
     <div class="contfooter">
         <div class="foo clearfix">
             <div class="map">
-                <div class="titulo">Mapa de Ubicacion</div>
                 <div id="googleMap"></div>
             </div>
             <div class="foo_info">

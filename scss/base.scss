@@ -554,11 +554,9 @@ html{
                         background: #000;
                         .foo{
                             .map{
-                                width: 45%;
+                                width: calc(45% - 16px);
+                                padding: 8px;
                                 float: left;
-                                .titulo{
-                                    font-size: 18px;
-                                }
                                 #googleMap{
                                     width: 100%;
                                     height: 300px;
@@ -566,8 +564,9 @@ html{
                                 }
                             }
                             .foo_info{
-                                width: 55%;
+                                width: calc(55% - 8px);
                                 float: left;
+                                padding: 8px 8px 8px 0px;
                                 .titulo{
 
                                 }
