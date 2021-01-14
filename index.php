@@ -30,7 +30,7 @@
                     
                     <div class="lp">CATEGORIAS</div>
                     <?php for($i=0; $i<count($inicio['base']); $i++){ ?>
-                    <div class="ls"><a href="<?php echo $inicio['base'][$i]['urls']; ?>"><?php echo $inicio['base'][$i]['nombre']; ?></a></div>
+                    <div class="ls"><a href="/<?php echo $inicio['base'][$i]['urls']; ?>"><?php echo $inicio['base'][$i]['nombre']; ?></a></div>
                     <?php } ?>
                     <div class="ls"><a href="/todos-los-productos">Todos los Productos</a></div>
                 
@@ -43,7 +43,7 @@
                         <div class="nav">
                             <div class="lp">CATEGORIAS</div>
                             <?php for($i=0; $i<count($inicio['base']); $i++){ ?>
-                            <div class="ls"><a href="<?php echo $inicio['base'][$i]['urls']; ?>"><?php echo $inicio['base'][$i]['nombre']; ?></a></div>
+                            <div class="ls"><a href="/<?php echo $inicio['base'][$i]['urls']; ?>"><?php echo $inicio['base'][$i]['nombre']; ?></a></div>
                             <?php } ?>
                             <div class="ls"><a href="/todos-los-productos">Todos los Productos</a></div>
                         </div>
