@@ -19,12 +19,12 @@
     <?php } ?>
 </div>
 <div class="cotizar_btn clearfix">
-    <div class="mas_productos">
+    <a href="" class="mas_productos">
         <div class="txt">Agregar más productos</div>
         <div class="punto valign"></div>
-    </div>
-    <div class="enviar_cotizacion">
+    </a>
+    <a href="" class="enviar_cotizacion">
         <div class="txt">Enviar cotización</div>
         <div class="punto valign"></div>
-    </div>
+    </a>
 </div>
