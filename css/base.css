@@ -533,7 +533,7 @@ html body .contenedor .sitio .footer .contfooter .foo .map {
 }
 html body .contenedor .sitio .footer .contfooter .foo .map .titulo {
   font-size: 18px;
-  padding-top: 8px;
+  padding-bottom: 8px;
   color: #fff;
 }
 html body .contenedor .sitio .footer .contfooter .foo .map #googleMap {
@@ -548,13 +548,17 @@ html body .contenedor .sitio .footer .contfooter .foo .foo_info {
 }
 html body .contenedor .sitio .footer .contfooter .foo .foo_info .titulo {
   font-size: 18px;
-  padding-top: 8px;
+  padding-bottom: 8px;
   color: #fff;
 }
 html body .contenedor .sitio .footer .contfooter .foo .foo_info .tipo1 {
   color: #fff;
 }
 html body .contenedor .sitio .footer .contfooter .foo .foo_info .tipo2 {
+  color: #fff;
+}
+html body .contenedor .sitio .footer .contfooter .foo .foo_info .tipo2 a {
+  text-decoration: none;
   color: #fff;
 }
 html body .contenedor .sitio .footer .links_boletas .boleta {

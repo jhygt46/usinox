@@ -560,7 +560,7 @@ html{
                                 float: left;
                                 .titulo{
                                     font-size: 18px;
-                                    padding-top: 8px;
+                                    padding-bottom: 8px;
                                     color: #fff;
                                 }
                                 #googleMap{
@@ -575,7 +575,7 @@ html{
                                 padding: 8px 8px 8px 0px;
                                 .titulo{
                                     font-size: 18px;
-                                    padding-top: 8px;
+                                    padding-bottom: 8px;
                                     color: #fff;
                                 }
                                 .tipo1{
@@ -583,6 +583,10 @@ html{
                                 }
                                 .tipo2{
                                     color: #fff;
+                                    a{
+                                        text-decoration: none;
+                                        color: #fff;
+                                    }
                                 }
                             }
                         }
