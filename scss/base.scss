@@ -556,7 +556,7 @@ html{
                         .foo{
                             .map{
                                 width: calc(45% - 24px);
-                                padding: 8px;
+                                padding: 12px;
                                 float: left;
                                 .titulo{
                                     font-size: 18px;
@@ -572,7 +572,7 @@ html{
                             .foo_info{
                                 width: calc(55% - 24px);
                                 float: left;
-                                padding: 12px 12px 12px 12px;
+                                padding: 12px 12px 6px 12px;
                                 .titulo{
                                     font-size: 18px;
                                     padding-bottom: 8px;
