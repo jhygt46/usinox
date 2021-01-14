@@ -525,6 +525,22 @@ html body .contenedor .sitio .footer {
 html body .contenedor .sitio .footer .contfooter {
   background: #000;
 }
+html body .contenedor .sitio .footer .contfooter .foo .map {
+  width: 45%;
+  float: left;
+}
+html body .contenedor .sitio .footer .contfooter .foo .map .titulo {
+  font-size: 18px;
+}
+html body .contenedor .sitio .footer .contfooter .foo .map #googleMap {
+  width: 100%;
+  height: 300px;
+  background: #fff;
+}
+html body .contenedor .sitio .footer .contfooter .foo .foo_info {
+  width: 55%;
+  float: left;
+}
 html body .contenedor .sitio .footer .links_boletas .boleta {
   float: right;
   margin: 3px 0px 0px 10px;
