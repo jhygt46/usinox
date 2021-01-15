@@ -39,6 +39,10 @@ if(isset($_GET["id_pro"]) && is_numeric($_GET["id_pro"]) && $_GET["id_pro"] != 0
     $sub_titulo = $sub_titulo2;
     $relaciones = $admin->get_relaciones($id);
 
+    echo "<pre>";
+    print_r($relaciones);
+    echo "</pre>";
+
 }
 ?>
 
