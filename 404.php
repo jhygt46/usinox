@@ -1,13 +1,10 @@
 <?php
-    session_start();
-    date_default_timezone_set('america/santiago');
-    $inicio = $core->iniciar();
 
-    /*
+    
     echo "<pre>";
-    print_r($inicio);
+    print_r($base);
     echo "</pre>";
-    */
+    
 
 ?>
 
