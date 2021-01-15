@@ -4,7 +4,7 @@
     date_default_timezone_set('america/santiago');
     require "base_class.php";
     $base = new Base();
-    $inicio = $base->get_base();
+    $inicio = $base->get_pagina();
 
 
 ?>
