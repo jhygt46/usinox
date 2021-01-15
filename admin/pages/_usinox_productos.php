@@ -31,17 +31,13 @@ $id_cat = $_GET["id_cat"];
 $list_ = $admin->get_productos($id_cat);
 $titulo_padre = $admin->get_titulo_padre_prod($id_cat);
 $categorias = $admin->get_categoria_diferente_pagina();
-echo "<pre>";
-print_r($categorias);
-echo "</pre>";
 
 if(isset($_GET["id_pro"]) && is_numeric($_GET["id_pro"]) && $_GET["id_pro"] != 0){
 
     $id = $_GET["id_pro"];
     $that = $admin->get_producto($id);
     $sub_titulo = $sub_titulo2;
-    
-    $relaciones = $this->get_relaciones($id);
+    $relaciones = $admin->get_relaciones($id);
 
 }else{
     $relaciones = array();
