@@ -491,13 +491,15 @@ class Guardar{
                                                                     if($sqlr->bind_param("sssssiiiii", $nombre, $url, $descripcion, $marca, $modelo, $precio, $id_cp_cat, $ordenf, $i, $this->eliminado)){
                                                                         if($sqlr->execute()){
                                                                             $id_cp = $this->con->insert_id;
+
                                                                             if($sqln = $this->con->prepare("INSERT INTO _usinox_prod_rel (id_pro1, id_pro2) VALUES (?, ?)")){
                                                                                 if($sqln->bind_param("ii", $id_pro, $id_cp)){
                                                                                     if($sqln->execute()){
                                                                                         
-                                                                                    }else{ $this->htmlspecialchars($sqln->error); }
-                                                                                }else{ $this->htmlspecialchars($sqln->error); }
-                                                                            }else{ $this->htmlspecialchars($this->con->error); }
+                                                                                    }else{ $info['db'] = $this->htmlspecialchars($sqln->error); }
+                                                                                }else{ $info['db'] = $this->htmlspecialchars($sqln->error); }
+                                                                            }else{ $info['db'] = $this->htmlspecialchars($this->con->error); }
+
                                                                         }else{ $this->htmlspecialchars($sqlr->error); }
                                                                     }else{ $this->htmlspecialchars($sqlr->error); }
                                                                 }else{ $this->htmlspecialchars($this->con->error); }
