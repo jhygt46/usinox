@@ -272,7 +272,6 @@ class Core{
                         $pro = $this->process_producto($data, $url);
                         if($pro == null){
                             header("HTTP/1.1 404 Not Found");
-                            $inicio['base'] = $this->get_base();
                             include '404.php';
                             exit;
                         }else{
