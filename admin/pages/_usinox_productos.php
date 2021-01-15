@@ -10,7 +10,7 @@ $sub_titulo2 = "Modificar Producto";
 $accion = "crear_producto";
 $titulo_list = "Lista de Productos";
 
-$eliminaraccion = "eliminar_productos";
+$eliminaraccion = "eliminar_producto";
 $eliminarobjeto = "Productos";
 
 $id_list = "id_pro";
