@@ -493,7 +493,7 @@ class Guardar{
                                                                             $id_cp = $this->con->insert_id;
 
                                                                             if($sqln = $this->con->prepare("INSERT INTO _usinox_prod_rel (id_pro1, id_pro2) VALUES (?, ?)")){
-                                                                                if($sqln->bind_param("ii", $id_pro, $id_cp)){
+                                                                                if($sqln->bind_param("ii", $id, $id_cp)){
                                                                                     if($sqln->execute()){
                                                                                         
                                                                                     }else{ $info['db'] = $this->htmlspecialchars($sqln->error); }
