@@ -287,6 +287,9 @@ class Admin {
         }
         return $arrResult;
     }
+    private function htmlspecialchars($data){
+        return $data;
+    }
     
 }
 
