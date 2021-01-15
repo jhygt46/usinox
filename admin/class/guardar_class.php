@@ -427,7 +427,7 @@ class Guardar{
                             if($sql->execute()){
                                 $info['op'] = 1;
                                 $info['mensaje'] = "Prodcuto modificada exitosamente";
-                                if(isset($reload)){
+                                if(!isset($reload)){
                                     $info['reload'] = 1;
                                     $info['page'] = "_usinox_productos.php?id_cat=".$id_cat;
                                 }else{
