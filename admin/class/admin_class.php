@@ -93,7 +93,9 @@ class Admin {
                 if($sql->execute()){
                     $data = $this->get_result($sql);
                     $sql->close();
-                    $res[] = $data;
+                    if(count($data) == 1){
+                        $res[] = $data[0];
+                    }
                 }else{ $res['db'] = $this->htmlspecialchars($sql->error); }
             }else{ $res['db'] = $this->htmlspecialchars($sql->error); }
         }else{ $res['db'] = $this->htmlspecialchars($this->con->error); }
@@ -102,7 +104,9 @@ class Admin {
                 if($sql->execute()){
                     $data = $this->get_result($sql);
                     $sql->close();
-                    $res[] = $data;
+                    if(count($data) == 1){
+                        $res[] = $data[0];
+                    }
                 }else{ $res['db'] = $this->htmlspecialchars($sql->error); }
             }else{ $res['db'] = $this->htmlspecialchars($sql->error); }
         }else{ $res['db'] = $this->htmlspecialchars($this->con->error); }
