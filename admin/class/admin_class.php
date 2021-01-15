@@ -83,18 +83,40 @@ class Admin {
                     $data = $this->get_result($sql);
                     $sql->close();
                     return $data;
-                    return $this->resp_categorias($data, $id_cat);
                 }else{ $this->htmlspecialchars($sql->error); }
             }else{ $this->htmlspecialchars($sql->error); }
         }else{ $this->htmlspecialchars($this->con->error); }
     }
+    public function get_relaciones($id){
+        if($sql = $this->con->prepare("SELECT * FROM _usinox_prod_rel t1, _usinox_productos t2 WHERE t1.id_pro1=? AND t1.id_pro2=t2.id_pro")){
+            if($sql->bind_param("ii", $i, $this->eliminado)){
+                if($sql->execute()){
+                    $data = $this->get_result($sql);
+                    $sql->close();
+                    $res[] = $data[0];
+                }else{ $this->htmlspecialchars($sql->error); }
+            }else{ $this->htmlspecialchars($sql->error); }
+        }else{ $this->htmlspecialchars($this->con->error); }
+        if($sql = $this->con->prepare("SELECT * FROM _usinox_prod_rel t1, _usinox_productos t2 WHERE t1.id_pro2=? AND t1.id_pro1=t2.id_pro")){
+            if($sql->bind_param("ii", $i, $this->eliminado)){
+                if($sql->execute()){
+                    $data = $this->get_result($sql);
+                    $sql->close();
+                    $res[] = $data[0];
+                }else{ $this->htmlspecialchars($sql->error); }
+            }else{ $this->htmlspecialchars($sql->error); }
+        }else{ $this->htmlspecialchars($this->con->error); }
+        return $res;
+    }
     public function get_categoria_diferente_pagina(){
 
         if($_SESSION["id_pag"] == 1){
+            $aux["id"] = 2;
             $aux["nombre"] = "Neptuno";
             $aux["categorias"] = $this->get_categoria_diferente_sql(2);
             $res[] = $aux;
         }else if($_SESSION["id_pag"] == 2){
+            $aux["id"] = 1;
             $aux["nombre"] = "Neptuno";
             $aux["categorias"] = $this->get_categoria_diferente_sql(1);
             $res[] = $aux;

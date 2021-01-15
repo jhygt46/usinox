@@ -416,6 +416,7 @@ class Guardar{
         $marca = $_POST['marca'];
         $modelo = $_POST['modelo'];
         $precio = $_POST['precio'];
+        $reload = $_POST['reload'];
 
         if($this->verificar_usuario()){
 
@@ -426,9 +427,10 @@ class Guardar{
                             if($sql->execute()){
                                 $info['op'] = 1;
                                 $info['mensaje'] = "Prodcuto modificada exitosamente";
-                                $info['reload'] = 1;
-                                $info['page'] = "_usinox_productos.php?id_cat=".$id_cat;
-                                
+                                if(!isset($reload)){
+                                    $info['reload'] = 1;
+                                    $info['page'] = "_usinox_productos.php?id_cat=".$id_cat;
+                                }
                                 $pdf_name = $this->get_pdf_producto($id);
                                 $ficha = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/", null, 0, $pdf_name["ficha"]);
                                 if($ficha['op'] == 1){
@@ -464,16 +466,54 @@ class Guardar{
                                             $info['page'] = "_usinox_productos.php?id_cat=".$id_cat;
                                             $id = $this->con->insert_id;
                                             $ficha = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/", null, 0, "");
+                                            $ficha['image'] = "";
                                             if($ficha['op'] == 1){
                                                 $this->actualizar_pdf_producto($id, $ficha['image'], 'ficha');
                                             }
                                             $manual = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/", null, 1, "");
+                                            $manual['image'] = "";
                                             if($manual['op'] == 1){
                                                 $this->actualizar_pdf_producto($id, $manual['image'], 'manual');
                                             }
+
+                                            for($i=1; $i<=2; $i++){
+                                                $id_cp_cat = $_POST["id_cp_cat_".$i];
+                                                if($id_cp_cat > 0){
+
+                                                    // RECORDAR MAX ORDEN + 1 EN VEZ DE COUNT
+                                                    if($sqlf = $this->con->prepare("SELECT id_pro FROM _usinox_productos WHERE id_cat=? AND id_pag=? AND eliminado=?")){
+                                                        if($sqlf->bind_param("iii", $id_cp_cat, $i, $this->eliminado)){
+                                                            if($sqlf->execute()){
+                                                                $dataf = $this->get_result($sqlf);
+                                                                $sqls->close();
+                                                                $ordenf = count($dataf);
+                                                                if($sqlr = $this->con->prepare("INSERT INTO _usinox_productos (nombre, urls, descripcion, marca, modelo, precio, fecha, id_cat, orden, id_pag, eliminado) VALUES (?, ?, ?, ?, ?, ?, now(), ?, ?, ?, ?)")){
+                                                                    if($sqlr->bind_param("sssssiiiii", $nombre, $url, $descripcion, $marca, $modelo, $precio, $id_cp_cat, $ordenf, $i, $this->eliminado)){
+                                                                        if($sqlr->execute()){
+                                                                            $id_cp = $this->con->insert_id;
+                                                                            if($sqln = $this->con->prepare("INSERT INTO _usinox_prod_rel (id_pro1, id_pro2) VALUES (?, ?)")){
+                                                                                if($sqln->bind_param("ii", $id_pro, $id_cp)){
+                                                                                    if($sqln->execute()){
+                                                                                        
+                                                                                    }else{ $this->htmlspecialchars($sqln->error); }
+                                                                                }else{ $this->htmlspecialchars($sqln->error); }
+                                                                            }else{ $this->htmlspecialchars($this->con->error); }
+                                                                        }else{ $this->htmlspecialchars($sqlr->error); }
+                                                                    }else{ $this->htmlspecialchars($sqlr->error); }
+                                                                }else{ $this->htmlspecialchars($this->con->error); }
+                                                            }else{ $this->htmlspecialchars($sqlr->error); }
+                                                        }else{ $this->htmlspecialchars($sqlr->error); }
+                                                    }else{ $this->htmlspecialchars($this->con->error); }
+
+
+                                                    
+                                                }
+                                            }
+
                                         }else{ $info['err'] = $this->htmlspecialchars($sql->error); }
                                     }else{ $info['err'] = $this->htmlspecialchars($sql->error); }
                                 }else{ $info['err'] = $this->htmlspecialchars($this->con->error); }
+
                             }else{ $info['err'] = $this->htmlspecialchars($sqls->error); }
                         }else{ $info['err'] = $this->htmlspecialchars($sqls->error); }
                     }else{ $info['err'] = $this->htmlspecialchars($this->con->error); }
