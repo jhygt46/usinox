@@ -1,14 +1,3 @@
-<?php
-    session_start();
-    
-    date_default_timezone_set('america/santiago');
-    require "base_class.php";
-    $base = new Base();
-    $inicio = $base->get_pagina();
-
-
-?>
-
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
