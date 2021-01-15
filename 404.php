@@ -1,9 +1,6 @@
 <?php
     session_start();
-    
     date_default_timezone_set('america/santiago');
-    require "index_class.php";
-    $core = new Core();
     $inicio = $core->iniciar();
 
     /*
