@@ -152,7 +152,7 @@ if(isset($_GET["id_pro"]) && is_numeric($_GET["id_pro"]) && $_GET["id_pro"] != 0
                         <span>Copiar a:</span>
                         <select id="id_cp_cat_<?php echo $categorias[$j]["id"]; ?>">
                             <option value="0">No copiar</option>
-                            <?php for($i=0; $i<count($categorias[$j]); $i++){ echo '<option value="'.$categorias[$j]["categorias"][$i]["id_cat"].'">'.$categorias[$j]["categorias"][$i]["nombre"].'</option>'; }?>
+                            <?php for($i=0; $i<count($categorias[$j]["categorias"]); $i++){ echo '<option value="'.$categorias[$j]["categorias"][$i]["id_cat"].'">'.$categorias[$j]["categorias"][$i]["nombre"].'</option>'; }?>
                         </select>
                     </label>
                     <?php }} ?>
