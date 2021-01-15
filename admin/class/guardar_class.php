@@ -421,6 +421,7 @@ class Guardar{
         if($this->verificar_usuario()){
 
             if($id > 0){
+                $id_pag = (isset($_POST['id_pag']))? $_POST['id_pag'] : $_SESSION["id_pag"] ;
                 if($this->verificar_urls_pro($url, $id)){
                     if($sql = $this->con->prepare("UPDATE _usinox_productos SET nombre=?, urls=?, descripcion=?, marca=?, modelo=?, precio=? WHERE id_pro=? AND id_pag=?")){
                         if($sql->bind_param("sssssiii", $nombre, $url, $descripcion, $marca, $modelo, $precio, $id, $_SESSION["id_pag"])){
@@ -431,9 +432,11 @@ class Guardar{
                                     $info['reload'] = 1;
                                     $info['page'] = "_usinox_productos.php?id_cat=".$id_cat;
                                 }else{
+
                                     $aux = explode("/", $reload);
                                     $info['reload'] = 1;
-                                    $info['page'] = "_usinox_productos.php?id_cat=".$aux[0]."&id_pro=".$aux[1];
+                                    $info['page'] = "_usinox_productos.php?re=0&id_cat=".$aux[0]."&id_pro=".$aux[1];
+
                                 }
                                 $pdf_name = $this->get_pdf_producto($id);
                                 $ficha = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/", null, 0, $pdf_name["ficha"]);

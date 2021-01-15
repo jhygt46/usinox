@@ -37,11 +37,9 @@ if(isset($_GET["id_pro"]) && is_numeric($_GET["id_pro"]) && $_GET["id_pro"] != 0
     $id = $_GET["id_pro"];
     $that = $admin->get_producto($id);
     $sub_titulo = $sub_titulo2;
-    $relaciones = $admin->get_relaciones($id);
-
-    echo "<pre>";
-    print_r($relaciones);
-    echo "</pre>";
+    if(!isset($_GET["re"])){
+        $relaciones = $admin->get_relaciones($id);
+    }
 
 }
 ?>
@@ -104,6 +102,7 @@ if(isset($_GET["id_pro"]) && is_numeric($_GET["id_pro"]) && $_GET["id_pro"] != 0
                     <input id="id_cat" type="hidden" value="<?php echo $id_cat; ?>" />
                     <?php if(count($relaciones) > 0){ ?>
                     <input id="reload" type="hidden" value="<?php echo $relaciones[0]['id_cat']; ?>/<?php echo $relaciones[0]['id_pro']; ?>" />
+                    <input id="id_pag" type="hidden" value="<?php echo $relaciones[0]['id_pag']; ?>" />
                     <?php } ?>
                     <label class="nboleta">
                         <span>Nombre:</span>
@@ -145,7 +144,7 @@ if(isset($_GET["id_pro"]) && is_numeric($_GET["id_pro"]) && $_GET["id_pro"] != 0
                         <input id="modelo" type="text" value="<?php echo $that['modelo']; ?>" />
                         <div class="mensaje"></div>
                     </label>
-                    <?php if($id_pro == 0){ for($j=0; $j<count($categorias); $j++){ $c = $j + 1; ?>
+                    <?php if($id == 0){ for($j=0; $j<count($categorias); $j++){ $c = $j + 1; ?>
                     <label>
                         <span>Copiar a:</span>
                         <select id="id_cp_cat_<?php echo $categorias[$j]["id"]; ?>">
