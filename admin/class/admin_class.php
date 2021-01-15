@@ -88,7 +88,7 @@ class Admin {
         }else{ $this->htmlspecialchars($this->con->error); }
     }
     public function get_relaciones($id){
-        if($sql = $this->con->prepare("SELECT * FROM _usinox_prod_rel t1, _usinox_productos t2 WHERE t1.id_pro1=? AND t1.id_pro2=t2.id_pro")){
+        if($sql = $this->con->prepare("SELECT * FROM _usinox_prod_rel t1, _usinox_productos t2 WHERE t1.id_pro1=? AND t1.id_pro2=t2.id_pro AND t2.eliminado=?")){
             if($sql->bind_param("ii", $i, $this->eliminado)){
                 if($sql->execute()){
                     $data = $this->get_result($sql);
@@ -97,7 +97,7 @@ class Admin {
                 }else{ $res['db'] = $this->htmlspecialchars($sql->error); }
             }else{ $res['db'] = $this->htmlspecialchars($sql->error); }
         }else{ $res['db'] = $this->htmlspecialchars($this->con->error); }
-        if($sql = $this->con->prepare("SELECT * FROM _usinox_prod_rel t1, _usinox_productos t2 WHERE t1.id_pro2=? AND t1.id_pro1=t2.id_pro")){
+        if($sql = $this->con->prepare("SELECT * FROM _usinox_prod_rel t1, _usinox_productos t2 WHERE t1.id_pro2=? AND t1.id_pro1=t2.id_pro AND t2.eliminado=?")){
             if($sql->bind_param("ii", $i, $this->eliminado)){
                 if($sql->execute()){
                     $data = $this->get_result($sql);
