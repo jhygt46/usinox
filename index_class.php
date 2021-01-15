@@ -273,7 +273,7 @@ class Core{
                         if($pro == null){
                             header("HTTP/1.1 404 Not Found");
                             $inicio['base'] = $this->get_base();
-                            require '404.php';
+                            include '404.php';
                             exit;
                         }else{
                             $pro['tipo'] = "producto";

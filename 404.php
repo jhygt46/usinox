@@ -2,7 +2,7 @@
 
     
     echo "<pre>";
-    print_r($base);
+    print_r($inicio);
     echo "</pre>";
     
 
