@@ -39,8 +39,6 @@ if(isset($_GET["id_pro"]) && is_numeric($_GET["id_pro"]) && $_GET["id_pro"] != 0
     $sub_titulo = $sub_titulo2;
     $relaciones = $admin->get_relaciones($id);
 
-}else{
-    $relaciones = array();
 }
 ?>
 
@@ -101,7 +99,7 @@ if(isset($_GET["id_pro"]) && is_numeric($_GET["id_pro"]) && $_GET["id_pro"] != 0
                     <input id="accion" type="hidden" value="<?php echo $accion; ?>" />
                     <input id="id_cat" type="hidden" value="<?php echo $id_cat; ?>" />
                     <?php if(count($relaciones) > 0){ ?>
-                    <input id="reload" type="hidden" value="0" />
+                    <input id="reload" type="hidden" value="<?php echo $relaciones[0]['id_cat']; ?>/<?php echo $relaciones[0]['id_pro']; ?>" />
                     <?php } ?>
                     <label class="nboleta">
                         <span>Nombre:</span>
@@ -163,86 +161,6 @@ if(isset($_GET["id_pro"]) && is_numeric($_GET["id_pro"]) && $_GET["id_pro"] != 0
         </div>
     </div>
 </div>
-
-<?php for($i=0; $i<count($relaciones); $i++){ ?>
-
-    <div class="info">
-    <div class="fc" id="info-0">
-        <div class="minimizar m1"></div>
-        <div class="close"></div>
-        <div class="name"><?php echo $sub_titulo; ?></div>
-        <div class="name2"><?php echo $titulo_padre; ?></div>
-        <div class="message"></div>
-        <div class="sucont">
-
-            <form action="" method="post" class="basic-grey">
-                <fieldset>
-                    <input id="id" type="hidden" value="<?php echo $relaciones[$i]['id_pro']; ?>" />
-                    <input id="accion" type="hidden" value="<?php echo $accion; ?>" />
-                    <input id="id_cat" type="hidden" value="<?php echo $id_cat; ?>" />
-                    <input id="reload" type="hidden" value="0" />
-                    <label class="nboleta">
-                        <span>Nombre:</span>
-                        <input id="nombre" type="text" value="<?php echo $that['nombre']; ?>" />
-                        <div class="mensaje"></div>
-                    </label>
-                    <label>
-                        <span>Url:</span>
-                        <input id="url" type="text" value="<?php echo $that['urls']; ?>" />
-                        <div class="mensaje"></div>
-                    </label>
-                    <label>
-                        <span>Catalogo Usinox:</span>
-                        <input id="file_image0" type="file" />
-                        <div class="mensaje"></div>
-                    </label>
-                    <label>
-                        <span>Manual Usinox:</span>
-                        <input id="file_image1" type="file" />
-                        <div class="mensaje"></div>
-                    </label>
-                    <label>
-                        <span>Descripcion:</span>
-                        <textarea id="desc" ><?php echo $that['descripcion']; ?></textarea>
-                        <div class="mensaje"></div>
-                    </label>
-                    <label class="nboleta">
-                        <span>Precio:</span>
-                        <input id="precio" type="text" value="<?php echo $that['precio']; ?>" />
-                        <div class="mensaje"></div>
-                    </label>
-                    <label class="nboleta">
-                        <span>Marca:</span>
-                        <input id="marca" type="text" value="<?php echo $that['marca']; ?>" />
-                        <div class="mensaje"></div>
-                    </label>
-                    <label class="nboleta">
-                        <span>Modelo:</span>
-                        <input id="modelo" type="text" value="<?php echo $that['modelo']; ?>" />
-                        <div class="mensaje"></div>
-                    </label>
-                    <?php if($id_pro == 0){ for($j=0; $j<count($categorias); $j++){ $c = $j + 1; ?>
-                    <label>
-                        <span>Copiar a:</span>
-                        <select id="id_cp_cat_<?php echo $categorias[$j]["id"]; ?>">
-                            <option value="0">No copiar</option>
-                            <?php for($i=0; $i<count($categorias[$j]); $i++){ echo '<option value="'.$categorias[$j][$i]["id_cat"].'">Solo '.$categorias[$j][$i]["nombre"].'</option>'; }?>
-                        </select>
-                    </label>
-                    <?php }} ?>
-                    <label style='margin-top:20px'>
-                        <span>&nbsp;</span>
-                        <a id='button' onclick="form()">Enviar</a>
-                    </label>
-                    
-                </fieldset>
-            </form>
-            
-        </div>
-    </div>
-</div>
-    
-<?php } ?>
 
 <?php if(count($list_) > 0){ ?>
 <div class="info">
