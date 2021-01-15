@@ -30,7 +30,7 @@ $id_cat = $_GET["id_cat"];
 
 $list_ = $admin->get_productos($id_cat);
 $titulo_padre = $admin->get_titulo_padre_prod($id_cat);
-
+$categorias = $admin->get_categoria_diferente_pagina();
 
 if(isset($_GET["id_pro"]) && is_numeric($_GET["id_pro"]) && $_GET["id_pro"] != 0){
 
@@ -137,10 +137,20 @@ if(isset($_GET["id_pro"]) && is_numeric($_GET["id_pro"]) && $_GET["id_pro"] != 0
                         <input id="modelo" type="text" value="<?php echo $that['modelo']; ?>" />
                         <div class="mensaje"></div>
                     </label>
+                    <?php for($j=0; $j<count($categorias); $j++){ ?>
+                    <label>
+                        <span>Copiar a:</span>
+                        <select id="id_cp_cat">
+                            <option value="0">No copiar</option>
+                            <?php for($i=0; $i<count($categorias[$j]); $i++){ echo '<option value="'.$categorias[$j][$i]["id_cat"].'">Solo '.$categorias[$j][$i]["nombre"].'</option>'; }?>
+                        </select>
+                    </label>
+                    <?php } ?>
                     <label style='margin-top:20px'>
                         <span>&nbsp;</span>
                         <a id='button' onclick="form()">Enviar</a>
                     </label>
+                    
                 </fieldset>
             </form>
             

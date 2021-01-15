@@ -76,6 +76,34 @@ class Admin {
         }
         return "en ".implode(" > ", array_reverse($n));
     }
+    private function get_categoria_diferente_sql($i){
+        if($sql = $this->con->prepare("SELECT id_cat, nombre, parent_id FROM _usinox_categorias WHERE id_pag=? AND eliminado=?")){
+            if($sql->bind_param("ii", $i, $this->eliminado)){
+                if($sql->execute()){
+                    $data = $this->get_result($sql);
+                    $sql->close();
+                    return $data;
+                    return $this->resp_categorias($data, $id_cat);
+                }else{ $this->htmlspecialchars($sql->error); }
+            }else{ $this->htmlspecialchars($sql->error); }
+        }else{ $this->htmlspecialchars($this->con->error); }
+    }
+    public function get_categoria_diferente_pagina(){
+
+        if($_SESSION["id_pag"] == 1){
+            $aux["nombre"] = "Neptuno";
+            $aux["categorias"] = $this->get_categoria_diferente_sql(2);
+            $res[] = $aux;
+        }else if($_SESSION["id_pag"] == 2){
+            $aux["nombre"] = "Neptuno";
+            $aux["categorias"] = $this->get_categoria_diferente_sql(1);
+            $res[] = $aux;
+        }else{
+            $res = array();
+        }
+        return $res;
+
+    }
     public function get_titulo_padre_prod($id_cat){
         if($sql = $this->con->prepare("SELECT id_cat, nombre, parent_id FROM _usinox_categorias WHERE id_pag=? AND eliminado=?")){
             if($sql->bind_param("ii", $_SESSION["id_pag"], $this->eliminado)){
