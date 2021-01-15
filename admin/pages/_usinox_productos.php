@@ -31,7 +31,9 @@ $id_cat = $_GET["id_cat"];
 $list_ = $admin->get_productos($id_cat);
 $titulo_padre = $admin->get_titulo_padre_prod($id_cat);
 $categorias = $admin->get_categoria_diferente_pagina();
-$relaciones = array();
+echo "<pre>";
+print_r($categorias);
+echo "</pre>";
 
 if(isset($_GET["id_pro"]) && is_numeric($_GET["id_pro"]) && $_GET["id_pro"] != 0){
 
@@ -41,6 +43,8 @@ if(isset($_GET["id_pro"]) && is_numeric($_GET["id_pro"]) && $_GET["id_pro"] != 0
     
     $relaciones = $this->get_relaciones($id);
 
+}else{
+    $relaciones = array();
 }
 ?>
 
@@ -148,7 +152,7 @@ if(isset($_GET["id_pro"]) && is_numeric($_GET["id_pro"]) && $_GET["id_pro"] != 0
                         <span>Copiar a:</span>
                         <select id="id_cp_cat_<?php echo $categorias[$j]["id"]; ?>">
                             <option value="0">No copiar</option>
-                            <?php for($i=0; $i<count($categorias[$j]); $i++){ echo '<option value="'.$categorias[$j][$i]["id_cat"].'">Solo '.$categorias[$j][$i]["nombre"].'</option>'; }?>
+                            <?php for($i=0; $i<count($categorias[$j]); $i++){ echo '<option value="'.$categorias[$j][$i]["id_cat"].'">'.$categorias[$j][$i]["nombre"].'</option>'; }?>
                         </select>
                     </label>
                     <?php }} ?>
