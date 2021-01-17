@@ -571,10 +571,10 @@ html{
                             .paginas{
                                 background: #ededed;
                                 border-radius: 10px;
-                                padding: 30px;
+                                padding: 20px;
                                 .cont_pagina{
                                     .pag_foto{
-                                        width: 40%;
+                                        width: 45%;
                                         float: left;
                                         img{
                                             width: 100%;
@@ -584,6 +584,7 @@ html{
                                         width: calc(55% - 10px);
                                         padding-left: 10px;
                                         float: left;
+                                        font-size: 14px;
                                     }
                                 }
                             }

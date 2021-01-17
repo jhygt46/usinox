@@ -551,10 +551,10 @@ html body .contenedor .sitio .medio .info .data .cotizar_btn .enviar_cotizacion 
 html body .contenedor .sitio .medio .info .data .paginas {
   background: #ededed;
   border-radius: 10px;
-  padding: 30px;
+  padding: 20px;
 }
 html body .contenedor .sitio .medio .info .data .paginas .cont_pagina .pag_foto {
-  width: 40%;
+  width: 45%;
   float: left;
 }
 html body .contenedor .sitio .medio .info .data .paginas .cont_pagina .pag_foto img {
@@ -564,6 +564,7 @@ html body .contenedor .sitio .medio .info .data .paginas .cont_pagina .pag_info 
   width: calc(55% - 10px);
   padding-left: 10px;
   float: left;
+  font-size: 14px;
 }
 html body .contenedor .sitio .footer {
   width: 100%;
