@@ -80,6 +80,12 @@
                                     case "busqueda":
                                         include("includes/_pagina_busqueda.php");
                                         break;
+                                    case "novedades":
+                                        include("includes/_pagina_novedades.php");
+                                        break;
+                                    case "ofertas":
+                                        include("includes/_pagina_ofertas.php");
+                                        break;
                                 }
 
                             ?>

@@ -39,6 +39,14 @@ class Core{
                 $info['tipo'] = "paginas";
                 $info['pagina'] = $url[1];
                 $info['base'] = $this->get_base();
+            }else if($url[1] == "novedades"){
+                $info['tipo'] = "novedades";
+                $info['base'] = $this->get_base();
+                $info['childs_pro'] = $this->get_novedades_ofertas(1);
+            }else if($url[1] == "ofertas"){
+                $info['tipo'] = "ofertas";
+                $info['base'] = $this->get_base();
+                $info['childs_pro'] = $this->get_novedades_ofertas(2);
             }else if($url[1] == "cotizador"){
                 $info['tipo'] = "cotizador";
                 $info['base'] = $this->get_base();
