@@ -551,6 +551,7 @@ html body .contenedor .sitio .medio .info .data .cotizar_btn .enviar_cotizacion 
 html body .contenedor .sitio .medio .info .data .paginas {
   background: #ededed;
   border-radius: 10px;
+  margin: 0 auto;
 }
 html body .contenedor .sitio .medio .info .data .paginas .cont_pagina .pag_foto img {
   width: 100%;
@@ -689,6 +690,9 @@ html body .contenedor .sitio .footer .links_boletas .boleta {
   html body .contenedor .sitio .medio .info .data .lista_cotizador {
     width: 96%;
   }
+  html body .contenedor .sitio .medio .info .data .paginas {
+    width: calc(96% - 40px);
+  }
 }
 @media only screen and (min-width: 500px) {
   .cont_pagina .pag_foto {
@@ -788,6 +792,9 @@ html body .contenedor .sitio .footer .links_boletas .boleta {
   }
   html body .contenedor .sitio .medio .info .data .lista_cotizador {
     width: 100%;
+  }
+  html body .contenedor .sitio .medio .info .data .paginas {
+    width: calc(100% - 40px);
   }
 }
 @media only screen and (min-width: 500px) {

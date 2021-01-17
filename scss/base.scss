@@ -571,6 +571,7 @@ html{
                             .paginas{
                                 background: #ededed;
                                 border-radius: 10px;
+                                margin: 0 auto;
                                 .cont_pagina{
                                     .pag_foto{
                                         img{
@@ -734,6 +735,9 @@ html{
                                 .lista_cotizador{
                                     width: 96%;
                                 }
+                                .paginas{
+                                    width: calc(96% - 40px);
+                                }
                             }
                         }
                     }
@@ -865,6 +869,9 @@ html{
                                 }
                                 .lista_cotizador{
                                     width: 100%;
+                                }
+                                .paginas{
+                                    width: calc(100% - 40px);
                                 }
                             }
                         }
