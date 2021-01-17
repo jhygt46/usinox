@@ -565,6 +565,9 @@ html body .contenedor .sitio .medio .info .data .paginas .cont_pagina .pag_info 
   float: left;
   font-size: 14px;
 }
+html body .contenedor .sitio .medio .info .data .paginas .cont_pagina .pag_info .cont_input {
+  padding-bottom: 3px;
+}
 html body .contenedor .sitio .medio .info .data .paginas .cont_pagina .pag_info .cont_input input {
   width: 100%;
   height: 30px;
