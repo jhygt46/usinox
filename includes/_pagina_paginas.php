@@ -2,7 +2,7 @@
 <div class="titulo">
     <div class="nombre">Nosotros</div>
 </div>
-<div class="paginas">
+<div class="paginas padd1">
     <div class="cont_pagina">
         <div class="pag_cont clearfix"><img src="/images/nosotros.jpg">USINOX, Empresa con mas de 140 años de permanencia en el mercado, dedicada al Equipamiento de Cocinas Profesionales para Restaurantes, Hoteles, Instituciones, Supermercados, Campamentos Mineros, Fast-Food y la Gastronomia en General.<br/><br/>
         De esta forma USINOX esta capacitado para proporcionar a sus clientes el mas completo servicio de asesoria en el estudio, diseño, proyectos, planos, fabricacion y puesta en marcha de un Equipamiento Integral que satisfaga las mas exigentes necesidades del Cliente.<br/><br/>
@@ -24,7 +24,7 @@
 
 <?php if($inicio["pagina"] == "servicios"){ ?>
 <div class="titulo"><div class="nombre">Servicios</div></div>
-<div class="paginas">
+<div class="paginas padd2">
     <div class="cont_pagina">
         <div class="pag_titulo">Servicio Técnico</div>
         <div class="pag_cont clearfix"><img src="/images/servicios_01.jpg">El Servicio técnico de Usinox tiene una vasta experiencia en equipos gastronómicos de uso industrial. 140 años de historia en el mercado nos avalan, prestando una atención de calidad y garantía de satisfacción.<br/><br/>
