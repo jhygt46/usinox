@@ -553,6 +553,10 @@ html body .contenedor .sitio .medio .info .data .paginas {
   border-radius: 10px;
   padding: 30px;
 }
+html body .contenedor .sitio .medio .info .data .paginas .cont_pagina .pag_foto {
+  width: 40%;
+  float: left;
+}
 html body .contenedor .sitio .footer {
   width: 100%;
 }
