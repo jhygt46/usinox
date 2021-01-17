@@ -28,6 +28,7 @@
             <div class="cont_input"><input type="text" id="telefono"></div>
             <div class="cont_campo">Asunto: (*)</div>
             <div class="cont_input"><Textarea id="asunto"></Textarea></div>
+            <div class="cont_btn"><input type="button" value="Enviar" id="enviar_contacto"></div>
         </div>
     </div>
 </div>

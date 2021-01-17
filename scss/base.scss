@@ -588,14 +588,19 @@ html{
 
                                         }
                                         .cont_input{
-                                            padding-bottom: 3px;
+                                            padding-bottom: 4px;
                                             input{
                                                 width: 100%;
-                                                height: 30px;
+                                                height: 28px;
                                             }
                                             textarea{
                                                 width: 100%;
                                                 height: 100px;
+                                            }
+                                        }
+                                        .cont_btn{
+                                            input{
+                                                padding: 10px 20px;
                                             }
                                         }
                                     }
