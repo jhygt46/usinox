@@ -1,3 +1,9 @@
+<?php
+echo "<pre>";
+print_r($inicio);
+echo "</pre>";
+?>
+
 <?php if($inicio["tipo"] == "nosotros"){ ?>
 <div class="titulo">
     <div class="nombre">Nosotros</div>
