@@ -27,7 +27,7 @@
             <div class="cont_campo">Telefono: (*)</div>
             <div class="cont_input"><input type="text" id="telefono"></div>
             <div class="cont_campo">Asunto: (*)</div>
-            <div class="cont_input"><Textarea id="asunto"></Textarea>
+            <div class="cont_input"><Textarea id="asunto"></Textarea></div>
         </div>
     </div>
 </div>
