@@ -37,26 +37,26 @@
     <div class="cont_pagina">
         <div class="pag_titulo">Nuestros Servicios</div>
         <div class="pag_cont clearfix"><img src="/images/servicios_02.jpg">
-            <strong>SERVICIO DE CORTE</strong>
+            <strong class="strong1">SERVICIO DE CORTE</strong>
             Guillotina Hidraulica de 3 Metros, Con capacidad de corte desde 0,6 mm, hasta 12mm, En acero 1010 acero inoxidable desde 0,6 hasta 6mm.
 
-            <strong>SERVICIO DE CILINDRADO</strong>
+            <strong class="strong2">SERVICIO DE CILINDRADO</strong>
             Cilindradora Mecanica de 2000 x 8 mm.
             Cilindrado en fierro de 2000 x 8 mm.
             Cilindrado de acero inoxidable de 2000 x 6 mm.
 
-            <strong>SERVICIO DE PUNZONADO</strong>
+            <strong class="strong2">SERVICIO DE PUNZONADO</strong>
             Servicio de punzonado con maquina multitool, con control cnc, de gran eficiencia, rapidez y flexibilidad, para los distintos tipos de trabajos.
             Espesores de 0,6 mm., hasta 4 mm., en acero 1010.
             Espesores de 0.6 mm., hasta 2 mm., en acero inoxidable.
 
-            <strong>SERVICIO DE ESTAMPADO</strong>
+            <strong class="strong2">SERVICIO DE ESTAMPADO</strong>
             2 prensas hidraulicas de 360 toneladas y 150 toneladas, de doble efecto.
 
-            <strong>SERVICIO DE PLEGADO</strong>
+            <strong class="strong2">SERVICIO DE PLEGADO</strong>
             Plegadora hidraulica con herramienta multiboca, control numerico de gran precision.
 
-            <strong>SERVICIO DE CURVADO</strong>
+            <strong class="strong2">SERVICIO DE CURVADO</strong>
             Curvadora de tubos redondos y cuadrados.
             0 1" minimo hasta 50mm., en tubos.
             Tubos cuadrados de 20 x 20, 25 x 25, 30 x 30, 40 x 40 y 50 x 50 mm.

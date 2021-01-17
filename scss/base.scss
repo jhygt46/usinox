@@ -596,8 +596,12 @@ html{
                                             float: left;
                                             margin: 0px 20px 0px 0px;
                                         }
-                                        strong{
+                                        .strong1{
                                             display: block;
+                                        }
+                                        .strong2{
+                                            display: block;
+                                            padding-top: 5px;
                                         }
                                     }
                                 }
