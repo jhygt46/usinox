@@ -577,6 +577,9 @@ html body .contenedor .sitio .medio .info .data .paginas .cont_pagina .pag_cont 
   float: left;
   margin: 0px 20px 0px 0px;
 }
+html body .contenedor .sitio .medio .info .data .paginas .cont_pagina .pag_cont strong {
+  display: block;
+}
 html body .contenedor .sitio .medio .info .data .padd1 {
   padding: 20px;
 }
