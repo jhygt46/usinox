@@ -4,7 +4,7 @@
 </div>
 <div class="paginas">
     <div class="cont_pagina">
-        <div class="pag_cont"><img src="/images/nosotros.jpg">USINOX, Empresa con mas de 140 años de permanencia en el mercado, dedicada al Equipamiento de Cocinas Profesionales para Restaurantes, Hoteles, Instituciones, Supermercados, Campamentos Mineros, Fast-Food y la Gastronomia en General.<br/><br/>
+        <div class="pag_cont clearfix"><img src="/images/nosotros.jpg">USINOX, Empresa con mas de 140 años de permanencia en el mercado, dedicada al Equipamiento de Cocinas Profesionales para Restaurantes, Hoteles, Instituciones, Supermercados, Campamentos Mineros, Fast-Food y la Gastronomia en General.<br/><br/>
         De esta forma USINOX esta capacitado para proporcionar a sus clientes el mas completo servicio de asesoria en el estudio, diseño, proyectos, planos, fabricacion y puesta en marcha de un Equipamiento Integral que satisfaga las mas exigentes necesidades del Cliente.<br/><br/>
         El sistema de Usinox, ha sido adoptado y recibido con beneplacito por importantes Clientes en nuestro Pais y en el Extranjero, ya que hemos sido favorecidos con pedidos de Paises como; Argentina, Australia, Peru, Bolivia y Estados Unidos.
         </div>
@@ -27,7 +27,7 @@
 <div class="paginas">
     <div class="cont_pagina">
         <div class="pag_titulo">Servicio Técnico</div>
-        <div class="pag_cont"><img src="/images/servicios_01.jpg">El Servicio técnico de Usinox tiene una vasta experiencia en equipos gastronómicos de uso industrial. 140 años de historia en el mercado nos avalan, prestando una atención de calidad y garantía de satisfacción.<br/><br/>
+        <div class="pag_cont clearfix"><img src="/images/servicios_01.jpg">El Servicio técnico de Usinox tiene una vasta experiencia en equipos gastronómicos de uso industrial. 140 años de historia en el mercado nos avalan, prestando una atención de calidad y garantía de satisfacción.<br/><br/>
             Entregamos asesoramiento, capacitación en mantención y limpieza de equipos gastronómicos, con una atención personalizada.<br/><br/>
             Consulte por los contratos de Mantención Preventiva anual que tenemos para cada tipo de negocio y según su necesidad.<br/>
             Nuestros Clientes al adquirir un producto USINOX, tienen desde ya asegurado un servicio integral de post venta Profesional.<br/>
@@ -36,7 +36,7 @@
     </div>
     <div class="cont_pagina">
         <div class="pag_titulo">Nuestros Servicios</div>
-        <div class="pag_cont"><img src="/images/servicios_02.jpg">
+        <div class="pag_cont clearfix"><img src="/images/servicios_02.jpg">
             <strong>SERVICIO DE CORTE</strong>
             Guillotina Hidraulica de 3 Metros, Con capacidad de corte desde 0,6 mm, hasta 12mm, En acero 1010 acero inoxidable desde 0,6 hasta 6mm.
 
