@@ -569,7 +569,19 @@ html{
                                 }
                             }
                             .paginas{
-                                
+                                background: #ededed;
+                                border-radius: 10px;
+                                padding: 30px;
+                                .cont_pagina{
+                                    .pag_foto{
+                                        img{
+
+                                        }
+                                    }
+                                    .pag_info{
+
+                                    }
+                                }
                             }
                         }
                     }

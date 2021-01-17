@@ -548,6 +548,11 @@ html body .contenedor .sitio .medio .info .data .cotizar_btn .enviar_cotizacion 
   background: url("../images/punto.png");
   right: 5px;
 }
+html body .contenedor .sitio .medio .info .data .paginas {
+  background: #ededed;
+  border-radius: 10px;
+  padding: 30px;
+}
 html body .contenedor .sitio .footer {
   width: 100%;
 }
