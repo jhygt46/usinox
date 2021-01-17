@@ -17,7 +17,9 @@
 <div class="paginas">
     <div class="cont_pagina clearfix">
         <div class="pag_foto"><img src="/images/contacto.jpg"></div>
-        <div class="pag_info"></div>
+        <div class="pag_info">
+            
+        </div>
     </div>
 </div>
 <?php } ?>
