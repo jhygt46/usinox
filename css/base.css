@@ -566,6 +566,9 @@ html body .contenedor .sitio .medio .info .data .paginas .cont_pagina .pag_info 
   float: left;
   font-size: 14px;
 }
+html body .contenedor .sitio .medio .info .data .paginas .cont_pagina .pag_titulo {
+  font-size: 20px;
+}
 html body .contenedor .sitio .medio .info .data .paginas .cont_pagina .pag_cont {
   font-size: 14px;
 }
