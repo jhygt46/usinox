@@ -1,10 +1,4 @@
-<?php
-echo "<pre>";
-print_r($inicio);
-echo "</pre>";
-?>
-
-<?php if($inicio["tipo"] == "nosotros"){ ?>
+<?php if($inicio["pagina"] == "nosotros"){ ?>
 <div class="titulo">
     <div class="nombre">Nosotros</div>
 </div>
@@ -19,8 +13,7 @@ echo "</pre>";
 </div>
 <?php } ?>
 
-
-<?php if($inicio["tipo"] == "contacto"){ ?>
+<?php if($inicio["pagina"] == "contacto"){ ?>
 <div class="titulo"><div class="nombre">Formulario de Contacto</div></div>
 <div class="paginas">
     <div class="cont_pagina clearfix">
@@ -30,7 +23,7 @@ echo "</pre>";
 </div>
 <?php } ?>
 
-<?php if($inicio["tipo"] == "servicios"){ ?>
+<?php if($inicio["pagina"] == "servicios"){ ?>
 <div class="titulo"><div class="nombre">Servicios</div></div>
 <div class="paginas">
     <div class="cont_pagina clearfix">
