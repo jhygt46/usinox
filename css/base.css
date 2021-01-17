@@ -551,7 +551,7 @@ html body .contenedor .sitio .medio .info .data .cotizar_btn .enviar_cotizacion 
 html body .contenedor .sitio .medio .info .data .paginas {
   background: #ededed;
   border-radius: 10px;
-  margin: 0 auto;
+  margin: 0 auto 30px auto;
 }
 html body .contenedor .sitio .medio .info .data .paginas .cont_pagina .pag_foto img {
   width: 100%;
