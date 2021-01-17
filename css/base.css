@@ -565,6 +565,14 @@ html body .contenedor .sitio .medio .info .data .paginas .cont_pagina .pag_info 
   float: left;
   font-size: 14px;
 }
+html body .contenedor .sitio .medio .info .data .paginas .cont_pagina .pag_info .cont_input input {
+  width: 100%;
+  height: 30px;
+}
+html body .contenedor .sitio .medio .info .data .paginas .cont_pagina .pag_info .cont_input textarea {
+  width: 100%;
+  height: 100px;
+}
 html body .contenedor .sitio .medio .info .data .paginas .cont_pagina .pag_titulo {
   font-size: 20px;
   padding-top: 20px;

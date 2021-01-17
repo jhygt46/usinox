@@ -14,11 +14,20 @@
 
 <?php if($inicio["pagina"] == "contacto"){ ?>
 <div class="titulo"><div class="nombre">Formulario de Contacto</div></div>
-<div class="paginas">
+<div class="paginas padd1">
     <div class="cont_pagina clearfix">
         <div class="pag_foto"><img src="/images/contacto.jpg"></div>
         <div class="pag_info">
-            
+            <div class="cont_campo">Nombre: (*)</div>
+            <div class="cont_input"><input type="text" id="nombre"></div>
+            <div class="cont_campo">Correo: (*)</div>
+            <div class="cont_input"><input type="text" id="correo"></div>
+            <div class="cont_campo">Empresa:</div>
+            <div class="cont_input"><input type="text" id="empresa"></div>
+            <div class="cont_campo">Telefono: (*)</div>
+            <div class="cont_input"><input type="text" id="telefono"></div>
+            <div class="cont_campo">Asunto: (*)</div>
+            <div class="cont_input"><Textarea id="asunto"></Textarea>
         </div>
     </div>
 </div>
