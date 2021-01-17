@@ -577,11 +577,13 @@ html{
                                         width: 40%;
                                         float: left;
                                         img{
-
+                                            width: 100%;
                                         }
                                     }
                                     .pag_info{
-
+                                        width: calc(55% - 10px);
+                                        padding-left: 10px;
+                                        float: left;
                                     }
                                 }
                             }
