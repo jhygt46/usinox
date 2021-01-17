@@ -573,16 +573,11 @@ html{
                                 border-radius: 10px;
                                 .cont_pagina{
                                     .pag_foto{
-                                        width: 45%;
-                                        float: left;
                                         img{
                                             width: 100%;
                                         }
                                     }
                                     .pag_info{
-                                        width: calc(55% - 10px);
-                                        padding-left: 10px;
-                                        float: left;
                                         font-size: 14px;
                                         .cont_campo{
 
@@ -595,12 +590,13 @@ html{
                                             }
                                             textarea{
                                                 width: 100%;
-                                                height: 100px;
+                                                height: 94px;
                                             }
                                         }
                                         .cont_btn{
                                             input{
                                                 padding: 10px 20px;
+                                                font-size: 11px;
                                             }
                                         }
                                     }
@@ -748,6 +744,17 @@ html{
 }
 
 @media only screen and (min-width: 500px){
+    .cont_pagina{
+        .pag_foto{
+            width: 45%;
+            float: left;
+        }
+        .pag_info{
+            width: calc(55% - 10px);
+            float: left;
+            padding-left: 10px;
+        }
+    }
     .pro_info{
         width: calc(55% - 20px);
         float: right;
@@ -777,6 +784,14 @@ html{
     }
 }
 @media only screen and (max-width: 500px){
+    .cont_pagina{
+        .pag_foto{
+            display: none;
+        }
+        .pag_info{
+            width: 100%;
+        }
+    }
     .pro_info{
         width: 100%;
     }
