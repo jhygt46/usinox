@@ -423,9 +423,9 @@ class Guardar{
 
             if($id > 0){
                 if($this->verificar_urls_pro($url, $id)){
-                    if(isset($_POST['id_pag'])){ $_SESSION["id_pag"] = $_POST['id_pag']; }
+                    
                     if($sql = $this->con->prepare("UPDATE _usinox_productos SET nombre=?, urls=?, descripcion=?, marca=?, modelo=?, precio=? WHERE id_pro=? AND id_pag=?")){
-                        if($sql->bind_param("sssssiii", $nombre, $url, $descripcion, $marca, $modelo, $precio, $id, $_SESSION["id_pag"])){
+                        if($sql->bind_param("sssssiii", $nombre, $url, $descripcion, $marca, $modelo, $precio, $id, $id_pag)){
                             if($sql->execute()){
                                 $info['op'] = 1;
                                 $info['mensaje'] = "Prodcuto modificada exitosamente";
@@ -434,6 +434,7 @@ class Guardar{
                                     $info['page'] = "_usinox_productos.php?id_cat=".$id_cat;
                                 }else{
                                     $aux = explode("/", $reload);
+                                    $_SESSION["id_pag"] = $aux[2];
                                     $info['reload'] = 1;
                                     $info['page'] = "_usinox_productos.php?re=0&id_cat=".$aux[0]."&id_pro=".$aux[1];
                                 }
