@@ -43,6 +43,9 @@ if(isset($_GET["id_pro"]) && is_numeric($_GET["id_pro"]) && $_GET["id_pro"] != 0
     $sub_titulo = $sub_titulo2;
     if(!isset($_GET["re"])){
         $relaciones = $admin->get_relaciones($id);
+        echo "<pre>";
+        print_r($relaciones);
+        echo "</pre>";
     }
 
 }
@@ -106,7 +109,7 @@ if(isset($_GET["id_pro"]) && is_numeric($_GET["id_pro"]) && $_GET["id_pro"] != 0
                     <input id="id_cat" type="hidden" value="<?php echo $id_cat; ?>" />
                     <input id="id_pag" type="hidden" value="<?php echo $that["id_pag"]; ?>" />
                     <?php if(count($relaciones) > 0){ ?>
-                    <input id="reload" type="hidden" value="<?php echo $relaciones[0]['id_cat']; ?>/<?php echo $relaciones[0]['id_pro']; ?>" />
+                    <input id="reload" type="hidden" value="<?php echo $relaciones[0]['id_cat']; ?>/<?php echo $relaciones[0]['id_pro']; ?>/<?php echo $relaciones[0]['id_pag']; ?>" />
                     <?php } ?>
 
                     <label class="nboleta">
