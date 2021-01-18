@@ -416,6 +416,15 @@ class Guardar{
         $marca = $_POST['marca'];
         $modelo = $_POST['modelo'];
         $precio = $_POST['precio'];
+
+        $oferta = $_POST['oferta'];
+        $novedad = $_POST['novedad'];
+        $disp = $_POST['disp'];
+
+        $info['new']['oferta'] = $_POST['oferta'];
+        $info['new']['novedad'] = $_POST['novedad'];
+        $info['new']['disp'] = $_POST['disp'];
+
         $reload = $_POST['reload'];
         $id_pag = $_POST['id_pag'];
 
