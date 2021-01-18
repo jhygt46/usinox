@@ -408,12 +408,11 @@ class Guardar{
         $info['op'] = 2;
         $info['mensaje'] = "Producto no se pudo guardar";
         
-        $id = $_POST['id'];
-        $id_cat = $_POST['id_cat'];
-
         $nombre = $_POST['nombre'];
         $descripcion = $_POST['desc'];
         $url = $_POST['url'];
+        $id_cat = $_POST['id_cat'];
+        $id = $_POST['id'];
         $marca = $_POST['marca'];
         $modelo = $_POST['modelo'];
         $precio = $_POST['precio'];
@@ -424,8 +423,9 @@ class Guardar{
 
             if($id > 0){
                 if($this->verificar_urls_pro($url, $id)){
+                    if(isset($_POST['id_pag'])){ $_SESSION["id_pag"] = $_POST['id_pag']; }
                     if($sql = $this->con->prepare("UPDATE _usinox_productos SET nombre=?, urls=?, descripcion=?, marca=?, modelo=?, precio=? WHERE id_pro=? AND id_pag=?")){
-                        if($sql->bind_param("sssssiii", $nombre, $url, $descripcion, $marca, $modelo, $precio, $id, $id_pag)){
+                        if($sql->bind_param("sssssiii", $nombre, $url, $descripcion, $marca, $modelo, $precio, $id, $_SESSION["id_pag"])){
                             if($sql->execute()){
                                 $info['op'] = 1;
                                 $info['mensaje'] = "Prodcuto modificada exitosamente";
