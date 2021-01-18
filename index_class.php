@@ -66,6 +66,37 @@ class Core{
     private function busqueda($palabra){
 
     }
+    private function get_novedades_ofertas($n){
+
+        $val = 1;
+        if($n == 1){
+            $campo = "novedad";
+        }else if($n == 2){
+            $campo = "oferta";
+        }else{
+            return null;
+        }
+
+        if($sqls = $this->con->prepare("SELECT t1.id_pro, t1.nombre, t1.descripcion, t2.nombre as foto_nombre FROM _usinox_productos t1, _usinox_productos_fotos t2 WHERE t1.id_pro=t2.id_pro AND t1.".$campo."=? AND t1.eliminado=?")){
+            if($sqls->bind_param("ii", $val, $this->eliminado)){
+                if($sqls->execute()){
+
+                    $datas = $this->get_result($sqls);
+                    $sqls->close();
+
+                    for($i=0; $i<count($datas); $i++){
+                        $id = $datas[$i]["id_pro"];
+                        $res[$id]["id_pro"] = $datas[$i]["id_pro"];
+                        $res[$id]["nombre"] = $datas[$i]["nombre"];
+                        $res[$id]["descripcion"] = $datas[$i]["descripcion"];
+                        $res[$id]["fotos"][] = $datas[$i]["foto_nombre"];
+                    }
+
+                    return $res;
+                }else{ $this->htmlspecialchars($sqls->error); }
+            }else{ $this->htmlspecialchars($sqls->error); }
+        }else{ $this->htmlspecialchars($this->con->error); }
+    }
     private function get_pagina(){
 
         if($sql = $this->con->prepare("SELECT * FROM _usinox_pagina_url t1, _usinox_paginas t2 WHERE t1.urls=? AND t1.id_pag=t2.id_pag AND t2.eliminado=?")){
