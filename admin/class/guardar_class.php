@@ -432,11 +432,9 @@ class Guardar{
                                     $info['reload'] = 1;
                                     $info['page'] = "_usinox_productos.php?id_cat=".$id_cat;
                                 }else{
-
                                     $aux = explode("/", $reload);
                                     $info['reload'] = 1;
                                     $info['page'] = "_usinox_productos.php?re=0&id_cat=".$aux[0]."&id_pro=".$aux[1];
-
                                 }
                                 $pdf_name = $this->get_pdf_producto($id);
                                 $ficha = $this->upload_pdf($_SERVER["DOCUMENT_ROOT"]."/uploads/pdf/", null, 0, $pdf_name["ficha"]);

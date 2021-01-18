@@ -144,6 +144,21 @@ if(isset($_GET["id_pro"]) && is_numeric($_GET["id_pro"]) && $_GET["id_pro"] != 0
                         <input id="modelo" type="text" value="<?php echo $that['modelo']; ?>" />
                         <div class="mensaje"></div>
                     </label>
+                    <label class="nboleta">
+                        <span>Ofertas:</span>
+                        <input id="oferta" type="checkbox" value="<?php echo $that['oferta']; ?>" />
+                        <div class="mensaje"></div>
+                    </label>
+                    <label class="nboleta">
+                        <span>Novedades:</span>
+                        <input id="novedad" type="checkbox" value="<?php echo $that['novedad']; ?>" />
+                        <div class="mensaje"></div>
+                    </label>
+                    <label class="nboleta">
+                        <span>Ocultar:</span>
+                        <input id="disp" type="checkbox" value="<?php echo $that['disp']; ?>" />
+                        <div class="mensaje"></div>
+                    </label>
                     <?php if($id == 0){ for($j=0; $j<count($categorias); $j++){ $c = $j + 1; ?>
                     <label>
                         <span>Copiar a:</span>
