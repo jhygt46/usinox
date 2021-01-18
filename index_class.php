@@ -74,7 +74,7 @@ class Core{
         }else if($n == 2){
             $campo = "oferta";
         }else{
-            return null;
+            return "BUENA: ".$n;
         }
 
         if($sqls = $this->con->prepare("SELECT t1.id_pro, t1.nombre, t1.descripcion, t2.nombre as foto_nombre FROM _usinox_productos t1, _usinox_productos_fotos t2 WHERE t1.id_pro=t2.id_pro AND t1.".$campo."=? AND t1.eliminado=?")){
