@@ -92,10 +92,11 @@ class Core{
                         $res[$id]["fotos"][] = $datas[$i]["foto_nombre"];
                     }
 
-                    return $res;
-                }else{ $this->htmlspecialchars($sqls->error); }
-            }else{ $this->htmlspecialchars($sqls->error); }
-        }else{ $this->htmlspecialchars($this->con->error); }
+                    
+                }else{ $res['in'] = $this->htmlspecialchars($sqls->error); }
+            }else{ $res['in'] = $this->htmlspecialchars($sqls->error); }
+        }else{ $res['in'] = $this->htmlspecialchars($this->con->error); }
+        return $res;
     }
     private function get_pagina(){
 
