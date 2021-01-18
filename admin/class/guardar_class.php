@@ -417,6 +417,7 @@ class Guardar{
         $modelo = $_POST['modelo'];
         $precio = $_POST['precio'];
         $reload = $_POST['reload'];
+        $id_pag = $_POST['id_pag'];
 
         if($this->verificar_usuario()){
 
@@ -424,7 +425,7 @@ class Guardar{
                 if($this->verificar_urls_pro($url, $id)){
                     if(isset($_POST['id_pag'])){ $_SESSION["id_pag"] = $_POST['id_pag']; }
                     if($sql = $this->con->prepare("UPDATE _usinox_productos SET nombre=?, urls=?, descripcion=?, marca=?, modelo=?, precio=? WHERE id_pro=? AND id_pag=?")){
-                        if($sql->bind_param("sssssiii", $nombre, $url, $descripcion, $marca, $modelo, $precio, $id, $_SESSION["id_pag"])){
+                        if($sql->bind_param("sssssiii", $nombre, $url, $descripcion, $marca, $modelo, $precio, $id, $id_pag)){
                             if($sql->execute()){
                                 $info['op'] = 1;
                                 $info['mensaje'] = "Prodcuto modificada exitosamente";

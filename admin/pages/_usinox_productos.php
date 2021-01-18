@@ -25,6 +25,10 @@ $that["descripcion"] = "";
 $that["marca"] = "";
 $that["modelo"] = "";
 $that["precio"] = "";
+$that["oferta"] = "";
+$that["novedad"] = "";
+$that["disp"] = "";
+$that["id_pag"] = 0;
 
 $id_cat = $_GET["id_cat"];
 
@@ -100,10 +104,11 @@ if(isset($_GET["id_pro"]) && is_numeric($_GET["id_pro"]) && $_GET["id_pro"] != 0
                     <input id="id" type="hidden" value="<?php echo $id; ?>" />
                     <input id="accion" type="hidden" value="<?php echo $accion; ?>" />
                     <input id="id_cat" type="hidden" value="<?php echo $id_cat; ?>" />
+                    <input id="id_pag" type="hidden" value="<?php echo $that["id_pag"]; ?>" />
                     <?php if(count($relaciones) > 0){ ?>
                     <input id="reload" type="hidden" value="<?php echo $relaciones[0]['id_cat']; ?>/<?php echo $relaciones[0]['id_pro']; ?>" />
-                    <input id="id_pag" type="hidden" value="<?php echo $relaciones[0]['id_pag']; ?>" />
                     <?php } ?>
+
                     <label class="nboleta">
                         <span>Nombre:</span>
                         <input id="nombre" type="text" value="<?php echo $that['nombre']; ?>" />
