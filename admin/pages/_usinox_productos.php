@@ -151,17 +151,17 @@ if(isset($_GET["id_pro"]) && is_numeric($_GET["id_pro"]) && $_GET["id_pro"] != 0
                     </label>
                     <label class="nboleta">
                         <span>Ofertas:</span>
-                        <input id="oferta" type="checkbox" value="<?php echo $that['oferta']; ?>" />
+                        <input id="oferta" type="checkbox" value="1" <?php if($that['oferta'] == 1){ echo 'checked="checked"'; } ?> />
                         <div class="mensaje"></div>
                     </label>
                     <label class="nboleta">
                         <span>Novedades:</span>
-                        <input id="novedad" type="checkbox" value="<?php echo $that['novedad']; ?>" />
+                        <input id="novedad" type="checkbox" value="1" <?php if($that['novedad'] == 1){ echo 'checked="checked"'; } ?> />
                         <div class="mensaje"></div>
                     </label>
                     <label class="nboleta">
                         <span>Ocultar:</span>
-                        <input id="disp" type="checkbox" value="<?php echo $that['disp']; ?>" />
+                        <input id="disp" type="checkbox" value="1" <?php if($that['disp'] == 1){ echo 'checked="checked"'; } ?> />
                         <div class="mensaje"></div>
                     </label>
                     <?php if($id == 0){ for($j=0; $j<count($categorias); $j++){ $c = $j + 1; ?>
