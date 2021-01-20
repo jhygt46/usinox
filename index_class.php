@@ -374,18 +374,6 @@ class Core{
     private function htmlspecialchars($msg){
         return $msg;
     }
-    public function traspaso(){
-
-        if($sql = $this->con->prepare("SELECT * FROM ficha WHERE tipo > ?")){
-            if($sql->bind_param("i", $this->eliminado)){
-                if($sql->execute()){
-                    $res = $this->get_result($sql);
-                    $sql->close();
-                }else{ $res['in'] = $this->htmlspecialchars($sql->error); }
-            }else{ $res['in'] = $this->htmlspecialchars($sql->error); }
-        }else{ $res['in'] = $this->htmlspecialchars($this->con->error); }
-        return $res;
-    }
 
 }
 

@@ -5,11 +5,6 @@
     require "index_class.php";
     $core = new Core();
     $inicio = $core->iniciar();
-
-    
-    echo "<pre>";
-    print_r($core->traspaso());
-    echo "</pre>";
     
 
 ?>
