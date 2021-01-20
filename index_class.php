@@ -329,7 +329,7 @@ class Core{
         }
         $rev = array_reverse($n);
         for($i=0; $i<count($rev); $i++){
-            $res = "<a href='".$rev[$i]['url']."'>".$rev[$i]['nombre']."</a> >> ";
+            $res = "<a href='".$rev[$i]['url']."'>".$rev[$i]['nombre']."</a> > ";
         }
         return $res;
     }

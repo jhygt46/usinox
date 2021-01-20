@@ -319,6 +319,9 @@ html body .contenedor .sitio .medio .info .data .titulo {
 html body .contenedor .sitio .medio .info .data .titulo .nombre {
   padding: 16px;
 }
+html body .contenedor .sitio .medio .info .data .titulo .nombre a {
+  color: #fff;
+}
 html body .contenedor .sitio .medio .info .data .lista_productos {
   margin: 10px auto;
 }
