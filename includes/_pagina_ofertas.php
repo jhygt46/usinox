@@ -5,7 +5,7 @@
     echo "</pre>";
     */
 ?>
-<div class="titulo"><div class="nombre">Vitrina de productos</div></div>
+<div class="titulo"><div class="nombre">Ofertas</div></div>
 <div class="lista_productos clearfix">
 <?php if(isset($inicio['childs_pro'])){ foreach ($inicio['childs_pro'] as $valor){ ?>
     <div class="producto">
