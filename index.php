@@ -6,11 +6,11 @@
     $core = new Core();
     $inicio = $core->iniciar();
     $limit_desc = 120;
-    /*
+    
     echo "<pre>";
     print_r($inicio);
     echo "</pre>";
-    */
+    
 ?>
 
 <html>
