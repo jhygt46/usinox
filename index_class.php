@@ -33,7 +33,7 @@ class Core{
 
             if($url[1] == ""){
                 $info['tipo'] = "inicio";
-                $info['productos'] = $this->get_random_productos(9);
+                $info['childs_pro'] = $this->get_random_productos(9);
                 $info['base'] = $this->get_base();
             }else if($url[1] == "contacto" || $url[1] == "nosotros" || $url[1] == "servicios"){
                 $info['tipo'] = "paginas";
