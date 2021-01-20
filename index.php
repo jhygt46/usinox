@@ -5,7 +5,7 @@
     require "index_class.php";
     $core = new Core();
     $inicio = $core->iniciar();
-    
+    $limit_desc = 150;
 
 ?>
 
