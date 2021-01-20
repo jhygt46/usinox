@@ -406,6 +406,9 @@ html body .contenedor .sitio .medio .info .data .lista_productos .producto .pro 
   background: url("../images/punto.png");
   right: 5px;
 }
+html body .contenedor .sitio .medio .info .data .lista_productos .producto .pro .c_pro .c_pbtn .btn_mostrar:hover {
+  background-image: linear-gradient(180deg, #e8e8e8 0%, #fefefe 100%);
+}
 html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_info .titulo_pro {
   font-size: 22px;
 }
