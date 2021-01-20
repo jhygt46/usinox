@@ -8,7 +8,7 @@
                     <tr>
                         <td valign="middle">
                             <div class="cot_pro_titulo"><?php echo $cot_pro["nombre"]; ?></div>
-                            <div class="cot_pro_desc"><?php echo substr($cot_pro["descripcion"], 0, $limit_desc2); ?></div>
+                            <div class="cot_pro_desc"><?php echo $cot_pro["descripcion"]; ?></div>
                         </td>
                     </tr>
                 </table>
