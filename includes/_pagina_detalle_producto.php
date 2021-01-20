@@ -10,7 +10,7 @@
                 <div class="cotizar_pro3"><div class="btn">Cotizar</div></div>
             </div>
             <div class="desc_ttl">Descripcion</div>
-            <div class="desc_pro"><?php echo substr($inicio['pro']['descripcion'], 0, $limit_desc2); ?></div>
+            <div class="desc_pro"><?php echo $inicio['pro']['descripcion']; ?></div>
             <div class="redes clearfix">
                 <div class="red1"></div>
                 <div class="red2"></div>
