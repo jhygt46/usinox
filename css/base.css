@@ -349,14 +349,16 @@ html body .contenedor .sitio .medio .info .data .lista_productos .producto .pro 
   height: 40px;
   padding-top: 5px;
   color: #666;
+  overflow: hidden;
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .producto .pro .c_pro .c_pttl a {
   color: #666;
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .producto .pro .c_pro .c_pdesc {
   font-size: 12px;
-  padding: 7px 0;
-  height: 55px;
+  padding: 5px 0;
+  height: 59px;
+  overflow: hidden;
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .producto .pro .c_pro .c_pdesc a {
   color: #999;
