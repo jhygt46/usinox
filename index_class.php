@@ -311,10 +311,6 @@ class Core{
     public function resp_categorias($data, $id_cat){
 
         echo "<pre>";
-        print_r($data);
-        echo "</pre>";
-
-        echo "<pre>";
         print_r($id_cat);
         echo "</pre>";
 
@@ -336,6 +332,11 @@ class Core{
                 $id_aux_cat = $p_id;
             }
         }
+
+        echo "<pre>";
+        print_r($n);
+        echo "</pre>";
+
         $rev = array_reverse($n);
         for($i=0; $i<count($rev); $i++){
             $res = "<a href='".$rev[$i]['url']."'>".$rev[$i]['nombre']."</a> > ";
