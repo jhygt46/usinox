@@ -54,6 +54,10 @@ class Core{
                 $info['tipo'] = "busqueda";
                 $info['base'] = $this->get_base();
                 $info['childs_pro'] = $this->busqueda($url[2]);
+            }else if($url[1] == "videos"){
+                $info['tipo'] = "videos";
+                $info['base'] = $this->get_base();
+                $info['videos'] = $this->get_videos();
             }else{
                 $info = $this->buscar_cat_pro($url[1]);
             }
@@ -62,6 +66,17 @@ class Core{
 
         }
 
+    }
+    private function get_videos(){
+        if($sqls = $this->con->prepare("SELECT urls FROM _usinox_videos WHERE id_pag=? AND eliminado=? ORDER BY orden")){
+            if($sqls->bind_param("ii", $this->id_pag, $this->eliminado)){
+                if($sqls->execute()){
+                    $res = $this->get_result($sqls);
+                    $sqls->close();
+                }else{ $res['in'] = $this->htmlspecialchars($sqls->error); }
+            }else{ $res['in'] = $this->htmlspecialchars($sqls->error); }
+        }else{ $res['in'] = $this->htmlspecialchars($this->con->error); }
+        return $res;
     }
     private function busqueda($busqueda){
 
@@ -91,8 +106,8 @@ class Core{
     }
     private function get_ofertas(){
         $val = 1;
-        if($sqls = $this->con->prepare("SELECT t1.id_pro, t1.nombre, t1.descripcion, t2.nombre as foto_nombre FROM _usinox_productos t1, _usinox_productos_fotos t2 WHERE t1.id_pro=t2.id_pro AND t1.oferta=? AND t1.disp=? AND t1.eliminado=?")){
-            if($sqls->bind_param("iii", $val, $this->eliminado, $this->eliminado)){
+        if($sqls = $this->con->prepare("SELECT t1.id_pro, t1.nombre, t1.descripcion, t2.nombre as foto_nombre FROM _usinox_productos t1, _usinox_productos_fotos t2 WHERE t1.id_pro=t2.id_pro AND t1.id_pag=? AND t1.oferta=? AND t1.disp=? AND t1.eliminado=?")){
+            if($sqls->bind_param("iiii", $this->id_pag, $val, $this->eliminado, $this->eliminado)){
                 if($sqls->execute()){
                     $datas = $this->get_result($sqls);
                     $sqls->close();
@@ -110,8 +125,8 @@ class Core{
     }
     private function get_novedades(){
         $val = 1;
-        if($sqls = $this->con->prepare("SELECT t1.id_pro, t1.nombre, t1.descripcion, t2.nombre as foto_nombre FROM _usinox_productos t1, _usinox_productos_fotos t2 WHERE t1.id_pro=t2.id_pro AND t1.novedad=? AND t1.disp=? AND t1.eliminado=?")){
-            if($sqls->bind_param("iii", $val, $this->eliminado, $this->eliminado)){
+        if($sqls = $this->con->prepare("SELECT t1.id_pro, t1.nombre, t1.descripcion, t2.nombre as foto_nombre FROM _usinox_productos t1, _usinox_productos_fotos t2 WHERE t1.id_pro=t2.id_pro AND t1.id_pag=? AND t1.novedad=? AND t1.disp=? AND t1.eliminado=?")){
+            if($sqls->bind_param("iiii", $this->id_pag, $val, $this->eliminado, $this->eliminado)){
                 if($sqls->execute()){
                     $datas = $this->get_result($sqls);
                     $sqls->close();
