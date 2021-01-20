@@ -313,6 +313,7 @@ class Core{
         $id_aux_cat = $id_cat;
         $n = array();
         $exit = 0;
+        $res = "";
         while($exit == 0){
             for($i=0; $i<count($data); $i++){
                 if($id_aux_cat == $data[$i]["id_cat"]){
@@ -328,18 +329,10 @@ class Core{
                 $id_aux_cat = $p_id;
             }
         }
-
-        echo "<pre>";
-        print_r($n);
-        echo "</pre>";
-
         $rev = array_reverse($n);
         for($i=0; $i<count($rev); $i++){
-            $res = "<a href='".$rev[$i]['url']."'>".$rev[$i]['nombre']."</a> > ";
+            $res .= "<a href='".$rev[$i]['url']."'>".$rev[$i]['nombre']."</a> > ";
         }
-        echo "<pre>";
-        print_r($res);
-        echo "</pre>";
         return $res;
     }
     private function buscar_cat_pro($url){
