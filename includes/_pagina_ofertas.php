@@ -1,8 +1,9 @@
 <?php
+    /*
     echo "<pre>";
     print_r($inicio['childs_pro']);
     echo "</pre>";
-
+    */
 ?>
 <div class="titulo"><div class="nombre">Vitrina de productos</div></div>
 <div class="lista_productos clearfix">

@@ -63,13 +63,36 @@ class Core{
         }
 
     }
-    private function busqueda($palabra){
+    private function busqueda($busqueda){
+
+        if($busqueda{strlen($busqueda)-1} == "s"){
+            $busqueda = substr ($busqueda, 0, strlen($busqueda) - 1);
+        }
+        $bus = utf8_decode($busqueda);
+        $val = "%".$bus."%";
+
+        if($sqls = $this->con->prepare("SELECT t1.id_pro, t1.nombre, t1.descripcion, t2.nombre as foto_nombre FROM _usinox_productos t1, _usinox_productos_fotos t2 WHERE t1.id_pro=t2.id_pro AND t1.titulo=? AND t1.disp=? AND t1.eliminado=?")){
+            if($sqls->bind_param("sii", $val, $this->eliminado, $this->eliminado)){
+                if($sqls->execute()){
+                    $datas = $this->get_result($sqls);
+                    $sqls->close();
+                    for($i=0; $i<count($datas); $i++){
+                        $id = $datas[$i]["id_pro"];
+                        $res[$id]["id_pro"] = $datas[$i]["id_pro"];
+                        $res[$id]["nombre"] = $datas[$i]["nombre"];
+                        $res[$id]["descripcion"] = $datas[$i]["descripcion"];
+                        $res[$id]["fotos"][] = $datas[$i]["foto_nombre"];
+                    }
+                }else{ $res['in'] = $this->htmlspecialchars($sqls->error); }
+            }else{ $res['in'] = $this->htmlspecialchars($sqls->error); }
+        }else{ $res['in'] = $this->htmlspecialchars($this->con->error); }
+        return $res;
 
     }
     private function get_ofertas(){
         $val = 1;
-        if($sqls = $this->con->prepare("SELECT t1.id_pro, t1.nombre, t1.descripcion, t2.nombre as foto_nombre FROM _usinox_productos t1, _usinox_productos_fotos t2 WHERE t1.id_pro=t2.id_pro AND t1.oferta=? AND t1.eliminado=?")){
-            if($sqls->bind_param("ii", $val, $this->eliminado)){
+        if($sqls = $this->con->prepare("SELECT t1.id_pro, t1.nombre, t1.descripcion, t2.nombre as foto_nombre FROM _usinox_productos t1, _usinox_productos_fotos t2 WHERE t1.id_pro=t2.id_pro AND t1.oferta=? AND t1.disp=? AND t1.eliminado=?")){
+            if($sqls->bind_param("iii", $val, $this->eliminado, $this->eliminado)){
                 if($sqls->execute()){
                     $datas = $this->get_result($sqls);
                     $sqls->close();
@@ -87,8 +110,8 @@ class Core{
     }
     private function get_novedades(){
         $val = 1;
-        if($sqls = $this->con->prepare("SELECT t1.id_pro, t1.nombre, t1.descripcion, t2.nombre as foto_nombre FROM _usinox_productos t1, _usinox_productos_fotos t2 WHERE t1.id_pro=t2.id_pro AND t1.novedad=? AND t1.eliminado=?")){
-            if($sqls->bind_param("ii", $val, $this->eliminado)){
+        if($sqls = $this->con->prepare("SELECT t1.id_pro, t1.nombre, t1.descripcion, t2.nombre as foto_nombre FROM _usinox_productos t1, _usinox_productos_fotos t2 WHERE t1.id_pro=t2.id_pro AND t1.novedad=? AND t1.disp=? AND t1.eliminado=?")){
+            if($sqls->bind_param("iii", $val, $this->eliminado, $this->eliminado)){
                 if($sqls->execute()){
                     $datas = $this->get_result($sqls);
                     $sqls->close();
