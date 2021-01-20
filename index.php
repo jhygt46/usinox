@@ -8,7 +8,7 @@
 
     
     echo "<pre>";
-    print_r($inicio);
+    print_r($core->traspaso());
     echo "</pre>";
     
 
