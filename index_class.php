@@ -42,11 +42,11 @@ class Core{
             }else if($url[1] == "novedades"){
                 $info['tipo'] = "novedades";
                 $info['base'] = $this->get_base();
-                $info['childs_pro'] = $this->get_novedades_ofertas(1);
+                $info['childs_pro'] = $this->get_novedades();
             }else if($url[1] == "ofertas"){
                 $info['tipo'] = "ofertas";
                 $info['base'] = $this->get_base();
-                $info['childs_pro'] = $this->get_novedades_ofertas(2);
+                $info['childs_pro'] = $this->get_ofertas();
             }else if($url[1] == "cotizador"){
                 $info['tipo'] = "cotizador";
                 $info['base'] = $this->get_base();
@@ -66,24 +66,13 @@ class Core{
     private function busqueda($palabra){
 
     }
-    private function get_novedades_ofertas($n){
-
+    private function get_ofertas($n){
         $val = 1;
-        if($n == 1){
-            $campo = "novedad";
-        }else if($n == 2){
-            $campo = "oferta";
-        }else{
-            return "BUENA: ".$n;
-        }
-
-        if($sqls = $this->con->prepare("SELECT t1.id_pro, t1.nombre, t1.descripcion, t2.nombre as foto_nombre FROM _usinox_productos t1, _usinox_productos_fotos t2 WHERE t1.id_pro=t2.id_pro AND t1.".$campo."=? AND t1.eliminado=?")){
+        if($sqls = $this->con->prepare("SELECT t1.id_pro, t1.nombre, t1.descripcion, t2.nombre as foto_nombre FROM _usinox_productos t1, _usinox_productos_fotos t2 WHERE t1.id_pro=t2.id_pro AND t1.oferta=? AND t1.eliminado=?")){
             if($sqls->bind_param("ii", $val, $this->eliminado)){
                 if($sqls->execute()){
-
                     $datas = $this->get_result($sqls);
                     $sqls->close();
-
                     for($i=0; $i<count($datas); $i++){
                         $id = $datas[$i]["id_pro"];
                         $res[$id]["id_pro"] = $datas[$i]["id_pro"];
@@ -91,8 +80,25 @@ class Core{
                         $res[$id]["descripcion"] = $datas[$i]["descripcion"];
                         $res[$id]["fotos"][] = $datas[$i]["foto_nombre"];
                     }
-
-                    
+                }else{ $res['in'] = $this->htmlspecialchars($sqls->error); }
+            }else{ $res['in'] = $this->htmlspecialchars($sqls->error); }
+        }else{ $res['in'] = $this->htmlspecialchars($this->con->error); }
+        return $res;
+    }
+    private function get_novedades(){
+        $val = 1;
+        if($sqls = $this->con->prepare("SELECT t1.id_pro, t1.nombre, t1.descripcion, t2.nombre as foto_nombre FROM _usinox_productos t1, _usinox_productos_fotos t2 WHERE t1.id_pro=t2.id_pro AND t1.novedad=? AND t1.eliminado=?")){
+            if($sqls->bind_param("ii", $val, $this->eliminado)){
+                if($sqls->execute()){
+                    $datas = $this->get_result($sqls);
+                    $sqls->close();
+                    for($i=0; $i<count($datas); $i++){
+                        $id = $datas[$i]["id_pro"];
+                        $res[$id]["id_pro"] = $datas[$i]["id_pro"];
+                        $res[$id]["nombre"] = $datas[$i]["nombre"];
+                        $res[$id]["descripcion"] = $datas[$i]["descripcion"];
+                        $res[$id]["fotos"][] = $datas[$i]["foto_nombre"];
+                    }
                 }else{ $res['in'] = $this->htmlspecialchars($sqls->error); }
             }else{ $res['in'] = $this->htmlspecialchars($sqls->error); }
         }else{ $res['in'] = $this->htmlspecialchars($this->con->error); }
