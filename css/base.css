@@ -350,6 +350,9 @@ html body .contenedor .sitio .medio .info .data .lista_productos .producto .pro 
   padding-top: 5px;
   color: #666;
 }
+html body .contenedor .sitio .medio .info .data .lista_productos .producto .pro .c_pro .c_pttl a {
+  color: #666;
+}
 html body .contenedor .sitio .medio .info .data .lista_productos .producto .pro .c_pro .c_pdesc {
   font-size: 12px;
   padding: 7px 0;
