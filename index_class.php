@@ -327,7 +327,11 @@ class Core{
                 $id_aux_cat = $p_id;
             }
         }
-        return array_reverse($n);
+        $rev = array_reverse($n);
+        for($i=0; $i<count($rev); $i++){
+            $res = "<a href='".$rev[$i]['url']."'>".$rev[$i]['nombre']."</a> >> ";
+        }
+        return $res;
     }
     private function buscar_cat_pro($url){
 
