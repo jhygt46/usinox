@@ -310,9 +310,7 @@ class Core{
     }
     public function resp_categorias($data, $id_cat){
 
-        echo "<pre>";
-        print_r($id_cat);
-        echo "</pre>";
+        echo "ID CAT: ".$id_cat;
 
         $id_aux_cat = $id_cat;
         $n = array();
