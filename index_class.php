@@ -309,6 +309,15 @@ class Core{
         return null;
     }
     public function resp_categorias($data, $id_cat){
+
+        echo "<pre>";
+        print_r($data);
+        echo "</pre>";
+
+        echo "<pre>";
+        print_r($id_cat);
+        echo "</pre>";
+
         $id_aux_cat = $id_cat;
         $n = array();
         $exit = 0;
