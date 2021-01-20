@@ -6,6 +6,7 @@
     $core = new Core();
     $inicio = $core->iniciar();
     $limit_desc = 120;
+    $limit_desc2 = 360;
     /*
     echo "<pre>";
     print_r($inicio['nombre']);
