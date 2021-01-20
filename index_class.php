@@ -316,7 +316,7 @@ class Core{
             for($i=0; $i<count($data); $i++){
                 if($id_aux_cat == $data[$i]["id_cat"]){
                     $aux['nombre'] = $data[$i]["nombre"];
-                    $aux['url'] = $data[$i]["url"];
+                    $aux['url'] = $data[$i]["urls"];
                     $n[] = $aux;
                     $p_id = $data[$i]["parent_id"];
                 }
