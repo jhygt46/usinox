@@ -66,7 +66,7 @@ class Core{
     private function busqueda($palabra){
 
     }
-    private function get_ofertas($n){
+    private function get_ofertas(){
         $val = 1;
         if($sqls = $this->con->prepare("SELECT t1.id_pro, t1.nombre, t1.descripcion, t2.nombre as foto_nombre FROM _usinox_productos t1, _usinox_productos_fotos t2 WHERE t1.id_pro=t2.id_pro AND t1.oferta=? AND t1.eliminado=?")){
             if($sqls->bind_param("ii", $val, $this->eliminado)){
