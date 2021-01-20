@@ -321,6 +321,7 @@ html body .contenedor .sitio .medio .info .data .titulo .nombre {
 }
 html body .contenedor .sitio .medio .info .data .titulo .nombre a {
   color: #fff;
+  text-decoration: none;
 }
 html body .contenedor .sitio .medio .info .data .lista_productos {
   margin: 10px auto;
