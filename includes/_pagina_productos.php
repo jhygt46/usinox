@@ -1,14 +1,3 @@
-<?php
-
-echo "<pre>";
-print_r($inicio['nombre']);
-echo "</pre>";
-
-echo "<pre>";
-print_r($inicio['parents']);
-echo "</pre>";
-
-?>
-<div class="titulo"><div class="nombre">Vitrina de productos</div></div>
+<div class="titulo"><div class="nombre"><?php if(isset($inicio['parents'])){ echo $inicio['parents']; } ?> <?php echo $inicio['nombre']; ?></div></div>
 <?php include("includes/_pagina_lista_productos.php"); ?>
 
