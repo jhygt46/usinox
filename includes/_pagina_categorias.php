@@ -1,3 +1,14 @@
+<?php
+
+echo "<pre>";
+print_r($inicio['nombre']);
+echo "</pre>";
+
+echo "<pre>";
+print_r($inicio['parents']);
+echo "</pre>";
+
+?>
 <div class="titulo"><div class="nombre">Vitrina de productos</div></div>
 <div class="lista_productos clearfix">
 <?php if(isset($inicio['childs_cat'])){ for($i=0; $i<count($inicio['childs_cat']); $i++){ $foto = ($inicio['childs_cat'][$i]['foto'] == "") ? "sin_imagen.jpg" : $inicio['childs_cat'][$i]['foto'] ; ?>

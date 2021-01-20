@@ -6,11 +6,15 @@
     $core = new Core();
     $inicio = $core->iniciar();
     $limit_desc = 120;
-    
+    /*
     echo "<pre>";
-    print_r($inicio);
+    print_r($inicio['nombre']);
     echo "</pre>";
-    
+
+    echo "<pre>";
+    print_r($inicio['parents']);
+    echo "</pre>";
+    */
 ?>
 
 <html>

@@ -327,8 +327,7 @@ class Core{
                 $id_aux_cat = $p_id;
             }
         }
-        return $n;
-        return "en ".implode(" > ", array_reverse($n));
+        return array_reverse($n);
     }
     private function buscar_cat_pro($url){
 
