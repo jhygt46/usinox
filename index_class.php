@@ -333,6 +333,9 @@ class Core{
         for($i=0; $i<count($rev); $i++){
             $res = "<a href='".$rev[$i]['url']."'>".$rev[$i]['nombre']."</a> > ";
         }
+        echo "<pre>";
+        print_r($res);
+        echo "</pre>";
         return $res;
     }
     private function buscar_cat_pro($url){
