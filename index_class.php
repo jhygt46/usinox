@@ -310,8 +310,6 @@ class Core{
     }
     public function resp_categorias($data, $id_cat){
 
-        echo "ID CAT: ".$id_cat;
-
         $id_aux_cat = $id_cat;
         $n = array();
         $exit = 0;
@@ -330,10 +328,6 @@ class Core{
                 $id_aux_cat = $p_id;
             }
         }
-
-        echo "<pre>";
-        print_r($n);
-        echo "</pre>";
 
         $rev = array_reverse($n);
         for($i=0; $i<count($rev); $i++){
