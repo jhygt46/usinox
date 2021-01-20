@@ -356,8 +356,8 @@ html body .contenedor .sitio .medio .info .data .lista_productos .producto .pro 
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .producto .pro .c_pro .c_pdesc {
   font-size: 12px;
-  padding: 5px 0;
-  height: 59px;
+  padding: 5px 0 9px 0;
+  height: 55px;
   overflow: hidden;
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .producto .pro .c_pro .c_pdesc a {
