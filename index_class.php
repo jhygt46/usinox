@@ -71,7 +71,7 @@ class Core{
         $bus = utf8_decode($busqueda);
         $val = "%".$bus."%";
 
-        if($sqls = $this->con->prepare("SELECT t1.id_pro, t1.nombre, t1.descripcion, t2.nombre as foto_nombre FROM _usinox_productos t1, _usinox_productos_fotos t2 WHERE t1.id_pro=t2.id_pro AND t1.titulo=? AND t1.disp=? AND t1.eliminado=?")){
+        if($sqls = $this->con->prepare("SELECT t1.id_pro, t1.nombre, t1.descripcion, t2.nombre as foto_nombre FROM _usinox_productos t1, _usinox_productos_fotos t2 WHERE t1.id_pro=t2.id_pro AND t1.nombre=? AND t1.disp=? AND t1.eliminado=?")){
             if($sqls->bind_param("sii", $val, $this->eliminado, $this->eliminado)){
                 if($sqls->execute()){
                     $datas = $this->get_result($sqls);
