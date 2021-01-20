@@ -378,6 +378,10 @@ html body .contenedor .sitio .medio .info .data .lista_productos .producto .pro 
   color: #fff;
   cursor: pointer;
 }
+html body .contenedor .sitio .medio .info .data .lista_productos .producto .pro .c_pro .c_pbtn .btn_cotizar:hover {
+  background: #fff url("../images/cart1.jpg") no-repeat;
+  color: #E13535;
+}
 html body .contenedor .sitio .medio .info .data .lista_productos .producto .pro .c_pro .c_pbtn .btn_ver_prod {
   float: left;
   width: 60%;
