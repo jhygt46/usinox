@@ -272,7 +272,7 @@ class Core{
                                 $res['pro']["fotos"][0] = "sin_imagen.jpg";
                             }
                         }
-                        $res['parents'] = $this->resp_categorias($data, $datas[0]["id_cat"]);
+                        $res['parents'] = $this->resp_categorias($data, $datas[0]["id_cat"], 1);
                         $res['pro']['relacionados'] = $this->get_relacionados($datas[0]['id_cat']);
                     }
                     
@@ -288,7 +288,7 @@ class Core{
                 
                 $res['nombre'] = $data[$i]['nombre'];
                 if($data[$i]['parent_id'] > 0){
-                    $res['parents'] = $this->resp_categorias($data, $data[$i]['parent_id']);
+                    $res['parents'] = $this->resp_categorias($data, $data[$i]['parent_id'], 0);
                 }
                 $childs_cat = $this->child_categoria($data, $data[$i]['id_cat']);
                 if(count($childs_cat) > 0){
@@ -308,7 +308,7 @@ class Core{
         }
         return null;
     }
-    public function resp_categorias($data, $id_cat){
+    public function resp_categorias($data, $id_cat, $pro){
 
         $id_aux_cat = $id_cat;
         $n = array();
@@ -331,7 +331,8 @@ class Core{
         }
         $rev = array_reverse($n);
         for($i=0; $i<count($rev); $i++){
-            $res .= "<a href='".$rev[$i]['url']."'>".$rev[$i]['nombre']."</a> > ";
+            $res .= "<a href='".$rev[$i]['url']."'>".$rev[$i]['nombre']."</a>";
+            if($pro == 0 || ($pro == 1 && $i < count($rev) - 1)){ $res.= " > "; }
         }
         return $res;
     }
