@@ -5,6 +5,10 @@
     require "index_class.php";
     $core = new Core();
     $inicio = $core->iniciar();
+
+    echo "<pre>";
+    print_r($inicio['child_prod']);
+    echo "</pre>";
     
 ?>
 
@@ -42,7 +46,7 @@
                             <div class="ls"><a href="/todos-los-productos">Todos los Productos</a></div>
                         </div>
                         <div class="btnvideos">
-                            <a href="http://www.usinox.cl/videos" class="myButton">Ver Videos</a>
+                            <a href="/videos" class="myButton">Ver Videos</a>
                         </div>
                         <a href="https://www.webpay.cl/portalpagodirecto/pages/institucion.jsf?idEstablecimiento=22102112" style="display: block; text-align: center"><img src="images/Webpay.jpg" alt=""></a>
                     </div>
