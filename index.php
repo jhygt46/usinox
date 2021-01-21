@@ -7,7 +7,7 @@
     $inicio = $core->iniciar();
 
     echo "<pre>";
-    print_r($inicio['child_prod']);
+    print_r($inicio);
     echo "</pre>";
     
 ?>
