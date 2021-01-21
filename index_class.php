@@ -203,6 +203,7 @@ class Core{
                         $res[$id]["id_pro"] = $datas[$i]["id_pro"];
                         $res[$id]["nombre"] = $datas[$i]["nombre"];
                         $res[$id]["descripcion"] = $datas[$i]["descripcion"];
+                        $res[$id]["urls"] = $datas[$i]["urls"];
                         $res[$id]["fotos"][] = $datas[$i]["foto_nombre"];
                     }
 
