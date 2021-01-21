@@ -191,7 +191,7 @@ class Core{
         }else{ $this->htmlspecialchars($this->con->error); }
     }
     private function get_random_productos(){
-        if($sqls = $this->con->prepare("SELECT t1.id_pro, t1.nombre, t1.descripcion, t2.nombre as foto_nombre FROM _usinox_productos t1, _usinox_productos_fotos t2 WHERE t1.id_pro=t2.id_pro AND t1.id_pag=? AND t1.eliminado=? ORDER BY RAND() LIMIT 9")){
+        if($sqls = $this->con->prepare("SELECT t1.urls, t1.id_pro, t1.nombre, t1.descripcion, t2.nombre as foto_nombre FROM _usinox_productos t1, _usinox_productos_fotos t2 WHERE t1.id_pro=t2.id_pro AND t1.id_pag=? AND t1.eliminado=? ORDER BY RAND() LIMIT 9")){
             if($sqls->bind_param("ii", $this->id_pag, $this->eliminado)){
                 if($sqls->execute()){
 
