@@ -6,6 +6,8 @@
 ?>
 <div class="cont_static">
     <?php for($i=0; $i<count($inicio['proyectos']); $i++){ ?>
-        <div class="static"></div>
+        <div class="static">
+            <div class="row"></div>
+        </div>
     <?php } ?>
 </div>

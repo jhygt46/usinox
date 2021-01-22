@@ -678,8 +678,14 @@ html{
                                 margin: 0 auto;
                                 background: #ededed;
                                 border-radius: 10px;
+                                width: calc(100% - 20px);
+                                padding: 10px 10px 0px 10px;
                                 .static{
                                     height: 100px;
+                                    padding-bottom: 10px;
+                                    .row{
+                                        background: ccc;
+                                    }
                                 }
                             }
                         }
