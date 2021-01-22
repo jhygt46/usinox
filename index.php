@@ -93,8 +93,8 @@
                                     case "proyectos":
                                         include("includes/_pagina_proyectos.php");
                                         break;
-                                    case "galerias":
-                                        include("includes/_pagina_galerias.php");
+                                    case "galeria":
+                                        include("includes/_pagina_galeria.php");
                                         break;
                                 }
 
