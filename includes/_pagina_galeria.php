@@ -1,4 +1,9 @@
 <div class="titulo"><div class="nombre">Galerias</div></div>
+<?php
+    echo "<pre>";
+    print_r($inicio['galeria']);
+    echo "</pre>";
+?>
 <div class="cont_static">
     <?php for($i=0; $i<count($inicio['galeria']); $i++){ ?>
 
