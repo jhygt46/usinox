@@ -657,13 +657,13 @@ html{
                                 padding-bottom: 20px;
                             }
                             .cont_video_resp{
-                                width: 100%;
                                 .video_resp{
                                     height: 0;
                                     overflow: hidden;
                                     padding-bottom: 56.25%;
                                     padding-top: 30px;
                                     position: relative;
+                                    margin-bottom: 10px;
                                     iframe, object, embed{
                                         height: 100%;
                                         left: 0;
@@ -779,6 +779,9 @@ html{
                                 }
                                 .paginas{
                                     width: calc(96% - 40px);
+                                }
+                                .cont_video_resp{
+                                    width: 96%;
                                 }
                             }
                         }
@@ -914,6 +917,9 @@ html{
                                 }
                                 .paginas{
                                     width: calc(100% - 40px);
+                                }
+                                .cont_video_resp{
+                                    width: 100%;
                                 }
                             }
                         }
