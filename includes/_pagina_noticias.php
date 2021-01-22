@@ -6,6 +6,6 @@
 ?>
 <div class="cont_static">
     <?php for($i=0; $i<count($inicio['noticias']); $i++){ ?>
-
+        <div class="static"></div>
     <?php } ?>
 </div>

@@ -5,7 +5,9 @@
     echo "</pre>";
 ?>
 <div class="cont_static">
-    <?php for($i=0; $i<count($inicio['galeria']); $i++){ ?>
+    <div class="static">
+        <?php for($i=0; $i<count($inicio['galeria']); $i++){ ?>
 
-    <?php } ?>
+        <?php } ?>
+    </div>
 </div>
