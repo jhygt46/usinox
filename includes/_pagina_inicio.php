@@ -7,9 +7,9 @@
 </div>
 <table class="otros" cellspacing="0" cellpadding="0" border="0">
     <tr>
-        <td class="otro ot1" valign="middle"><div class="t1">NOTICIAS</div><div class="t2">Lee todas nuestras noticias</div></td>
-        <td class="otro ot2" valign="middle"><div class="t1">PROYECTOS</div><div class="t2">Revisa todos nuestros proyectos</div></td>
-        <td class="otro ot3" valign="middle"><div class="t1">GALERIA</div><div class="t2">Mira nuestra galeria de imagenes</div></td>
+        <td class="otro ot1" valign="middle"><a href="/noticias"><div class="t1">NOTICIAS</div><div class="t2">Lee todas nuestras noticias</div></a></td>
+        <td class="otro ot2" valign="middle"><a href="/proyectos"><div class="t1">PROYECTOS</div><div class="t2">Revisa todos nuestros proyectos</div></a></td>
+        <td class="otro ot3" valign="middle"><a href="/galeria"><div class="t1">GALERIA</div><div class="t2">Mira nuestra galeria de imagenes</div></a></td>
     </tr>
 </table>
 <div class="titulo"><div class="nombre">Vitrina de Productos</div></div>
