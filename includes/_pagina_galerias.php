@@ -1,4 +1,4 @@
-<div class="titulo"><div class="nombre">Videos</div></div>
+<div class="titulo"><div class="nombre">Galerias</div></div>
 <?php
     echo "<pre>";
     print_r($inicio);

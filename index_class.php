@@ -58,6 +58,18 @@ class Core{
                 $info['tipo'] = "videos";
                 $info['base'] = $this->get_base();
                 $info['videos'] = $this->get_videos();
+            }else if($url[1] == "noticias"){
+                $info['tipo'] = "noticias";
+                $info['base'] = $this->get_base();
+                $info['noticias'] = $this->get_noticias();
+            }else if($url[1] == "proyectos"){
+                $info['tipo'] = "proyectos";
+                $info['base'] = $this->get_base();
+                $info['proyectos'] = $this->get_proyectos();
+            }else if($url[1] == "galeria"){
+                $info['tipo'] = "galeria";
+                $info['base'] = $this->get_base();
+                $info['galeria'] = $this->get_galeria();
             }else{
                 $info = $this->buscar_cat_pro($url[1]);
             }
@@ -66,6 +78,39 @@ class Core{
 
         }
 
+    }
+    private function get_proyectos(){
+        if($sqls = $this->con->prepare("SELECT urls FROM _usinox_proyectos WHERE id_pag=? AND eliminado=? ORDER BY orden")){
+            if($sqls->bind_param("ii", $this->id_pag, $this->eliminado)){
+                if($sqls->execute()){
+                    $res = $this->get_result($sqls);
+                    $sqls->close();
+                }else{ $res['in'] = $this->htmlspecialchars($sqls->error); }
+            }else{ $res['in'] = $this->htmlspecialchars($sqls->error); }
+        }else{ $res['in'] = $this->htmlspecialchars($this->con->error); }
+        return $res;
+    }
+    private function get_galeria(){
+        if($sqls = $this->con->prepare("SELECT urls FROM _usinox_galeria WHERE id_pag=? AND eliminado=? ORDER BY orden")){
+            if($sqls->bind_param("ii", $this->id_pag, $this->eliminado)){
+                if($sqls->execute()){
+                    $res = $this->get_result($sqls);
+                    $sqls->close();
+                }else{ $res['in'] = $this->htmlspecialchars($sqls->error); }
+            }else{ $res['in'] = $this->htmlspecialchars($sqls->error); }
+        }else{ $res['in'] = $this->htmlspecialchars($this->con->error); }
+        return $res;
+    }
+    private function get_noticias(){
+        if($sqls = $this->con->prepare("SELECT urls FROM _usinox_noticias WHERE id_pag=? AND eliminado=? ORDER BY orden")){
+            if($sqls->bind_param("ii", $this->id_pag, $this->eliminado)){
+                if($sqls->execute()){
+                    $res = $this->get_result($sqls);
+                    $sqls->close();
+                }else{ $res['in'] = $this->htmlspecialchars($sqls->error); }
+            }else{ $res['in'] = $this->htmlspecialchars($sqls->error); }
+        }else{ $res['in'] = $this->htmlspecialchars($this->con->error); }
+        return $res;
     }
     private function get_videos(){
         if($sqls = $this->con->prepare("SELECT urls FROM _usinox_videos WHERE id_pag=? AND eliminado=? ORDER BY orden")){

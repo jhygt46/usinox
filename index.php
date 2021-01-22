@@ -87,6 +87,15 @@
                                     case "videos":
                                         include("includes/_pagina_videos.php");
                                         break;
+                                    case "noticias":
+                                        include("includes/_pagina_noticias.php");
+                                        break;
+                                    case "proyectos":
+                                        include("includes/_pagina_proyectos.php");
+                                        break;
+                                    case "galerias":
+                                        include("includes/_pagina_galerias.php");
+                                        break;
                                 }
 
                             ?>
