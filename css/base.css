@@ -645,6 +645,12 @@ html body .contenedor .sitio .medio .info .data .cont_video_resp .video_resp ifr
   top: 0;
   width: 100%;
 }
+html body .contenedor .sitio .medio .info .data .cont_static {
+  margin: 0 auto;
+  background: #ededed;
+  padding: 5%;
+  border-radius: 10px;
+}
 html body .contenedor .sitio .footer {
   width: 100%;
 }
@@ -737,6 +743,9 @@ html body .contenedor .sitio .footer .links_boletas .boleta {
     width: calc(96% - 40px);
   }
   html body .contenedor .sitio .medio .info .data .cont_video_resp {
+    width: 96%;
+  }
+  html body .contenedor .sitio .medio .info .data .cont_static {
     width: 96%;
   }
 }
@@ -843,6 +852,9 @@ html body .contenedor .sitio .footer .links_boletas .boleta {
     width: calc(100% - 40px);
   }
   html body .contenedor .sitio .medio .info .data .cont_video_resp {
+    width: 100%;
+  }
+  html body .contenedor .sitio .medio .info .data .cont_static {
     width: 100%;
   }
 }

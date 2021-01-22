@@ -80,15 +80,29 @@ class Core{
 
     }
     private function get_proyectos(){
-        if($sqls = $this->con->prepare("SELECT * FROM _usinox_proyectos WHERE id_pag=? AND eliminado=? ORDER BY orden")){
+
+        if($sqls = $this->con->prepare("SELECT t1.id_pro, t1.nombre, t1.descripcion, t2.nombre as foto_nombre FROM _usinox_proyectos t1 LEFT JOIN _usinox_proyectos_fotos t2 ON t1.id_pro=t2.id_pro WHERE t1.id_pag=? AND t1.eliminado=? ORDER BY t1.orden")){
             if($sqls->bind_param("ii", $this->id_pag, $this->eliminado)){
                 if($sqls->execute()){
-                    $res = $this->get_result($sqls);
+
+                    $datas = $this->get_result($sqls);
                     $sqls->close();
-                }else{ $res['in'] = $this->htmlspecialchars($sqls->error); }
-            }else{ $res['in'] = $this->htmlspecialchars($sqls->error); }
-        }else{ $res['in'] = $this->htmlspecialchars($this->con->error); }
-        return $res;
+                    for($i=0; $i<count($datas); $i++){
+                        $id = $datas[$i]["id_pro"];
+                        $res[$id]["nombre"] = $datas[$i]["nombre"];
+                        $res[$id]["descripcion"] = $datas[$i]["descripcion"];
+                        if($datas[$i]["foto_nombre"] != null){
+                            $res[$id]["fotos"][] = $datas[$i]["foto_nombre"];
+                        }else{
+                            $res[$id]["fotos"][0] = "sin_imagen.jpg";
+                        }
+                    }
+                    return $res;
+
+                }else{ return $this->htmlspecialchars($sqls->error); }
+            }else{ return $this->htmlspecialchars($sqls->error); }
+        }else{ return $this->htmlspecialchars($this->con->error); }
+
     }
     private function get_galeria(){
         if($sqls = $this->con->prepare("SELECT * FROM _usinox_galeria WHERE id_pag=? AND eliminado=? ORDER BY orden")){
@@ -102,15 +116,29 @@ class Core{
         return $res;
     }
     private function get_noticias(){
-        if($sqls = $this->con->prepare("SELECT * FROM _usinox_noticias WHERE id_pag=? AND eliminado=? ORDER BY orden")){
+
+        if($sqls = $this->con->prepare("SELECT t1.id_not, t1.nombre, t1.descripcion, t2.nombre as foto_nombre FROM _usinox_noticias t1 LEFT JOIN _usinox_noticias_fotos t2 ON t1.id_not=t2.id_not WHERE t1.id_pag=? AND t1.eliminado=? ORDER BY t1.orden")){
             if($sqls->bind_param("ii", $this->id_pag, $this->eliminado)){
                 if($sqls->execute()){
-                    $res = $this->get_result($sqls);
+
+                    $datas = $this->get_result($sqls);
                     $sqls->close();
-                }else{ $res['in'] = $this->htmlspecialchars($sqls->error); }
-            }else{ $res['in'] = $this->htmlspecialchars($sqls->error); }
-        }else{ $res['in'] = $this->htmlspecialchars($this->con->error); }
-        return $res;
+                    for($i=0; $i<count($datas); $i++){
+                        $id = $datas[$i]["id_not"];
+                        $res[$id]["nombre"] = $datas[$i]["nombre"];
+                        $res[$id]["descripcion"] = $datas[$i]["descripcion"];
+                        if($datas[$i]["foto_nombre"] != null){
+                            $res[$id]["fotos"][] = $datas[$i]["foto_nombre"];
+                        }else{
+                            $res[$id]["fotos"][0] = "sin_imagen.jpg";
+                        }
+                    }
+                    return $res;
+
+                }else{ return $this->htmlspecialchars($sqls->error); }
+            }else{ return $this->htmlspecialchars($sqls->error); }
+        }else{ return $this->htmlspecialchars($this->con->error); }
+
     }
     private function get_videos(){
         if($sqls = $this->con->prepare("SELECT urls FROM _usinox_videos WHERE id_pag=? AND eliminado=? ORDER BY orden")){
