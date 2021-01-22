@@ -627,6 +627,23 @@ html body .contenedor .sitio .medio .info .data .padd2 {
   padding-right: 20px;
   padding-bottom: 20px;
 }
+html body .contenedor .sitio .medio .info .data .cont_video_resp {
+  width: 100%;
+}
+html body .contenedor .sitio .medio .info .data .cont_video_resp .video_resp {
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  position: relative;
+}
+html body .contenedor .sitio .medio .info .data .cont_video_resp .video_resp iframe, html body .contenedor .sitio .medio .info .data .cont_video_resp .video_resp object, html body .contenedor .sitio .medio .info .data .cont_video_resp .video_resp embed {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
 html body .contenedor .sitio .footer {
   width: 100%;
 }
