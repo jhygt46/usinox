@@ -683,6 +683,7 @@ html{
                                     padding-bottom: 10px;
                                     .row{
                                         background: #ccc;
+                                        padding: 10px;
                                         .row1{
                                             width: 30%;
                                             float: left;
@@ -692,9 +693,12 @@ html{
                                             float: left;
                                             .row2a{
                                                 font-size: 16px;
+                                                padding-right: 10px;
                                             }
                                             .row2b{
                                                 font-size: 12px;
+                                                max-height: 150px;
+                                                overflow-y: scroll;
                                             }
                                         }
                                     }

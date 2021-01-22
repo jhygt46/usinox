@@ -656,6 +656,7 @@ html body .contenedor .sitio .medio .info .data .cont_static .static {
 }
 html body .contenedor .sitio .medio .info .data .cont_static .static .row {
   background: #ccc;
+  padding: 10px;
 }
 html body .contenedor .sitio .medio .info .data .cont_static .static .row .row1 {
   width: 30%;
@@ -667,9 +668,12 @@ html body .contenedor .sitio .medio .info .data .cont_static .static .row .row2 
 }
 html body .contenedor .sitio .medio .info .data .cont_static .static .row .row2 .row2a {
   font-size: 16px;
+  padding-right: 10px;
 }
 html body .contenedor .sitio .medio .info .data .cont_static .static .row .row2 .row2b {
   font-size: 12px;
+  max-height: 150px;
+  overflow-y: scroll;
 }
 html body .contenedor .sitio .footer {
   width: 100%;
