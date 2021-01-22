@@ -650,6 +650,9 @@ html body .contenedor .sitio .medio .info .data .cont_static {
   background: #ededed;
   border-radius: 10px;
 }
+html body .contenedor .sitio .medio .info .data .cont_static .static {
+  height: 100px;
+}
 html body .contenedor .sitio .footer {
   width: 100%;
 }
