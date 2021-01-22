@@ -80,7 +80,7 @@ class Core{
 
     }
     private function get_proyectos(){
-        if($sqls = $this->con->prepare("SELECT urls FROM _usinox_proyectos WHERE id_pag=? AND eliminado=? ORDER BY orden")){
+        if($sqls = $this->con->prepare("SELECT * FROM _usinox_proyectos WHERE id_pag=? AND eliminado=? ORDER BY orden")){
             if($sqls->bind_param("ii", $this->id_pag, $this->eliminado)){
                 if($sqls->execute()){
                     $res = $this->get_result($sqls);
@@ -91,7 +91,7 @@ class Core{
         return $res;
     }
     private function get_galeria(){
-        if($sqls = $this->con->prepare("SELECT urls FROM _usinox_galeria WHERE id_pag=? AND eliminado=? ORDER BY orden")){
+        if($sqls = $this->con->prepare("SELECT * FROM _usinox_galeria WHERE id_pag=? AND eliminado=? ORDER BY orden")){
             if($sqls->bind_param("ii", $this->id_pag, $this->eliminado)){
                 if($sqls->execute()){
                     $res = $this->get_result($sqls);
@@ -102,7 +102,7 @@ class Core{
         return $res;
     }
     private function get_noticias(){
-        if($sqls = $this->con->prepare("SELECT urls FROM _usinox_noticias WHERE id_pag=? AND eliminado=? ORDER BY orden")){
+        if($sqls = $this->con->prepare("SELECT * FROM _usinox_noticias WHERE id_pag=? AND eliminado=? ORDER BY orden")){
             if($sqls->bind_param("ii", $this->id_pag, $this->eliminado)){
                 if($sqls->execute()){
                     $res = $this->get_result($sqls);
