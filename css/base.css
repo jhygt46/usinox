@@ -855,10 +855,12 @@ html body .contenedor .sitio .footer .links_boletas .boleta {
   .otro .t1 {
     font-size: 15px;
     margin: 20px 20px 0 20px;
+    color: #fff;
   }
   .otro .t2 {
     font-size: 13px;
     margin: 0px 20px 20px 20px;
+    color: #fff;
   }
 }
 @media only screen and (max-width: 500px) and (min-width: 400px) {
@@ -898,10 +900,12 @@ html body .contenedor .sitio .footer .links_boletas .boleta {
   .otro .t1 {
     font-size: 14px;
     margin: 15px 15px 0 15px;
+    color: #fff;
   }
   .otro .t2 {
     font-size: 12px;
     margin: 0px 15px 15px 15px;
+    color: #fff;
   }
 }
 @media only screen and (max-width: 400px) and (min-width: 350px) {
@@ -940,10 +944,12 @@ html body .contenedor .sitio .footer .links_boletas .boleta {
   .otro .t1 {
     font-size: 13px;
     margin: 10px 10px 0 10px;
+    color: #fff;
   }
   .otro .t2 {
     font-size: 11px;
     margin: 0px 10px 10px 10px;
+    color: #fff;
   }
 }
 @media only screen and (max-width: 350px) {
@@ -982,10 +988,12 @@ html body .contenedor .sitio .footer .links_boletas .boleta {
   .otro .t1 {
     font-size: 12px;
     margin: 5px 5px 0 5px;
+    color: #fff;
   }
   .otro .t2 {
     font-size: 10px;
     margin: 0px 5px 5px 5px;
+    color: #fff;
   }
 }
 @media only screen and (min-width: 630px) {
