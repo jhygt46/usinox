@@ -661,6 +661,7 @@ html body .contenedor .sitio .medio .info .data .cont_static .static .row {
 html body .contenedor .sitio .medio .info .data .cont_static .static .row .row1 {
   width: 30%;
   float: left;
+  height: 100px;
 }
 html body .contenedor .sitio .medio .info .data .cont_static .static .row .row2 {
   width: 70%;
