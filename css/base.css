@@ -295,6 +295,9 @@ html body .contenedor .sitio .medio .info .data .otros .otro {
   color: #fff;
   text-decoration: none;
 }
+html body .contenedor .sitio .medio .info .data .otros .otro a {
+  text-decoration: none;
+}
 html body .contenedor .sitio .medio .info .data .otros .ot1 {
   background: #6f6f6f;
   border-top-left-radius: 10px;
