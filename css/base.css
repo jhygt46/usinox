@@ -657,6 +657,20 @@ html body .contenedor .sitio .medio .info .data .cont_static .static {
 html body .contenedor .sitio .medio .info .data .cont_static .static .row {
   background: #ccc;
 }
+html body .contenedor .sitio .medio .info .data .cont_static .static .row .row1 {
+  width: 30%;
+  float: left;
+}
+html body .contenedor .sitio .medio .info .data .cont_static .static .row .row2 {
+  width: 70%;
+  float: left;
+}
+html body .contenedor .sitio .medio .info .data .cont_static .static .row .row2 .row2a {
+  font-size: 16px;
+}
+html body .contenedor .sitio .medio .info .data .cont_static .static .row .row2 .row2b {
+  font-size: 12px;
+}
 html body .contenedor .sitio .footer {
   width: 100%;
 }
