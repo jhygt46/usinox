@@ -646,7 +646,7 @@ html body .contenedor .sitio .medio .info .data .cont_video_resp .video_resp ifr
   width: 100%;
 }
 html body .contenedor .sitio .medio .info .data .cont_static {
-  margin: 0 auto;
+  margin: 0 auto 30px auto;
   background: #ededed;
   border-radius: 10px;
   padding: 10px 10px 0px 10px;
