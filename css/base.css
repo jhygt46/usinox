@@ -649,15 +649,14 @@ html body .contenedor .sitio .medio .info .data .cont_static {
   margin: 0 auto;
   background: #ededed;
   border-radius: 10px;
-  width: calc(100% - 20px);
   padding: 10px 10px 0px 10px;
 }
 html body .contenedor .sitio .medio .info .data .cont_static .static {
-  height: 100px;
   padding-bottom: 10px;
 }
 html body .contenedor .sitio .medio .info .data .cont_static .static .row {
-  background: ccc;
+  background: #ccc;
+  height: 100px;
 }
 html body .contenedor .sitio .footer {
   width: 100%;
@@ -754,7 +753,7 @@ html body .contenedor .sitio .footer .links_boletas .boleta {
     width: 96%;
   }
   html body .contenedor .sitio .medio .info .data .cont_static {
-    width: 96%;
+    width: calc(96% - 20px);
   }
 }
 @media only screen and (min-width: 500px) {
@@ -863,7 +862,7 @@ html body .contenedor .sitio .footer .links_boletas .boleta {
     width: 100%;
   }
   html body .contenedor .sitio .medio .info .data .cont_static {
-    width: 100%;
+    width: calc(100% - 20px);
   }
 }
 @media only screen and (min-width: 500px) {
