@@ -677,6 +677,13 @@ html body .contenedor .sitio .medio .info .data .cont_static .static .row .row2 
   max-height: 150px;
   overflow-y: auto;
 }
+html body .contenedor .sitio .medio .info .data .cont_static .static .galeria {
+  width: 33.3%;
+  float: left;
+}
+html body .contenedor .sitio .medio .info .data .cont_static .static .galeria img {
+  width: 100%;
+}
 html body .contenedor .sitio .footer {
   width: 100%;
 }
