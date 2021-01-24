@@ -675,7 +675,7 @@ html body .contenedor .sitio .medio .info .data .cont_static .static .row .row2 
 html body .contenedor .sitio .medio .info .data .cont_static .static .row .row2 .row2b {
   font-size: 12px;
   max-height: 150px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 html body .contenedor .sitio .footer {
   width: 100%;
