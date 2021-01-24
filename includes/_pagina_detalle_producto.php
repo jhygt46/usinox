@@ -1,9 +1,9 @@
 <?php
-
+    /*
     echo "<pre>";
     print_r($inicio['pro']);
     echo "</pre>";
-    
+    */
 ?>
 <div class="titulo"><div class="nombre"><?php if(isset($inicio['parents'])){ echo $inicio['parents']; } ?></div></div>
 <div class="lista_productos clearfix">
@@ -39,10 +39,10 @@
         <div class="titulo_relacionados">Productos Relacionados</div>
         <div class="cont_relacionados cleafix">
             <?php foreach ($inicio['pro']['relacionados'] as $valor){ ?>
-                <div class="item_relacionados">
-                    <img src="" alt="" />
-                    <div></div>
-                </div>
+                <a href="/<?php echo $valor['url']; ?>" class="item_relacionados">
+                    <img src="https://www.usinox.cl/foto.php?archivo=<?php echo $_SERVER["REQUEST_SCHEME"]; ?>://<?php echo $_SERVER["HTTP_HOST"]; ?>/uploads/images/<?php echo $valor['fotos'][$i]; ?>&ancho=218&alto=180" alt="" />
+                    <div><?php echo $valor['nombre']; ?></div>
+                </a>
             <?php } ?>
         </div>
     </div>
