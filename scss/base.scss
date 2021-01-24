@@ -705,8 +705,10 @@ html{
                                         }
                                     }
                                     .galeria{
-                                        width: 33.3%;
+                                        width: calc(33.3% - 8px);
                                         float: left;
+                                        padding: 4px;
+                                        background: #fff:
                                         img{
                                             width: 100%;
                                         }
