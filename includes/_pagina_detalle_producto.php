@@ -1,13 +1,15 @@
+<?php
+    
+    echo "<pre>";
+    print_r($inicio['pro']);
+    echo "</pre>";
+
+?>
+
+
 <div class="titulo"><div class="nombre"><?php if(isset($inicio['parents'])){ echo $inicio['parents']; } ?></div></div>
 <div class="lista_productos clearfix">
-<?php 
-
-echo "<pre>";
-print_r($inicio['pro']);
-echo "</pre>";
-
-
-if(isset($inicio['pro'])){ ?>
+<?php if(isset($inicio['pro'])){ ?>
     <div class="detalle_producto">
         <div class="pro_info">
             <div class="titulo_pro"><?php echo $inicio['pro']['nombre']; ?></div>
