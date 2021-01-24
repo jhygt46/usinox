@@ -479,7 +479,7 @@ html body .contenedor .sitio .medio .info .data .lista_productos .detalle_produc
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .producto_relacionados .titulo_relacionados {
   font-size: 16px;
-  color: #ddd;
+  color: #ccc;
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .producto_relacionados .cont_relacionados .item_relacionados {
   width: calc(25% - 6px);

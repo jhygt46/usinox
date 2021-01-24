@@ -1,3 +1,10 @@
+<?php
+
+    echo "<pre>";
+    print_r($inicio['pro']);
+    echo "</pre>";
+    
+?>
 <div class="titulo"><div class="nombre"><?php if(isset($inicio['parents'])){ echo $inicio['parents']; } ?></div></div>
 <div class="lista_productos clearfix">
 <?php if(isset($inicio['pro'])){ ?>
@@ -32,7 +39,10 @@
         <div class="titulo_relacionados">Productos Relacionados</div>
         <div class="cont_relacionados cleafix">
             <?php foreach ($inicio['pro']['relacionados'] as $valor){ ?>
-                <div class="item_relacionados"></div>
+                <div class="item_relacionados">
+                    <img src="" alt="" />
+                    <div></div>
+                </div>
             <?php } ?>
         </div>
     </div>
