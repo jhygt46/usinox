@@ -477,6 +477,12 @@ html body .contenedor .sitio .medio .info .data .lista_productos .detalle_produc
 html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_fotos .pro_fotos_otras .foto_prev img {
   width: 100%;
 }
+html body .contenedor .sitio .medio .info .data .lista_productos .producto_relacionados .cont_relacionados .item_relacionados {
+  width: 25%;
+  float: left;
+  height: 100px;
+  background: #f0f;
+}
 html body .contenedor .sitio .medio .info .data .lista_cotizador {
   margin: 10px auto;
 }

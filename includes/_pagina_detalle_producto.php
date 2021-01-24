@@ -37,5 +37,13 @@
             <?php } ?>
         </div>
     </div>
+    <div class="producto_relacionados">
+        <div class="titulo_relacionados"></div>
+        <div class="cont_relacionados cleafix">
+            <?php foreach ($inicio['pro']['relacionados'] as $valor){ ?>
+                <div class="item_relacionados"></div>
+            <?php } ?>
+        </div>
+    </div>
 <?php } ?>
 </div>
