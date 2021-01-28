@@ -506,7 +506,13 @@ html{
                                             height: 160px;
                                             border: 1px solid #ddd;
                                             img{
-                                                width: 100%;
+                                                width: calc(100% - 2px);
+                                                padding: 1px;
+                                            }
+                                            .rel_name{
+                                                padding: 2px;
+                                                height: 20px;
+                                                overflow: hidden;
                                             }
                                         }
                                         .item_relacionados:first-child{

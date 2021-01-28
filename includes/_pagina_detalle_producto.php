@@ -41,7 +41,7 @@
             <?php foreach ($inicio['pro']['relacionados'] as $valor){ ?>
                 <a href="/<?php echo $valor['url']; ?>" class="item_relacionados">
                     <img src="https://www.usinox.cl/foto.php?archivo=<?php echo $_SERVER["REQUEST_SCHEME"]; ?>://<?php echo $_SERVER["HTTP_HOST"]; ?>/uploads/images/<?php echo $valor['fotos'][$i]; ?>&ancho=218&alto=180" alt="" />
-                    <div><?php echo $valor['nombre']; ?></div>
+                    <div class="rel_name"><?php echo $valor['nombre']; ?></div>
                 </a>
             <?php } ?>
         </div>
