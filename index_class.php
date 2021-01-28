@@ -23,7 +23,7 @@ class Core{
         $url = explode("/", $_SERVER['REQUEST_URI']);
 
         echo "<pre>";
-        print_r($url);
+        print_r($_SERVER['REQUEST_URI']);
         echo "</pre>";
 
         $domain = (count($host) == 2) ? "www.".$_SERVER['HTTP_HOST'] : $_SERVER['HTTP_HOST'] ;
