@@ -428,6 +428,10 @@ class Core{
     }
     private function buscar_cat_pro($url){
 
+        echo "<pre>";
+        print_r($url);
+        echo "</pre>";
+
         if($sql = $this->con->prepare("SELECT id_cat, nombre, urls, foto, parent_id FROM _usinox_categorias WHERE id_pag=? AND eliminado=?")){
             if($sql->bind_param("ii", $this->id_pag, $this->eliminado)){
                 if($sql->execute()){
