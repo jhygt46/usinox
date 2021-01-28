@@ -501,14 +501,19 @@ html{
                                     }
                                     .cont_relacionados{
                                         .item_relacionados{
-                                            width: calc(25% - 6px);
+                                            width: calc(25% - 5px);
                                             float: left;
                                             height: 160px;
-                                            margin: 0 2px;
                                             border: 1px solid #ddd;
                                             img{
                                                 width: 100%;
                                             }
+                                        }
+                                        .item_relacionados:first-child{
+                                            margin-left: 0px;
+                                        }
+                                        .item_relacionados:not(:first-of-type){
+                                            margin-left: 4px;
                                         }
                                     }
                                 }

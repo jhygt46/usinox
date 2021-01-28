@@ -482,14 +482,19 @@ html body .contenedor .sitio .medio .info .data .lista_productos .producto_relac
   color: #ccc;
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .producto_relacionados .cont_relacionados .item_relacionados {
-  width: calc(25% - 6px);
+  width: calc(25% - 5px);
   float: left;
   height: 160px;
-  margin: 0 2px;
   border: 1px solid #ddd;
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .producto_relacionados .cont_relacionados .item_relacionados img {
   width: 100%;
+}
+html body .contenedor .sitio .medio .info .data .lista_productos .producto_relacionados .cont_relacionados .item_relacionados:first-child {
+  margin-left: 0px;
+}
+html body .contenedor .sitio .medio .info .data .lista_productos .producto_relacionados .cont_relacionados .item_relacionados:not(:first-of-type) {
+  margin-left: 4px;
 }
 html body .contenedor .sitio .medio .info .data .lista_cotizador {
   margin: 10px auto;
