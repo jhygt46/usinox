@@ -26,6 +26,8 @@ class Core{
         $url = str_replace('%C3%A9', 'é', $url);
         $url = str_replace('%C3%B1', 'ñ', $url);
         $url = str_replace('%C3%AD', 'í', $url);
+        $url = str_replace('%C3%A1', 'á', $url);
+        $url = str_replace('%C3%B3', 'ó', $url);
         
         
         echo "<pre>";
