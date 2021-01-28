@@ -488,6 +488,9 @@ html body .contenedor .sitio .medio .info .data .lista_productos .producto_relac
   margin: 0 2px;
   border: 1px solid #ddd;
 }
+html body .contenedor .sitio .medio .info .data .lista_productos .producto_relacionados .cont_relacionados .item_relacionados img {
+  width: 100%;
+}
 html body .contenedor .sitio .medio .info .data .lista_cotizador {
   margin: 10px auto;
 }

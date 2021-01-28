@@ -28,11 +28,6 @@ class Core{
         $url = str_replace('%C3%AD', 'í', $url);
         $url = str_replace('%C3%A1', 'á', $url);
         $url = str_replace('%C3%B3', 'ó', $url);
-        
-        
-        echo "<pre>";
-        print_r($url);
-        echo "</pre>";
 
         $domain = (count($host) == 2) ? "www.".$_SERVER['HTTP_HOST'] : $_SERVER['HTTP_HOST'] ;
 
@@ -410,7 +405,7 @@ class Core{
         }
         return null;
     }
-    public function resp_categorias($data, $id_cat, $pro){
+    private function resp_categorias($data, $id_cat, $pro){
 
         $id_aux_cat = $id_cat;
         $n = array();
