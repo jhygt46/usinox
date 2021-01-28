@@ -10,7 +10,7 @@
                     <div class="c_pdesc"><a class="link" href="<?php echo $valor['urls']; ?>"><?php echo $valor['descripcion']; ?></a></div>
                     <div class="c_pbtn clearfix">
                         <div class="btn_cotizar" onclick="cotizar(<?php echo $valor['id_pro']; ?>, 1)">Cotizar</div>
-                        <div class="btn_mostrar btn_mostrar_prod"><a class="link" href="<?php echo $valor['urls']; ?>"><div class="txt">Mostrar</div><div class="punto valign"></div></a></div>
+                        <div class="btn_mostrar btn_mostrar_prod"><a class="link" href='<?php echo $valor['urls']; ?>'><div class="txt">Mostrar</div><div class="punto valign"></div></a></div>
                     </div>
                 </div>
             </div>
