@@ -484,7 +484,6 @@ html body .contenedor .sitio .medio .info .data .lista_productos .producto_relac
 html body .contenedor .sitio .medio .info .data .lista_productos .producto_relacionados .cont_relacionados .item_relacionados {
   width: calc(25% - 5px);
   float: left;
-  height: 160px;
   border: 1px solid #ddd;
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .producto_relacionados .cont_relacionados .item_relacionados img {
