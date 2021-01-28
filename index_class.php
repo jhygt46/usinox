@@ -22,6 +22,10 @@ class Core{
         $host = explode(".", $_SERVER['HTTP_HOST']);
         $url = explode("/", $_SERVER['REQUEST_URI']);
 
+        echo "<pre>";
+        print_r($url);
+        echo "</pre>";
+
         $domain = (count($host) == 2) ? "www.".$_SERVER['HTTP_HOST'] : $_SERVER['HTTP_HOST'] ;
 
         if($_SERVER['HTTPS'] != "on" && $_SERVER['HTTP_HOST'] != "35.202.149.15"){
@@ -427,10 +431,6 @@ class Core{
         return $res;
     }
     private function buscar_cat_pro($url){
-
-        echo "<pre>";
-        print_r($url);
-        echo "</pre>";
 
         if($sql = $this->con->prepare("SELECT id_cat, nombre, urls, foto, parent_id FROM _usinox_categorias WHERE id_pag=? AND eliminado=?")){
             if($sql->bind_param("ii", $this->id_pag, $this->eliminado)){
