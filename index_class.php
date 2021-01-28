@@ -23,6 +23,7 @@ class Core{
         $url = explode("/", $_SERVER['REQUEST_URI']);
 
         $url = str_replace('%22', '"', $url);
+        $url = str_replace('%C3%A9', 'é', $url);
 
         echo "<pre>";
         print_r($url);
