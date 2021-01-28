@@ -22,8 +22,10 @@ class Core{
         $host = explode(".", $_SERVER['HTTP_HOST']);
         $url = explode("/", $_SERVER['REQUEST_URI']);
 
+        $url = str_replace('%22', '"', $url);
+
         echo "<pre>";
-        print_r($_SERVER['REQUEST_URI']);
+        print_r($url);
         echo "</pre>";
 
         $domain = (count($host) == 2) ? "www.".$_SERVER['HTTP_HOST'] : $_SERVER['HTTP_HOST'] ;
