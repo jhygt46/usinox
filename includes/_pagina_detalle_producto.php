@@ -26,13 +26,13 @@
         </div>
         <div class="pro_fotos">
             <div class="pro_fotos_principal"><img src="https://www.usinox.cl/foto.php?archivo=<?php echo $_SERVER["REQUEST_SCHEME"]; ?>://<?php echo $_SERVER["HTTP_HOST"]; ?>/uploads/images/<?php echo $inicio['pro']['fotos'][0]; ?>&ancho=218&alto=180" alt="" /></div>
-            <?php if(count($inicio['pro']['fotos']) > 1){ ?>
             <div class="pro_fotos_otras clearfix">
+            <?php if(count($inicio['pro']['fotos']) > 1){ ?>
                 <?php for($i=1; $i<count($inicio['pro']['fotos']); $i++){ ?>
                     <div class="foto_prev"><img src="https://www.usinox.cl/foto.php?archivo=<?php echo $_SERVER["REQUEST_SCHEME"]; ?>://<?php echo $_SERVER["HTTP_HOST"]; ?>/uploads/images/<?php echo $inicio['pro']['fotos'][$i]; ?>&ancho=218&alto=180" alt="" /></div>
                 <?php } ?>
-            </div>
             <?php } ?>
+            </div>
         </div>
     </div>
     <div class="producto_relacionados">
