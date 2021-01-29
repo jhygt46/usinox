@@ -485,6 +485,7 @@ html body .contenedor .sitio .medio .info .data .lista_productos .producto_relac
   width: calc(25% - 5px);
   float: left;
   border: 1px solid #ddd;
+  text-decoration: none;
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .producto_relacionados .cont_relacionados .item_relacionados img {
   width: calc(100% - 2px);
@@ -492,8 +493,9 @@ html body .contenedor .sitio .medio .info .data .lista_productos .producto_relac
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .producto_relacionados .cont_relacionados .item_relacionados .rel_name {
   padding: 2px;
-  height: 20px;
+  height: 35px;
   overflow: hidden;
+  color: #ccc;
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .producto_relacionados .cont_relacionados .item_relacionados:first-child {
   margin-left: 0px;
