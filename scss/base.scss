@@ -496,8 +496,10 @@ html{
                                 }
                                 .producto_relacionados{
                                     .titulo_relacionados{
-                                        font-size: 16px;
-                                        color: #ccc;
+                                        font-size: 18px;
+                                        color: #000;
+                                        padding: 4px;
+                                        margin: 20px 2px 4px 2px;
                                     }
                                     .cont_relacionados{
                                         .item_relacionados{
@@ -511,9 +513,10 @@ html{
                                             }
                                             .rel_name{
                                                 padding: 2px;
-                                                height: 35px;
+                                                height: 32px;
                                                 overflow: hidden;
-                                                color: #ccc;
+                                                color: #000;
+                                                font-size: 13px;
                                             }
                                         }
                                         .item_relacionados:first-child{
