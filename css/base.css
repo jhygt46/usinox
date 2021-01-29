@@ -149,7 +149,7 @@ html body .contenedor .sitio .medio .pmenu .nav .lp {
   border-top-right-radius: 10px;
   background: linear-gradient(180deg, #3f3f3f 0%, #171717 100%);
 }
-html body .contenedor .sitio .medio .pmenu .nav .a {
+html body .contenedor .sitio .medio .pmenu .nav .ls {
   background: #333;
   padding: 12px;
   border-bottom: 1px solid #000;
@@ -157,7 +157,7 @@ html body .contenedor .sitio .medio .pmenu .nav .a {
   text-decoration: none;
   font-size: 15px;
 }
-html body .contenedor .sitio .medio .pmenu .nav .a:hover {
+html body .contenedor .sitio .medio .pmenu .nav .ls:hover {
   background: #e13535;
 }
 html body .contenedor .sitio .medio .pmenu .btnvideos {
