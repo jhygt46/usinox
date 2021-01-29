@@ -464,10 +464,13 @@ html body .contenedor .sitio .medio .info .data .lista_productos .detalle_produc
   border: 1px solid #ccc;
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_fotos .pro_fotos_principal {
-  padding: 10px;
+  padding: 10px 10px 2px 10px;
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_fotos .pro_fotos_principal img {
   width: 100%;
+}
+html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_fotos .pro_fotos_otras {
+  padding: 0px 10px 10px 10px;
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .detalle_producto .pro_fotos .pro_fotos_otras .foto_prev {
   width: 25%;
@@ -478,11 +481,12 @@ html body .contenedor .sitio .medio .info .data .lista_productos .detalle_produc
   width: 100%;
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .producto_relacionados .titulo_relacionados {
-  font-size: 18px;
+  font-size: 16px;
   color: #000;
-  padding: 4px;
+  padding: 6px;
   margin: 20px 2px 4px 2px;
   background: #ccc;
+  border-radius: 2px;
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .producto_relacionados .cont_relacionados .item_relacionados {
   width: calc(25% - 5px);
