@@ -64,9 +64,6 @@ html body .contenedor .menu .opciones .ls a {
   text-decoration: none;
   color: #000;
 }
-html body .contenedor .menu .opciones .ls:hover {
-  background: #e13535;
-}
 html body .contenedor .menu .bajada {
   height: 80px;
   background: #000;
@@ -161,6 +158,9 @@ html body .contenedor .sitio .medio .pmenu .nav .ls a {
   color: #fff;
   text-decoration: none;
   font-size: 15px;
+}
+html body .contenedor .sitio .medio .pmenu .nav .ls:hover {
+  background: #e13535;
 }
 html body .contenedor .sitio .medio .pmenu .btnvideos {
   text-align: center;

@@ -62,9 +62,6 @@ html{
                             color: #000;
                         }
                     }
-                    .ls:hover{
-                        background: rgba(225, 53, 53);
-                    }
                 }
                 .bajada{
                     height: 80px;
@@ -163,6 +160,9 @@ html{
                                     text-decoration: none;
                                     font-size: 15px;
                                 }
+                            }
+                            .ls:hover{
+                                background: rgba(225, 53, 53);
                             }
                         }
                         .btnvideos{
