@@ -156,6 +156,7 @@ html body .contenedor .sitio .medio .pmenu .nav .ls {
   color: #fff;
   text-decoration: none;
   font-size: 15px;
+  display: block;
 }
 html body .contenedor .sitio .medio .pmenu .nav .ls:hover {
   background: #e13535;
