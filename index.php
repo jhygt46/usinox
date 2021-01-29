@@ -28,9 +28,9 @@
                 <div class="opciones">
                     <div class="lp">CATEGORIAS</div>
                     <?php for($i=0; $i<count($inicio['base']); $i++){ ?>
-                    <div class="ls"><a href="/<?php echo $inicio['base'][$i]['urls']; ?>"><?php echo $inicio['base'][$i]['nombre']; ?></a></div>
+                    <a href="/<?php echo $inicio['base'][$i]['urls']; ?>"><?php echo $inicio['base'][$i]['nombre']; ?></a>
                     <?php } ?>
-                    <div class="ls"><a href="/todos-los-productos">Todos los Productos</a></div>
+                    <!--<div class="ls"><a href="/todos-los-productos">Todos los Productos</a></div>-->
                 </div>
                 <div class="bajada"></div>
             </div>
