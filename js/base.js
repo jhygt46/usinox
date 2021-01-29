@@ -12,6 +12,10 @@ function next(n){
 function docClass(n, i = 0){ return document.getElementsByClassName(n)[i] }
 function docId(n){ return document.getElementById(n) }
 function cotizar(id, cant){
+
+    if(cant == 0){
+        cant = docId('pro_cant').value;
+    }
     $.ajax({
         url: "/ajax/",
         type: "POST",
