@@ -1,8 +1,20 @@
 <?php
     /*
+
     echo "<pre>";
     print_r($inicio['pro']);
     echo "</pre>";
+
+    En el admin ver que foto es
+    Destacar hover de categorias
+    Marca / Modelo
+    Stock
+    Descargar Ficha - Manual
+    Favicon
+    Fotos
+
+    Texto justificado
+
     */
 ?>
 <div class="titulo"><div class="nombre"><?php if(isset($inicio['parents'])){ echo $inicio['parents']; } ?></div></div>

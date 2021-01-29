@@ -64,6 +64,9 @@ html body .contenedor .menu .opciones .ls a {
   text-decoration: none;
   color: #000;
 }
+html body .contenedor .menu .opciones .ls:hover {
+  background: #e13535;
+}
 html body .contenedor .menu .bajada {
   height: 80px;
   background: #000;
