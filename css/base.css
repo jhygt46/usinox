@@ -482,6 +482,7 @@ html body .contenedor .sitio .medio .info .data .lista_productos .producto_relac
   color: #000;
   padding: 4px;
   margin: 20px 2px 4px 2px;
+  background: #ccc;
 }
 html body .contenedor .sitio .medio .info .data .lista_productos .producto_relacionados .cont_relacionados .item_relacionados {
   width: calc(25% - 5px);
