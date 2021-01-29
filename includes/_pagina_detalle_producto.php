@@ -1,9 +1,9 @@
 <?php
-    /*
+    
     echo "<pre>";
     print_r($inicio['pro']);
     echo "</pre>";
-    */
+    
 ?>
 <div class="titulo"><div class="nombre"><?php if(isset($inicio['parents'])){ echo $inicio['parents']; } ?></div></div>
 <div class="lista_productos clearfix">
@@ -18,6 +18,10 @@
             </div>
             <div class="desc_ttl">Descripcion</div>
             <div class="desc_pro"><?php echo $inicio['pro']['descripcion']; ?></div>
+            <div class="descarga clearfix">
+                <div class="manual">Descargar Manual</div>
+                <div class="ficha">Descargar Ficha</div>
+            </div>
             <div class="redes clearfix">
                 <div class="red1"></div>
                 <div class="red2"></div>
