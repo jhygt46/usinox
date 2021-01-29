@@ -485,12 +485,17 @@ html{
                                         .pro_fotos_otras{
                                             padding: 0px 10px 10px 10px;
                                             .foto_prev{
-                                                width: 25%;
+                                                width: calc(25% - 1.5px);
                                                 float: left;
-                                                padding: 2px;
                                                 img{
                                                     width: 100%;
                                                 }
+                                            }
+                                            .foto_prev:first-child{
+
+                                            }
+                                            .foto_prev:not(:first-of-type){
+                                                margin-left: 2px;
                                             }
                                         }
                                     }
