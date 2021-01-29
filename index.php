@@ -28,7 +28,7 @@
                 <div class="opciones">
                     <div class="lp">CATEGORIAS</div>
                     <?php for($i=0; $i<count($inicio['base']); $i++){ ?>
-                    <a class="ls" href="/<?php echo $inicio['base'][$i]['urls']; ?>"><?php echo $inicio['base'][$i]['nombre']; ?></a>
+                    <div class="ls"><a href="/<?php echo $inicio['base'][$i]['urls']; ?>"><?php echo $inicio['base'][$i]['nombre']; ?></a></div>
                     <?php } ?>
                     <!--<div class="ls"><a href="/todos-los-productos">Todos los Productos</a></div>-->
                 </div>
@@ -41,9 +41,9 @@
                         <div class="nav">
                             <div class="lp">CATEGORIAS</div>
                             <?php for($i=0; $i<count($inicio['base']); $i++){ ?>
-                            <div class="ls"><a href="/<?php echo $inicio['base'][$i]['urls']; ?>"><?php echo $inicio['base'][$i]['nombre']; ?></a></div>
+                            <a class="ls" href="/<?php echo $inicio['base'][$i]['urls']; ?>"><?php echo $inicio['base'][$i]['nombre']; ?></a>
                             <?php } ?>
-                            <div class="ls"><a href="/todos-los-productos">Todos los Productos</a></div>
+                            <!--<div class="ls"><a href="/todos-los-productos">Todos los Productos</a></div>-->
                         </div>
                         <div class="btnvideos">
                             <a href="/videos" class="myButton">Ver Videos</a>
