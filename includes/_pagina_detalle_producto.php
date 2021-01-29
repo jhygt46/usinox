@@ -14,7 +14,7 @@
             <div class="cotizar_pro clearfix">
                 <div class="cotizar_pro1">Cant</div>
                 <div class="cotizar_pro2"><input type="text" id="pro_cant" value="1"></div>
-                <div class="cotizar_pro3"><div class="btn" onclick="cotizar(<?php echo $valor['id_pro']; ?>, 1)">Cotizar</div></div>
+                <div class="cotizar_pro3"><div class="btn" onclick="cotizar(<?php echo $valor['id_pro']; ?>, 0)">Cotizar</div></div>
             </div>
             <div class="desc_ttl">Descripcion</div>
             <div class="desc_pro"><?php echo $inicio['pro']['descripcion']; ?></div>
