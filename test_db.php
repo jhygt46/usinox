@@ -61,13 +61,11 @@
                 $file_usi = "";
                 $file_nep = "";
 
-                echo "admin/imagenes/".$cats[$j]['foto']."<br/>";
                 if(file_exists("admin/imagenes/".$cats[$j]['foto'])){
                     $file = explode(".", $cats[$j]['foto']);
                     file_get_contents("http://35.202.149.15/get_foto.php?file=".$cats[$j]['foto']);
                     $file_usi = $file[0]."0.".$file[1];
                     $file_nep = $file[0]."1.".$file[1];
-                    echo "Categoria: ".$file[0].".".$file[1]."<br/>";
                 }
 
                 $id_pag = 1;
@@ -93,13 +91,11 @@
 
                     $file_usis = "";
                     $file_neps = "";
-                    echo "admin/imagenes/".$prods[$z]['foto']."<br/>";
                     if(file_exists("admin/imagenes/".$prods[$z]['foto'])){
                         $files = explode(".", $prods[$z]['foto']);
                         file_get_contents("http://35.202.149.15/get_foto.php?file=".$prods[$z]['foto']);
                         $file_usis = $files[0]."0.".$files[1];
                         $file_neps = $files[0]."1.".$files[1];
-                        echo "Productos: ".$files[0].".".$files[1]."<br/>";
                     }
 
                     $id_pag = 1;
