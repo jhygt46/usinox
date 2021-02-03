@@ -6,6 +6,6 @@
     $img2 = "uploads/images/".$file[0]."1.".$file[1];
 
     file_put_contents($img1, file_get_contents($url));
-    file_put_contents($img2, file_get_contents($url));
-    
+    copy($img1, $img2);
+
 ?>
