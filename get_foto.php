@@ -7,4 +7,6 @@
     file_put_contents($img1, file_get_contents($url));
     file_put_contents($img2, file_get_contents($url));
 
+    file_put_contents("get_foto.txt", $img1."\n", FILE_APPEND);
+
 ?>
