@@ -1,6 +1,6 @@
 <?php
 
-    $fotos = file_get_contents("http://www.usinox.cl/lista_fotos.json");
+    $fotos = json_decode(file_get_contents("http://www.usinox.cl/lista_fotos.json"));
 
     echo "<pre>";
     print_r($fotos);
