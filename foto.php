@@ -22,7 +22,7 @@ $altode = $_GET["alto"];
 
 $file = $_GET["archivo"];
 
-//echo $_SERVER["DOCUMENT_ROOT"]."/".$file;
+file_put_contents("registro.txt", $_SERVER["DOCUMENT_ROOT"]."/".$file, FILE_APPEND);
 
 //si es JPG
 
