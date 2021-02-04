@@ -40,7 +40,7 @@
                 <div class="red3"></div>
             </div>
         </div>
-        <?php $dim = getimagesize("uploads/images/".$inicio['pro']['fotos'][0]); print_r($dim); ?>
+        <?php $dim = getimagesize("uploads/images/".$inicio['pro']['fotos'][0]); ?>
         <div class="pro_fotos">
             <div class="pro_fotos_principal"><img src="/foto.php?archivo=uploads/images/<?php echo $inicio['pro']['fotos'][0]; ?>&ancho=218&alto=180" alt="" /></div>
             <div class="pro_fotos_otras clearfix">
