@@ -473,9 +473,27 @@ html{
                                             border-bottom: 1px solid #ccc;
                                             text-align: justify;
                                         }
+                                        .descarga{
+                                            .manual{
+                                                a{}
+                                            }
+                                            .ficha{
+                                                a{}
+                                            }
+                                        }
+                                        .info{
+                                            .marca{
+                                                .ttl{}
+                                                .nombre{}
+                                            }
+                                            .modelo{
+                                                .ttl{}
+                                                .nombre{}
+                                            }
+                                        }
                                         .redes{
                                             padding: 10px 0px;
-                                        }   
+                                        } 
                                     }
                                     .pro_fotos{
                                         border: 1px solid #ccc;
