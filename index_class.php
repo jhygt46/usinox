@@ -475,9 +475,6 @@ class Core{
                     $cat = $this->process_categoria($data, $url);
                     if($cat == null){
                         $pro = $this->process_producto($data, $url);
-                        echo "<pre>";
-                        print_r($pro);
-                        echo "</pre>";
                         if($pro == null){
                             header("HTTP/1.1 404 Not Found");
                             include '404.php';

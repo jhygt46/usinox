@@ -8,7 +8,7 @@
     
     /*
     echo "<pre>";
-    print_r($inicio->gets_pdfs());
+    print_r();
     echo "</pre>";
     */
 ?>
