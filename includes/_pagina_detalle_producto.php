@@ -41,11 +41,11 @@
             </div>
         </div>
         <div class="pro_fotos">
-            <div class="pro_fotos_principal"><img src="foto.php?archivo=uploads/images/<?php echo $inicio['pro']['fotos'][0]; ?>&ancho=218&alto=180" alt="" /></div>
+            <div class="pro_fotos_principal"><img src="/foto.php?archivo=uploads/images/<?php echo $inicio['pro']['fotos'][0]; ?>&ancho=218&alto=180" alt="" /></div>
             <div class="pro_fotos_otras clearfix">
             <?php if(count($inicio['pro']['fotos']) > 1){ ?>
                 <?php for($i=1; $i<count($inicio['pro']['fotos']); $i++){ ?>
-                    <div class="foto_prev"><img src="foto.php?archivo=uploads/images/<?php echo $inicio['pro']['fotos'][$i]; ?>&ancho=218&alto=180" alt="" /></div>
+                    <div class="foto_prev"><img src="/foto.php?archivo=uploads/images/<?php echo $inicio['pro']['fotos'][$i]; ?>&ancho=218&alto=180" alt="" /></div>
                 <?php } ?>
             <?php } ?>
             </div>
@@ -56,7 +56,7 @@
         <div class="cont_relacionados cleafix">
             <?php foreach ($inicio['pro']['relacionados'] as $valor){ ?>
                 <a href="/<?php echo $valor['url']; ?>" class="item_relacionados">
-                    <img src="foto.php?archivo=uploads/images/<?php echo $valor['fotos'][$i]; ?>&ancho=218&alto=180" alt="" />
+                    <img src="/foto.php?archivo=uploads/images/<?php echo $valor['fotos'][$i]; ?>&ancho=218&alto=180" alt="" />
                     <div class="rel_name"><?php echo $valor['nombre']; ?></div>
                 </a>
             <?php } ?>
