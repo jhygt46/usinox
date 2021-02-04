@@ -87,8 +87,9 @@ class Core{
 
     }
     public function gets_pdfs(){
-        if($sqls = $this->con->prepare("SELECT t1.id_cat, t1.id_pro, t1.nombre, t1.urls, t1.descripcion, t2.nombre as foto_nombre, t1.ficha, t1.manual, t1.marca, t1.modelo, t1.precio, t1.stock FROM _usinox_productos t1 LEFT JOIN _usinox_productos_fotos t2 ON t1.id_pro=t2.id_pro WHERE t1.urls=? AND t1.id_pag=?  AND t1.eliminado=?")){
-            if($sqls->bind_param("sii", $url, $this->id_pag, $this->eliminado)){
+        $id_pag = 1;
+        if($sqls = $this->con->prepare("SELECT ficha, manual FROM _usinox_productos WHERE id_pag=? AND eliminado=?")){
+            if($sqls->bind_param("ii", $id_pag, $this->eliminado)){
                 if($sqls->execute()){
 
                     $datas = $this->get_result($sqls);
