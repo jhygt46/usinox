@@ -86,6 +86,31 @@ class Core{
         }
 
     }
+    private function gets_pdfs(){
+        if($sqls = $this->con->prepare("SELECT t1.id_cat, t1.id_pro, t1.nombre, t1.urls, t1.descripcion, t2.nombre as foto_nombre, t1.ficha, t1.manual, t1.marca, t1.modelo, t1.precio, t1.stock FROM _usinox_productos t1 LEFT JOIN _usinox_productos_fotos t2 ON t1.id_pro=t2.id_pro WHERE t1.urls=? AND t1.id_pag=?  AND t1.eliminado=?")){
+            if($sqls->bind_param("sii", $url, $this->id_pag, $this->eliminado)){
+                if($sqls->execute()){
+
+                    $datas = $this->get_result($sqls);
+                    $sqls->close();
+
+                    for($i=0; $i<count($datas); $i++){
+                        if($datas[$i]["ficha"] != ""){
+                            $ficha = "uploads/pdf/".$datas[$i]["ficha"];
+                            $url_ficha = "www.usinox.cl/admin/pdf/".$datas[$i]["ficha"];
+                            file_put_contents($ficha, file_get_contents($url_ficha));
+                        }
+                        if($datas[$i]["manual"] != ""){
+                            $manual = "uploads/pdf/".$datas[$i]["manual"];
+                            $url_manual = "www.usinox.cl/admin/manual/".$datas[$i]["manual"];
+                            file_put_contents($manual, file_get_contents($url_manual));
+                        }
+                    }
+                    
+                }else{ $this->htmlspecialchars($sqls->error); }
+            }else{ $this->htmlspecialchars($sqls->error); }
+        }else{ $this->htmlspecialchars($this->con->error); }
+    }
     private function get_proyectos(){
 
         if($sqls = $this->con->prepare("SELECT t1.id_pro, t1.nombre, t1.descripcion, t2.nombre as foto_nombre FROM _usinox_proyectos t1 LEFT JOIN _usinox_proyectos_fotos t2 ON t1.id_pro=t2.id_pro WHERE t1.id_pag=? AND t1.eliminado=? ORDER BY t1.orden")){
