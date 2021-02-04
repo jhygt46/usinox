@@ -22,7 +22,7 @@ $altode = $_GET["alto"];
 
 $file = $_GET["archivo"];
 
-echo $_SERVER["DOCUMENT_ROOT"]."/".$file;
+//echo $_SERVER["DOCUMENT_ROOT"]."/".$file;
 
 //si es JPG
 
