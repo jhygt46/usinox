@@ -1,14 +1,12 @@
 <?php
     
+    /*
     echo "<pre>";
     print_r($inicio['pro']);
     echo "</pre>";
 
-    /*
     En el admin ver que foto es
-    Marca / Modelo
     Stock
-    Descargar Ficha - Manual
     Fotos
     */
 
