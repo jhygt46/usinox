@@ -5,7 +5,7 @@
     require "index_class.php";
     $core = new Core();
     $inicio = $core->iniciar();
-    $core->gets_pdfs();
+    
     /*
     echo "<pre>";
     print_r($inicio->gets_pdfs());
