@@ -351,7 +351,7 @@ class Core{
     }
     private function process_producto($data, $url){
 
-        if($sqls = $this->con->prepare("SELECT t1.id_cat, t1.id_pro, t1.nombre, t1.urls, t1.descripcion, t2.nombre as foto_nombre FROM _usinox_productos t1 LEFT JOIN _usinox_productos_fotos t2 ON t1.id_pro=t2.id_pro WHERE t1.urls=? AND t1.id_pag=?  AND t1.eliminado=?")){
+        if($sqls = $this->con->prepare("SELECT t1.id_cat, t1.id_pro, t1.nombre, t1.urls, t1.descripcion, t2.nombre as foto_nombre, t1.ficha, t1.manual, t1.marca, t1.modelo, t1.precio FROM _usinox_productos t1 LEFT JOIN _usinox_productos_fotos t2 ON t1.id_pro=t2.id_pro WHERE t1.urls=? AND t1.id_pag=?  AND t1.eliminado=?")){
             if($sqls->bind_param("sii", $url, $this->id_pag, $this->eliminado)){
                 if($sqls->execute()){
 
@@ -362,6 +362,12 @@ class Core{
                         $res['pro']["id_pro"] = $datas[0]["id_pro"];
                         $res['pro']["nombre"] = $datas[0]["nombre"];
                         $res['pro']["descripcion"] = $datas[0]["descripcion"];
+                        $res['pro']["ficha"] = $datas[0]["ficha"];
+                        $res['pro']["manual"] = $datas[0]["manual"];
+                        $res['pro']["marca"] = $datas[0]["marca"];
+                        $res['pro']["modelo"] = $datas[0]["modelo"];
+                        $res['pro']["precio"] = $datas[0]["precio"];
+                        $res['pro']["stock"] = $datas[0]["stock"];
                         for($i=0; $i<count($datas); $i++){
                             if($datas[$i]["foto_nombre"] != null){
                                 $res['pro']["fotos"][] = $datas[$i]["foto_nombre"];
