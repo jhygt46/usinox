@@ -26,13 +26,13 @@
             </div>
             <div class="desc_ttl">Descripcion</div>
             <div class="desc_pro"><?php echo $inicio['pro']['descripcion']; ?></div>
-            <?php if($inicio['pro']['manual'] != "" && $inicio['pro']['ficha'] != ""){ ?>
+            <?php if($inicio['pro']['manual'] != "" || $inicio['pro']['ficha'] != ""){ ?>
             <div class="descarga clearfix">
                 <?php if($inicio['pro']['manual'] != ""){ ?><div class="manual"><a href="/uploads/pdf/<?php echo $inicio['pro']['manual']; ?>">Descargar Manual</a></div><?php } ?>
                 <?php if($inicio['pro']['ficha'] != ""){ ?><div class="ficha"><a href="/uploads/pdf/<?php echo $inicio['pro']['ficha']; ?>">Descargar Ficha</a></div><?php } ?>
             </div>
             <?php } ?>
-            <?php if($inicio['pro']['marca'] != "" && $inicio['pro']['modelo'] != ""){ ?>
+            <?php if($inicio['pro']['marca'] != "" || $inicio['pro']['modelo'] != ""){ ?>
             <div class="info clearfix">
                 <?php if($inicio['pro']['marca'] != ""){ ?><div class="marca"><div class="ttl">Marca</div><div class="nombre"><?php echo $inicio['pro']['marca']; ?></div></div><?php } ?>
                 <?php if($inicio['pro']['modelo'] != ""){ ?><div class="modelo"><div class="ttl">Modelo</div><div class="nombre"><?php echo $inicio['pro']['modelo']; ?></div></div><?php } ?>
