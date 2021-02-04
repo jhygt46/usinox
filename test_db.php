@@ -35,6 +35,8 @@
     function insert_parents($parents, $mysqli){
 
         $eliminado = 0;
+        $fotos[] = array();
+
         for($i=0; $i<count($parents); $i++){
             $id_pag = 1;
             if($stmt = $mysqli->prepare("INSERT INTO _usinox_categorias (nombre, urls, parent_id, orden, fecha, id_pag, eliminado) VALUES (?, ?, ?, ?, NOW(), ?, ?)")){
@@ -54,7 +56,6 @@
                     }else{ return $stmt->error; }
                 }else{ return $stmt->error; }
             }else{ return $mysqli->error; }
-            
             $cats = get_categorias($parents[$i]['id'], $mysqli);
             for($j=0; $j<count($cats); $j++){
 
@@ -63,7 +64,8 @@
 
                 if(file_exists("admin/imagenes/".$cats[$j]['foto'])){
                     $file = explode(".", $cats[$j]['foto']);
-                    file_get_contents("http://35.202.149.15/get_foto.php?file=".$cats[$j]['foto']);
+                    $fotos[] = $cats[$j]['foto'];
+                    //file_get_contents("http://35.202.149.15/get_foto.php?file=".$cats[$j]['foto']);
                     $file_usi = $file[0]."0.".$file[1];
                     $file_nep = $file[0]."1.".$file[1];
                 }
@@ -93,7 +95,8 @@
                     $file_neps = "";
                     if(file_exists("admin/imagenes/".$prods[$z]['foto'])){
                         $files = explode(".", $prods[$z]['foto']);
-                        file_get_contents("http://35.202.149.15/get_foto.php?file=".$prods[$z]['foto']);
+                        $fotos[] = $prods[$z]['foto'];
+                        //file_get_contents("http://35.202.149.15/get_foto.php?file=".$prods[$z]['foto']);
                         $file_usis = $files[0]."0.".$files[1];
                         $file_neps = $files[0]."1.".$files[1];
                     }
@@ -137,9 +140,11 @@
                             }else{ return $sql->error; }
                         }else{ return $sql->error; }
                     }else{ return $mysqli->error; }
+
+
+
                 }
             }
-            
         }
         $videos = get_videos($mysqli);
         for($i=0; $i<count($videos); $i++){
@@ -174,10 +179,10 @@
                         for($j=1; $j<=6; $j++){
                             $foto_not = ($j == 1) ? $noticias[$i]['foto'] : $noticias[$i]['foto'.$j] ;
                             if($foto_not != ""){
+                                $fotos[] = $foto_not;
                                 if($stmt2 = $mysqli->prepare("INSERT INTO _usinox_noticias_fotos (nombre, id_not) VALUES (?, ?)")){
                                     if($stmt2->bind_param('si', $foto_not, $id_not)){
                                         if($stmt2->execute()){
-                                            
                                             $stmt2->close();
                                         }else{ return $stmt2->error; }
                                     }else{ return $stmt2->error; }
@@ -224,6 +229,7 @@
                         for($j=1; $j<=6; $j++){
                             $foto_proy = ($j == 1) ? $proyectos[$i]['foto'] : $proyectos[$i]['foto'.$j] ;
                             if($foto_proy != ""){
+                                $fotos[] = $foto_proy;
                                 if($stmt2 = $mysqli->prepare("INSERT INTO _usinox_proyectos_fotos (nombre, id_pro) VALUES (?, ?)")){
                                     if($stmt2->bind_param('si', $foto_proy, $id_proy)){
                                         if($stmt2->execute()){
@@ -264,6 +270,8 @@
         $galeria = get_galeria($mysqli);
         for($i=0; $i<count($galeria); $i++){
 
+            $fotos[] = $galeria[$i]['foto'];
+
             $id_pag = 1;
             if($stmt = $mysqli->prepare("INSERT INTO _usinox_galeria (nombre, alt, orden, id_pag, eliminado) VALUES (?, ?, ?, ?, ?)")){
                 if($stmt->bind_param('ssiii', $galeria[$i]['foto'], $galeria[$i]['nombre'], $i, $id_pag, $eliminado)){
@@ -283,6 +291,8 @@
             }else{ return $mysqli->error; }
 
         }
+
+        file_put_contents("lista_fotos.json", json_encode($fotos));
 
     }
     function get_productos($id, $mysqli){
