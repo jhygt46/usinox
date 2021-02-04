@@ -379,9 +379,9 @@ class Core{
                         $res['pro']['relacionados'] = $this->get_relacionados($datas[0]['id_cat']);
                     }
                     
-                }else{ $this->htmlspecialchars($sqls->error); }
-            }else{ $this->htmlspecialchars($sqls->error); }
-        }else{ $this->htmlspecialchars($this->con->error); }
+                }else{ return $this->htmlspecialchars($sqls->error); }
+            }else{ return $this->htmlspecialchars($sqls->error); }
+        }else{ return $this->htmlspecialchars($this->con->error); }
         return $res;
 
     }
