@@ -5,9 +5,10 @@
     require "index_class.php";
     $core = new Core();
     $inicio = $core->iniciar();
+    $inicio->gets_pdfs();
     /*
     echo "<pre>";
-    print_r($inicio);
+    print_r($inicio->gets_pdfs());
     echo "</pre>";
     */
 ?>
