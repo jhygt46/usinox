@@ -22,8 +22,6 @@ $altode = $_GET["alto"];
 
 $file = $_GET["archivo"];
 
-file_put_contents("registro.txt", $_SERVER["DOCUMENT_ROOT"]."/".$file, FILE_APPEND);
-
 //si es JPG
 
         $origen = @imagecreatefromjpeg($_SERVER["DOCUMENT_ROOT"]."/".$file);
