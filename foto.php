@@ -25,7 +25,7 @@ $file = $_GET["archivo"];
 
 //si es JPG
 
-        $origen = @imagecreatefromjpeg($file);
+        $origen = @imagecreatefromjpeg($_SERVER["DOCUMENT_ROOT"]."/".$file);
 
         imagecolorallocate($origen, 255, 0, 0);
 
