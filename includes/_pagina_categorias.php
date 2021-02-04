@@ -11,7 +11,7 @@
             <a class="link" href="<?php echo $inicio['childs_cat'][$i]['urls']; ?>">
             <div class="c_pro">
                 <div class="c_pfoto">
-                    <img src="https://www.usinox.cl/foto.php?archivo=<?php echo $_SERVER["REQUEST_SCHEME"]; ?>://<?php echo $_SERVER["HTTP_HOST"]; ?>/uploads/images/<?php echo $foto; ?>&ancho=218&alto=180" alt="" />
+                    <img src="foto.php?archivo=uploads/images/<?php echo $foto; ?>&ancho=218&alto=180" alt="" />
                 </div>
                 <div class="c_pttl"><?php echo $inicio['childs_cat'][$i]['nombre']; ?></div>
                 <div class="c_pbtn clearfix">
