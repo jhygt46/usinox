@@ -1,78 +1,33 @@
 <?php
 
-
-
-
-
 function hexcolor($c) {
-
        $r = ($c >> 16) & 0xFF;
-
        $g = ($c >> 8) & 0xFF;
-
        $b = $c & 0xFF;
-
        return '#'.str_pad(dechex($r), 2, '0', STR_PAD_LEFT).str_pad(dechex($g), 2, '0', STR_PAD_LEFT).str_pad(dechex($b), 2, '0', STR_PAD_LEFT);
-
-   }
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 if($_GET["ancho"] == "")
-
 $anchode = 100;
-
 else
-
 $anchode = $_GET["ancho"];
 
 
-
 if($_GET["alto"] == "")
-
 $altode = 100;
-
 else
-
 $altode = $_GET["alto"];
 
 
-
-
-
-
-
-	
-
 $file = $_GET["archivo"];
-
-
-
-
-
-
-
-
-
 
 
 //si es JPG
 
         $origen = @imagecreatefromjpeg($file);
 
-		imagecolorallocate($origen, 255, 0, 0);
+        imagecolorallocate($origen, 255, 0, 0);
 
         $imgAncho= @imagesx($origen);
 

@@ -366,7 +366,9 @@
         }
     }
     function get_url($n){
-        return str_replace(' ', '-', strtolower($n));
+        $n = str_replace(' ', '-', strtolower($n));
+        $n = str_replace('/', '-', strtolower($n));
+        return trim($n);
     }
     function get_result($stmt){
         $arrResult = array();

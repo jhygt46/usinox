@@ -4,7 +4,7 @@
             <div class="pro">
                 <div class="c_pro">
                     <div class="c_pfoto">
-                        <a class="link" href="<?php echo $valor['urls']; ?>"><img src="foto.php?archivo=uploads/images/<?php echo $valor['fotos'][0]; ?>&ancho=218&alto=180" alt="" /></a>
+                        <a class="link" href="<?php echo $valor['urls']; ?>"><img src="foto.php?archivo=/uploads/images/<?php echo $valor['fotos'][0]; ?>&ancho=218&alto=180" alt="" /></a>
                     </div>
                     <div class="c_pttl"><a class="link" href="<?php echo $valor['urls']; ?>"><?php echo $valor['nombre']; ?></a></div>
                     <div class="c_pdesc"><a class="link" href="<?php echo $valor['urls']; ?>"><?php echo $valor['descripcion']; ?></a></div>
