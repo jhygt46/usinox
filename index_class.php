@@ -88,7 +88,7 @@ class Core{
     }
     public function gets_pdfs(){
         $id_pag = 1;
-        if($sqls = $this->con->prepare("SELECT ficha, manual FROM _usinox_productos WHERE id_pag=? AND eliminado=?")){
+        if($sqls = $this->con->prepare("SELECT * FROM _usinox_productos WHERE id_pag=? AND eliminado=?")){
             if($sqls->bind_param("ii", $id_pag, $this->eliminado)){
                 if($sqls->execute()){
 
