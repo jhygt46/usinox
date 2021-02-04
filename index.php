@@ -17,7 +17,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
         <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Google+Sans:400,500,700|Signika:300,400,500,700">
-        <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
+        <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
         <script src="/js/base.js" type="text/javascript"></script>
         <link rel="stylesheet" type="text/css" href="/css/base.css"/>
     </head>
